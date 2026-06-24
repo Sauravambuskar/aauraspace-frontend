@@ -743,6 +743,7 @@ export default function Home() {
       <ParallaxBreak />
       <Stats />
       <Gallery />
+      <Neighbourhoods />
       <Testimonials />
       <EnquiryForm />
       <Footer />
