@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useInView, useMotionValue, animate } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -7,19 +6,6 @@ import Lenis from "lenis";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Aaura Realty — Pune's Trusted Property Broker" },
-      { name: "description", content: "Flats, shops, offices, plots, resale and rental in Pune. Our Passion. Your Aaura." },
-      { property: "og:title", content: "Aaura Realty — Pune's Trusted Property Broker" },
-      { property: "og:description", content: "Find your perfect space in Pune with Aaura Realty." },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&auto=format&fit=crop" },
-    ],
-  }),
-  component: Index,
-});
 
 /* ============================ DATA ============================ */
 
@@ -61,9 +47,9 @@ const GALLERY = [
 ];
 
 const TESTIMONIALS = [
-  { q: "Aaura made buying our first home in Pune effortless. Honest, calm, and always one step ahead.", name: "Rohit & Sneha Patil", role: "3 BHK · Kharadi", },
-  { q: "They didn't just sell us a shop — they helped us understand the locality, the footfall, the future.", name: "Anjali Mehta", role: "Retail · Baner", },
-  { q: "The most transparent broker we've worked with in fifteen years. Aaura is family now.", name: "Vivek Joshi", role: "Office · Hinjewadi", },
+  { q: "Aaura made buying our first home in Pune effortless. Honest, calm, and always one step ahead.", name: "Rohit & Sneha Patil", role: "3 BHK · Kharadi" },
+  { q: "They didn't just sell us a shop — they helped us understand the locality, the footfall, the future.", name: "Anjali Mehta", role: "Retail · Baner" },
+  { q: "The most transparent broker we've worked with in fifteen years. Aaura is family now.", name: "Vivek Joshi", role: "Office · Hinjewadi" },
 ];
 
 /* ============================ HOOKS ============================ */
@@ -91,8 +77,6 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   }, [inView, mv, to]);
   return <span ref={ref}>{display}{suffix}</span>;
 }
-
-/* ============================ SECTION WRAPPER ============================ */
 
 function Reveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
@@ -230,7 +214,6 @@ function Services() {
         <h2 className="display-lg text-white">Services.</h2>
       </Reveal>
 
-      {/* Desktop: expanding panels */}
       <div className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex">
         {SERVICES.map((s, i) => (
           <motion.div
@@ -273,7 +256,6 @@ function Services() {
         ))}
       </div>
 
-      {/* Mobile: vertical accordion */}
       <div className="flex flex-col gap-1.5 px-1.5 pb-1.5 md:hidden">
         {SERVICES.map((s, i) => {
           const open = active === i;
@@ -310,7 +292,7 @@ function Services() {
   );
 }
 
-/* ============================ FEATURED PROPERTIES ============================ */
+/* ============================ FEATURED ============================ */
 
 function PropertyCard({ p, large }: { p: typeof FEATURED[number]; large?: boolean }) {
   return (
@@ -373,7 +355,7 @@ function Featured() {
   );
 }
 
-/* ============================ PARALLAX BREAK ============================ */
+/* ============================ PARALLAX ============================ */
 
 function ParallaxBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -508,7 +490,7 @@ function Testimonials() {
   );
 }
 
-/* ============================ ENQUIRY FORM ============================ */
+/* ============================ ENQUIRY ============================ */
 
 const FormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -657,7 +639,7 @@ function Footer() {
 
 /* ============================ PAGE ============================ */
 
-function Index() {
+export default function Home() {
   useLenisSmoothScroll();
   return (
     <main className="bg-cream text-ink">

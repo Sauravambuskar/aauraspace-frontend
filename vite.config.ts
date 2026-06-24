@@ -4,12 +4,17 @@
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
+// Plain Vite + React SPA. Deployable on Vercel as a normal Vite template.
 export default defineConfig({
-  // Force nitro on with the Vercel preset when building outside the Lovable
-  // sandbox (e.g. on Vercel's build infra). Inside the Lovable sandbox the
-  // wrapper still forces its own Cloudflare preset, so local dev/preview is
-  // unaffected. NITRO_PRESET env var still wins if set.
-  nitro: { preset: "vercel" },
+  plugins: [react(), tailwindcss(), tsconfigPaths()],
+  server: {
+    host: "::",
+    port: 8080,
+    strictPort: false,
+  },
 });
