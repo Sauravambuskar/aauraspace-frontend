@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 /* ============================ DATA ============================ */
 
@@ -50,6 +51,15 @@ const TESTIMONIALS = [
   { q: "Aaura made buying our first home in Pune effortless. Honest, calm, and always one step ahead.", name: "Rohit & Sneha Patil", role: "3 BHK · Kharadi" },
   { q: "They didn't just sell us a shop — they helped us understand the locality, the footfall, the future.", name: "Anjali Mehta", role: "Retail · Baner" },
   { q: "The most transparent broker we've worked with in fifteen years. Aaura is family now.", name: "Vivek Joshi", role: "Office · Hinjewadi" },
+];
+
+const NEIGHBOURHOODS = [
+  { name: "Kharadi", tag: "IT Corridor", count: "120+ Homes", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop" },
+  { name: "Baner",   tag: "Premium Living", count: "85+ Homes",  img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=80&auto=format&fit=crop" },
+  { name: "Hinjewadi", tag: "Tech Hub",   count: "140+ Homes", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=80&auto=format&fit=crop" },
+  { name: "Wakad",   tag: "Family First", count: "70+ Homes",  img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=80&auto=format&fit=crop" },
+  { name: "Koregaon Park", tag: "Heritage Luxe", count: "40+ Homes", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1400&q=80&auto=format&fit=crop" },
+  { name: "Viman Nagar", tag: "Lifestyle", count: "60+ Homes", img: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1400&q=80&auto=format&fit=crop" },
 ];
 
 /* ============================ HOOKS ============================ */
