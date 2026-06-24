@@ -448,6 +448,89 @@ function Gallery() {
 
 /* ============================ TESTIMONIALS ============================ */
 
+/* ============================ NEIGHBOURHOODS ============================ */
+
+function Neighbourhoods() {
+  return (
+    <section id="neighbourhoods" className="bg-ink px-6 py-24 text-white md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1400px]">
+        <Reveal className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="eyebrow mb-4">Explore Pune</div>
+            <h2 className="display-lg text-white">
+              Neighbourhoods<br className="hidden md:block" /> We Know By Heart.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-white/60">
+            Twelve years on the ground across Pune's finest pockets — we don't just list addresses, we read the lane.
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {NEIGHBOURHOODS.map((n, i) => (
+            <Reveal key={n.name} delay={i * 0.08}>
+              <motion.a
+                href="#contact"
+                whileHover="hover"
+                className="group relative block h-[420px] overflow-hidden rounded-sm"
+              >
+                <motion.img
+                  src={n.img}
+                  alt={`${n.name}, Pune`}
+                  loading="lazy"
+                  variants={{ hover: { scale: 1.06 } }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+
+                {/* Progressive blur reveal at bottom */}
+                <ProgressiveBlur
+                  direction="bottom"
+                  blurIntensity={0.5}
+                  blurLayers={6}
+                  className="absolute inset-x-0 bottom-0 h-2/3"
+                />
+
+                {/* Copper-tinted ink wash */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
+
+                {/* Hover copper outline */}
+                <motion.div
+                  variants={{ hover: { opacity: 1 } }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-3 rounded-sm border border-copper/60"
+                />
+
+                <div className="relative flex h-full flex-col justify-end p-7">
+                  <div className="flex items-center gap-3">
+                    <span className="h-px w-8 bg-copper" />
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-copper">{n.tag}</span>
+                  </div>
+                  <h3 className="mt-3 font-serif text-4xl text-white md:text-5xl">{n.name}</h3>
+                  <div className="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-white/70">
+                    <span>{n.count}</span>
+                    <motion.span
+                      variants={{ hover: { x: 6 } }}
+                      transition={{ duration: 0.35 }}
+                      className="text-copper"
+                      aria-hidden
+                    >
+                      →
+                    </motion.span>
+                  </div>
+                </div>
+              </motion.a>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================ TESTIMONIALS (original) ============================ */
+
 function Testimonials() {
   const [idx, setIdx] = useState(0);
   const [progress, setProgress] = useState(0);
