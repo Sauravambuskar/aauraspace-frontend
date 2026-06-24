@@ -468,12 +468,16 @@ function Neighbourhoods() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {NEIGHBOURHOODS.map((n, i) => (
-            <Reveal key={n.name} delay={i * 0.08}>
-              <motion.a
-                href="#contact"
-                whileHover="hover"
-                className="group relative block h-[420px] overflow-hidden rounded-sm"
-              >
+            <motion.a
+              key={n.name}
+              href="#contact"
+              whileHover="hover"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative block h-[420px] overflow-hidden rounded-sm"
+            >
                 <motion.img
                   src={n.img}
                   alt={`${n.name}, Pune`}
@@ -520,8 +524,7 @@ function Neighbourhoods() {
                     </motion.span>
                   </div>
                 </div>
-              </motion.a>
-            </Reveal>
+            </motion.a>
           ))}
         </div>
       </div>
