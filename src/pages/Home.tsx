@@ -6,6 +6,7 @@ import {
   useScroll,
   useTransform,
   useInView,
+  useMotionValueEvent,
 } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -201,6 +202,42 @@ function ScrambleText({ text, className }: { text: string; className?: string })
   );
 }
 
+/* ================================================================
+   MARQUEE TICKER
+   ================================================================ */
+
+const TICKER_ITEMS = [
+  "Pune's #1 Broker",
+  "500+ Properties",
+  "Trusted by Thousands",
+  "Kharadi · Baner · Hinjewadi · Wakad",
+  "Luxury Living Made Simple",
+  "12 Years on the Ground",
+];
+
+function MarqueeTicker({ dark = false }: { dark?: boolean }) {
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  return (
+    <div className={`overflow-hidden py-4 ${dark ? "bg-ink" : "bg-copper"}`}>
+      <motion.div
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+        className="flex whitespace-nowrap"
+      >
+        {items.map((item, i) => (
+          <span
+            key={i}
+            className={`mx-8 text-[11px] font-semibold uppercase tracking-[0.3em] ${dark ? "text-white/40" : "text-white"}`}
+          >
+            {item}
+            <span className="mx-6 opacity-50">◆</span>
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 /** Animated underline that draws in left → right */
 function DrawUnderline({ delay = 0, color = "bg-copper" }: { delay?: number; color?: string }) {
   return (
@@ -220,6 +257,12 @@ function DrawUnderline({ delay = 0, color = "bg-copper" }: { delay?: number; col
    ================================================================ */
 
 function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true },
     [Autoplay({ delay: 5000, stopOnInteraction: false })]
@@ -233,12 +276,18 @@ function Hero() {
   }, [emblaApi]);
 
   return (
-    <section id="top" className="relative h-[100svh] w-full overflow-hidden bg-ink">
+    <section id="top" ref={heroRef} className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
           {HERO_SLIDES.map((src, i) => (
-            <div key={i} className="relative h-full min-w-0 flex-[0_0_100%]">
-              <img src={src} alt="Luxury property in Pune" className="h-full w-full object-cover" loading={i === 0 ? "eager" : "lazy"} />
+            <div key={i} className="relative h-full min-w-0 flex-[0_0_100%] overflow-hidden">
+              <motion.img
+                src={src}
+                alt="Luxury property in Pune"
+                style={{ scale: imgScale }}
+                className="h-full w-full object-cover"
+                loading={i === 0 ? "eager" : "lazy"}
+              />
             </div>
           ))}
         </div>
@@ -246,7 +295,10 @@ function Hero() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
-      <div className="absolute inset-x-0 bottom-0 px-6 pb-20 md:px-14 md:pb-28">
+      <motion.div
+        style={{ y: textY, opacity: textOpacity }}
+        className="absolute inset-x-0 bottom-0 px-6 pb-20 md:px-14 md:pb-28"
+      >
         <div className="max-w-3xl" key={selected}>
           {/* Eyebrow — tracking expand */}
           <motion.div
@@ -309,7 +361,7 @@ function Hero() {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Slide dots */}
       <div className="absolute inset-x-0 bottom-8 flex justify-center gap-2.5">
@@ -401,13 +453,223 @@ function Services() {
 }
 
 /* ================================================================
+   SCROLL IMAGE SHOWCASE
+   ================================================================ */
+
+const SHOWCASE_SLIDES = SERVICES.map((s, i) => ({
+  img: s.img,
+  eyebrow: `0${i + 1} · ${s.name}`,
+  title: s.name,
+  sub: s.desc,
+  href: `/properties?type=${encodeURIComponent(s.name)}`,
+}));
+
+function ScrollImageShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const N = SHOWCASE_SLIDES.length;
+  const [active, setActive] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    setActive(Math.min(Math.floor(v * N), N - 1));
+  });
+
+  return (
+    <section ref={containerRef} className="relative" style={{ height: `${N * 100}svh` }}>
+      <div className="sticky top-0 h-[100svh] overflow-hidden bg-ink">
+
+        {/* Background images — smooth crossfade + slow ken burns */}
+        <AnimatePresence>
+          {SHOWCASE_SLIDES.map((slide, i) =>
+            i === active ? (
+              <motion.div
+                key={i}
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.9, ease: "easeInOut" }}
+              >
+                <motion.img
+                  src={slide.img}
+                  alt={slide.title}
+                  initial={{ scale: 1.08 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 7, ease: "linear" }}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            ) : null
+          )}
+        </AnimatePresence>
+
+        {/* Dark gradient overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/92 via-ink/30 to-ink/15" />
+
+        {/* Section label — left vertical (desktop) */}
+        <div className="absolute left-5 top-1/2 hidden -translate-y-1/2 md:block">
+          <div className="[writing-mode:vertical-rl] rotate-180 select-none text-[9px] uppercase tracking-[0.35em] text-white/25">
+            Our Services
+          </div>
+        </div>
+
+        {/* Slide counter — top right */}
+        <div className="absolute right-10 top-8 flex items-baseline gap-1 text-[11px] font-medium uppercase tracking-[0.2em]">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={active}
+              initial={{ opacity: 0, y: 7 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -7 }}
+              transition={{ duration: 0.3 }}
+              className="inline-block text-white/80"
+            >
+              0{active + 1}
+            </motion.span>
+          </AnimatePresence>
+          <span className="text-white/30">/ 0{N}</span>
+        </div>
+
+        {/* Right side — vertical pill progress indicators */}
+        <div className="absolute right-5 top-1/2 flex -translate-y-1/2 flex-col items-center gap-2.5">
+          {SHOWCASE_SLIDES.map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-px rounded-full bg-copper"
+              animate={{
+                height: i === active ? 38 : 7,
+                opacity: i === active ? 1 : 0.3,
+              }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            />
+          ))}
+        </div>
+
+        {/* Main text content — bottom */}
+        <div className="absolute inset-x-0 bottom-0 px-6 pb-20 md:px-14 md:pb-28">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -18 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Eyebrow */}
+              <motion.div
+                initial={{ opacity: 0, letterSpacing: "0.04em" }}
+                animate={{ opacity: 1, letterSpacing: "0.22em" }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="eyebrow mb-4 !text-white/55"
+              >
+                {SHOWCASE_SLIDES[active].eyebrow}
+              </motion.div>
+
+              {/* Big title — char-by-char spring reveal */}
+              <h2
+                className="font-serif text-[clamp(4rem,18vw,9rem)] leading-none text-white"
+                style={{ perspective: 600 }}
+              >
+                <CharReveal
+                  text={SHOWCASE_SLIDES[active].title}
+                  delay={0.05}
+                  stagger={0.055}
+                />
+              </h2>
+
+              {/* Sub-line */}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.38, duration: 0.5, ease: "easeOut" }}
+                className="mt-4 max-w-xs text-sm text-white/62 md:text-base"
+              >
+                {SHOWCASE_SLIDES[active].sub}
+              </motion.p>
+
+              {/* CTA */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Link
+                  to={SHOWCASE_SLIDES[active].href}
+                  className="mt-6 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.22em] text-copper transition-colors hover:text-white"
+                >
+                  Explore
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                    aria-hidden
+                  >
+                    →
+                  </motion.span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Scroll progress bar — bottom edge */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-[2px] bg-copper"
+          style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
+        />
+
+        {/* "Scroll" hint — fades out after first slide */}
+        <AnimatePresence>
+          {active === 0 && (
+            <motion.div
+              initial={{ opacity: 0.7 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute bottom-28 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 md:hidden"
+            >
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                className="text-[9px] uppercase tracking-[0.3em] text-white/40"
+              >
+                Scroll
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut", delay: 0.1 }}
+                className="text-white/30"
+              >
+                ↓
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
    FEATURED PROPERTIES
    ================================================================ */
 
 function PropertyCard({ p, large }: { p: (typeof FEATURED)[number]; large?: boolean }) {
   return (
     <motion.div whileHover="hover" className={`group relative overflow-hidden ${large ? "row-span-2 min-h-[420px] md:min-h-[640px]" : "min-h-[300px]"}`}>
-      <motion.img variants={{ hover: { scale: 1.05 } }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} src={p.img} alt={p.title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <motion.img
+        src={p.img}
+        alt={p.title}
+        initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
+        whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+        whileHover={{ scale: 1.05 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+      />
       <motion.div variants={{ hover: { opacity: 0.85 } }} initial={{ opacity: 0.65 }} className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
       <div className="relative flex h-full flex-col justify-end p-7 md:p-9">
         <span className="mb-4 self-start rounded-full bg-copper px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white">{p.type}</span>
@@ -459,12 +721,17 @@ function ParallaxBreak() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.88, 1, 1.06]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.6]);
 
   return (
     <section ref={ref} className="relative h-[60vh] w-full overflow-hidden bg-ink">
       <motion.img style={{ y }} src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=80&auto=format&fit=crop" alt="Pune skyline" className="absolute inset-0 h-[130%] w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-ink/50" />
-      <div className="relative flex h-full items-center justify-center px-6 text-center">
+      <motion.div
+        style={{ scale: textScale, opacity: textOpacity }}
+        className="relative flex h-full items-center justify-center px-6 text-center"
+      >
         {/* Word-by-word stagger with scale */}
         <div>
           <h2 className="display-xl text-white leading-[1]">
@@ -500,7 +767,7 @@ function ParallaxBreak() {
             ))}
           </h2>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -570,7 +837,17 @@ function Gallery() {
               className="min-w-0 flex-[0_0_82%] sm:flex-[0_0_45%] lg:flex-[0_0_32%]"
             >
               <div className="h-[400px] overflow-hidden">
-                <img src={g.img} alt={g.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+                <motion.img
+                  src={g.img}
+                  alt={g.title}
+                  loading="lazy"
+                  initial={{ scale: 1.12, clipPath: "inset(100% 0 0 0)" }}
+                  whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+                  whileHover={{ scale: 1.06 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: i * 0.06, duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -626,7 +903,17 @@ function NeighbourhoodsPreview() {
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="group relative block h-[420px] overflow-hidden rounded-sm"
             >
-              <motion.img src={n.img} alt={`${n.name}, Pune`} loading="lazy" variants={{ hover: { scale: 1.06 } }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0 h-full w-full object-cover" />
+              <motion.img
+                src={n.img}
+                alt={`${n.name}, Pune`}
+                loading="lazy"
+                initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
+                whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+                whileHover={{ scale: 1.06 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 1.2, delay: i * 0.1, ease: [0.76, 0, 0.24, 1] }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <ProgressiveBlur direction="bottom" blurIntensity={0.5} blurLayers={6} className="absolute inset-x-0 bottom-0 h-2/3" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
               <motion.div variants={{ hover: { opacity: 1 } }} initial={{ opacity: 0 }} transition={{ duration: 0.4 }} className="absolute inset-3 rounded-sm border border-copper/60" />
@@ -795,8 +1082,17 @@ function EnquiryForm() {
     <section id="contact" className="bg-ink">
       <Toast show={toast} />
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative min-h-[400px] lg:min-h-[760px]">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop" alt="Premium home" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <div className="relative min-h-[400px] overflow-hidden lg:min-h-[760px]">
+          <motion.img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop"
+            alt="Premium home"
+            initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
+            whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1.3, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-ink/10" />
         </div>
         <div className="flex items-center bg-ink px-6 py-20 md:px-14 lg:py-24">
@@ -887,8 +1183,10 @@ export default function Home() {
       <Hero />
       <Services />
       <Featured />
+      <ScrollImageShowcase />
       <ParallaxBreak />
       <Stats />
+      <MarqueeTicker />
       <Gallery />
       <NeighbourhoodsPreview />
       <Testimonials />
