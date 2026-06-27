@@ -60,7 +60,7 @@ function CharReveal({
             duration: 0.55,
             ease: [0.22, 1, 0.36, 1],
           }}
-          style={{ display: "inline-block", transformOrigin: "bottom center", perspective: 400 }}
+          style={{ display: "inline-block", transformOrigin: "bottom center", perspective: 400, willChange: "transform, opacity" }}
         >
           {ch === " " ? " " : ch}
         </motion.span>
@@ -98,7 +98,7 @@ function WordMask({
               duration: 0.7,
               ease: [0.22, 1, 0.36, 1],
             }}
-            style={{ display: "inline-block" }}
+            style={{ display: "inline-block", willChange: "transform, opacity" }}
           >
             {word}
           </motion.span>
@@ -154,7 +154,7 @@ function BlurReveal({
           whileInView={{ opacity: 1, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ delay: delay + i * stagger, duration: 0.65, ease: "easeOut" }}
-          style={{ display: "inline-block", marginRight: "0.28em" }}
+          style={{ display: "inline-block", marginRight: i < words.length - 1 ? "0.28em" : 0, willChange: "filter, opacity" }}
         >
           {word}
         </motion.span>
@@ -392,12 +392,14 @@ function Services() {
       </div>
 
       {/* Desktop accordion */}
-      <div className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex">
+      <div
+        className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
+        onMouseLeave={() => setActive(0)}
+      >
         {SERVICES.map((s, i) => (
           <motion.div
             key={s.name}
             onMouseEnter={() => setActive(i)}
-            onMouseLeave={() => setActive(0)}
             animate={{ flex: active === i ? 3 : 1 }}
             transition={{ type: "spring", stiffness: 120, damping: 22 }}
             className="relative h-full cursor-pointer overflow-hidden"
@@ -617,7 +619,7 @@ function ScrollImageShowcase() {
 
         {/* Scroll progress bar — bottom edge */}
         <motion.div
-          className="absolute bottom-0 left-0 h-[2px] bg-copper"
+          className="absolute bottom-0 left-0 h-[2px] w-full bg-copper"
           style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
         />
 
@@ -809,8 +811,8 @@ function Gallery() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", dragFree: true, loop: true });
 
   return (
-    <section className="bg-cream px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section className="bg-cream py-24 md:py-32">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <Reveal className="mb-12 flex items-end justify-between">
           <div>
             <EyebrowAnim delay={0}>Showcase</EyebrowAnim>

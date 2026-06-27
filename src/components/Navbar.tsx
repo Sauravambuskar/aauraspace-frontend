@@ -34,7 +34,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const barColor = isHome && !scrolled && !mobileOpen ? "bg-white" : isHome ? "bg-white" : "bg-ink";
+  const barColor = isHome ? "bg-white" : "bg-ink";
 
   return (
     <>
