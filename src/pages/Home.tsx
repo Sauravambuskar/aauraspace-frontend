@@ -662,11 +662,11 @@ function PropertyCard({ p, large }: { p: (typeof FEATURED)[number]; large?: bool
       <motion.img
         src={p.img}
         alt={p.title}
-        initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
-        whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+        initial={{ scale: 1.08, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.05 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
         className="absolute inset-0 h-full w-full object-cover"
         loading="lazy"
       />
@@ -841,11 +841,11 @@ function Gallery() {
                   src={g.img}
                   alt={g.title}
                   loading="lazy"
-                  initial={{ scale: 1.12, clipPath: "inset(100% 0 0 0)" }}
-                  whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
                   whileHover={{ scale: 1.06 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ delay: i * 0.06, duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+                  transition={{ delay: i * 0.06, duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -907,11 +907,11 @@ function NeighbourhoodsPreview() {
                 src={n.img}
                 alt={`${n.name}, Pune`}
                 loading="lazy"
-                initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
-                whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+                initial={{ scale: 1.08, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 whileHover={{ scale: 1.06 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 1.2, delay: i * 0.1, ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 1.0, delay: i * 0.1, ease: [0.76, 0, 0.24, 1] }}
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <ProgressiveBlur direction="bottom" blurIntensity={0.5} blurLayers={6} className="absolute inset-x-0 bottom-0 h-2/3" />
@@ -1086,10 +1086,10 @@ function EnquiryForm() {
           <motion.img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop"
             alt="Premium home"
-            initial={{ scale: 1.1, clipPath: "inset(100% 0 0 0)" }}
-            whileInView={{ scale: 1, clipPath: "inset(0% 0 0 0)" }}
+            initial={{ scale: 1.08, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 1.3, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
             className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
           />
