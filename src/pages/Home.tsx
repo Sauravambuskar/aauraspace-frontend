@@ -297,7 +297,7 @@ function Hero() {
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="absolute inset-x-0 bottom-0 px-6 pb-20 md:px-14 md:pb-28"
+        className="absolute inset-x-0 bottom-0 px-5 pb-16 md:px-14 md:pb-28"
       >
         <div className="max-w-3xl" key={selected}>
           {/* Eyebrow — tracking expand */}
@@ -306,7 +306,7 @@ function Hero() {
             initial={{ opacity: 0, letterSpacing: "0.03em" }}
             animate={{ opacity: 1, letterSpacing: "0.22em" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="eyebrow mb-5"
+            className="eyebrow mb-4"
           >
             Pune's Trusted Broker
           </motion.div>
@@ -324,7 +324,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.7 }}
-            className="mt-6 flex flex-wrap items-center gap-2 text-sm text-white/70 md:text-base"
+            className="mt-4 flex flex-wrap items-center gap-2 text-sm text-white/75 md:mt-6 md:text-base"
           >
             {["Flat", "Shop", "Office", "Plot", "Resale & Rental"].map((item, i) => (
               <motion.span
@@ -550,7 +550,7 @@ function ScrollImageShowcase() {
         </div>
 
         {/* Main text content — bottom */}
-        <div className="absolute inset-x-0 bottom-0 px-6 pb-20 md:px-14 md:pb-28">
+        <div className="absolute inset-x-0 bottom-0 px-5 pb-16 md:px-14 md:pb-28">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -571,7 +571,7 @@ function ScrollImageShowcase() {
 
               {/* Big title — char-by-char spring reveal */}
               <h2
-                className="font-serif text-[clamp(4rem,18vw,9rem)] leading-none text-white"
+                className="font-serif text-[clamp(2.5rem,10vw,9rem)] leading-none text-white"
                 style={{ perspective: 600 }}
               >
                 <CharReveal
@@ -695,7 +695,7 @@ function Featured() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2 md:grid-rows-2">
+        <Reveal delay={0.1} className="mt-10 grid grid-cols-1 gap-3 md:mt-14 md:grid-cols-2 md:grid-rows-2">
           <PropertyCard p={FEATURED[0]} large />
           <PropertyCard p={FEATURED[1]} />
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
@@ -781,8 +781,8 @@ function Stats() {
     <section className="bg-cream px-0 py-4">
       <div className="mx-auto grid max-w-full grid-cols-2 gap-px bg-ink/10 md:grid-cols-4">
         {STATS.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.1} className="bg-white px-6 py-14 text-center">
-            <div className="font-serif text-5xl text-copper md:text-7xl">
+          <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-10 text-center md:px-6 md:py-14">
+            <div className="font-serif text-4xl text-copper md:text-7xl">
               <CountUp to={s.n} suffix={s.suffix} />
             </div>
             <motion.div
@@ -790,7 +790,7 @@ function Stats() {
               whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 + i * 0.1, duration: 0.8 }}
-              className="mt-3 text-xs uppercase text-ink/50"
+              className="mt-2 text-[10px] uppercase text-ink/60 md:mt-3 md:text-xs"
             >
               {s.label}
             </motion.div>
@@ -1082,7 +1082,7 @@ function EnquiryForm() {
     <section id="contact" className="bg-ink">
       <Toast show={toast} />
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative min-h-[400px] overflow-hidden lg:min-h-[760px]">
+        <div className="relative min-h-[280px] overflow-hidden sm:min-h-[400px] lg:min-h-[760px]">
           <motion.img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop"
             alt="Premium home"
@@ -1095,7 +1095,7 @@ function EnquiryForm() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-ink/10" />
         </div>
-        <div className="flex items-center bg-ink px-6 py-20 md:px-14 lg:py-24">
+        <div className="flex items-center bg-ink px-5 py-12 md:px-14 md:py-20 lg:py-24">
           <div className="w-full max-w-md">
             <EyebrowAnim delay={0} dark>Get In Touch</EyebrowAnim>
             <h2 className="display-lg mt-4 text-white">
@@ -1158,7 +1158,7 @@ function EnquiryForm() {
 function AnimatedFooterBrand() {
   return (
     <div className="text-center">
-      <h2 className="font-serif text-[64px] leading-none text-copper md:text-[140px]">
+      <h2 className="font-serif text-[clamp(28px,8vw,140px)] leading-none text-copper">
         <ScrambleText text="AAURA REALTY" />
       </h2>
       <BlurReveal
@@ -1193,11 +1193,11 @@ export default function Home() {
       <EnquiryForm />
       {/* Footer with scramble brand name */}
       <footer className="border-t border-copper/40 bg-ink text-white">
-        <div className="mx-auto max-w-[1400px] px-6 pt-20 pb-10 md:px-10">
+        <div className="mx-auto max-w-[1400px] px-5 pt-14 pb-10 md:px-10 md:pt-20">
           <Reveal>
             <AnimatedFooterBrand />
           </Reveal>
-          <div className="mt-20 grid grid-cols-1 gap-12 border-t border-white/10 pt-14 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-8 border-t border-white/10 pt-10 md:mt-20 md:gap-12 md:grid-cols-4 md:pt-14">
             <div>
               <div className="eyebrow mb-5">Quick Links</div>
               <ul className="space-y-3 text-sm text-white/80">

@@ -14,21 +14,21 @@ function OurStory() {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="overflow-hidden bg-white px-6 py-24 md:px-10 md:py-36">
+    <section ref={ref} className="overflow-hidden bg-white px-5 py-16 md:px-10 md:py-36">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
         <Reveal>
           <div className="eyebrow mb-6">Our Story</div>
           <h2 className="display-lg text-ink">Born from a Belief<br />in Better.</h2>
-          <p className="mt-8 text-base text-ink/70 leading-relaxed">
+          <p className="mt-8 text-base text-ink/80 leading-relaxed">
             In 2012, Rajesh and Sunita Ambuskar started Aaura Realty with a simple conviction:
             Pune's families deserved a broker who would put their interests first — always.
           </p>
-          <p className="mt-5 text-base text-ink/70 leading-relaxed">
+          <p className="mt-5 text-base text-ink/80 leading-relaxed">
             What began as three listings in Kharadi has grown into Pune's most trusted independent
             realty practice — 500+ properties, 320 happy families, and 50 builder relationships
             built on nothing but integrity.
           </p>
-          <p className="mt-5 text-base text-ink/70 leading-relaxed">
+          <p className="mt-5 text-base text-ink/80 leading-relaxed">
             We don't chase volume. We obsess over fit — matching the right family to the right
             home, at the right price, in the right neighbourhood.
           </p>
@@ -40,7 +40,7 @@ function OurStory() {
         </Reveal>
 
         <Reveal delay={0.2} className="relative">
-          <div className="relative h-[500px] overflow-hidden rounded-sm shadow-2xl md:h-[600px]">
+          <div className="relative h-[340px] overflow-hidden rounded-sm shadow-2xl sm:h-[500px] md:h-[600px]">
             <motion.img
               style={{ y }}
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80&auto=format&fit=crop"
@@ -89,7 +89,7 @@ function StatsWithImage() {
       {/* Stats half */}
       <div className="grid grid-cols-2 bg-ink">
         {STATS.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.1} className="flex flex-col items-center justify-center border border-white/5 py-16">
+          <Reveal key={s.label} delay={i * 0.1} className="flex flex-col items-center justify-center border border-white/5 py-10 md:py-16">
             <div className="font-serif text-5xl text-copper md:text-6xl">
               <CountUp to={s.n} suffix={s.suffix} />
             </div>

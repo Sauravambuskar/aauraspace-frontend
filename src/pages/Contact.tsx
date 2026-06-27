@@ -235,7 +235,7 @@ export default function Contact() {
       {/* Quick call strip */}
       <div className="bg-copper">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-5 md:flex-row md:px-10">
-          <div className="font-serif text-xl text-white">Prefer to call? We're available Mon–Sat, 10 AM – 7 PM.</div>
+          <div className="font-serif text-lg font-bold text-white md:text-xl">Prefer to call? We're available Mon–Sat, 10 AM – 7 PM.</div>
           <div className="flex flex-wrap gap-3">
             <a href="tel:+919172355369" className="rounded-full border border-white/40 bg-white/15 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white backdrop-blur-sm hover:bg-white hover:text-copper transition-colors">
               +91 9172355369
@@ -248,7 +248,7 @@ export default function Contact() {
       </div>
 
       {/* Main section: white background */}
-      <section className="bg-white px-6 py-20 md:px-10 md:py-28">
+      <section className="bg-white px-5 py-14 md:px-10 md:py-28">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.5fr]">
             {/* Left */}
@@ -334,7 +334,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ on cream */}
-      <section className="bg-cream px-6 py-20 md:px-10 md:py-28">
+      <section className="bg-cream px-5 py-14 md:px-10 md:py-28">
         <div className="mx-auto max-w-[1400px]">
           <Reveal className="mb-12">
             <div className="eyebrow mb-4">FAQs</div>

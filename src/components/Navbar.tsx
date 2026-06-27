@@ -49,13 +49,13 @@ export default function Navbar() {
         transition={{ duration: 0.4 }}
         className="fixed inset-x-0 top-0 z-50"
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-          <Link to="/" className="font-serif text-[22px] tracking-wide text-copper md:text-[26px]" onClick={() => setMobileOpen(false)}>
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10 md:py-5">
+          <Link to="/" className="font-serif text-[20px] font-bold tracking-wide text-copper md:text-[24px]" onClick={() => setMobileOpen(false)}>
             AAURA REALTY
           </Link>
 
           {/* Desktop nav */}
-          <nav className={`hidden items-center gap-10 text-sm md:flex ${isHome ? "text-white/90" : "text-ink/70"}`}>
+          <nav className={`hidden items-center gap-8 text-sm font-medium md:flex lg:gap-10 ${isHome ? "text-white/90" : "text-ink/80"}`}>
             {NAV_LINKS.map((l) => (
               <Link key={l.to} to={l.to} className={`transition-colors hover:text-copper ${location.pathname === l.to ? "text-copper" : ""}`}>
                 {l.label}

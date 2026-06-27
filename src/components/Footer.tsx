@@ -5,17 +5,17 @@ import { SERVICES } from "@/lib/data";
 export default function Footer() {
   return (
     <footer className="border-t border-copper/40 bg-ink text-white">
-      <div className="mx-auto max-w-[1400px] px-6 pt-20 pb-10 md:px-10">
+      <div className="mx-auto max-w-[1400px] px-5 pt-14 pb-10 md:px-10 md:pt-20">
         <Reveal className="text-center">
-          <h2 className="font-serif text-[64px] leading-none text-copper md:text-[140px]">
+          <h2 className="font-serif text-[clamp(28px,8vw,140px)] leading-none text-copper">
             AAURA REALTY
           </h2>
-          <p className="mt-4 font-serif text-xl italic text-white/80 md:text-2xl">
+          <p className="mt-4 font-serif text-lg italic text-white/80 md:text-2xl">
             Our Passion. Your Aaura.
           </p>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-12 border-t border-white/10 pt-14 md:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 md:mt-20 md:grid-cols-4 md:gap-12 md:pt-14">
           <div>
             <div className="eyebrow mb-5">Quick Links</div>
             <ul className="space-y-3 text-sm text-white/80">
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:justify-between">
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/50 md:mt-16 md:flex-row md:justify-between md:pt-8">
           <p>© {new Date().getFullYear()} Aaura Realty. All rights reserved.</p>
           <p>RERA registered. Disclaimer: All information is for representational purposes only.</p>
         </div>
