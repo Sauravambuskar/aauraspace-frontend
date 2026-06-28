@@ -14,7 +14,7 @@ function OurStory() {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="overflow-hidden bg-white px-5 py-16 md:px-10 md:py-36">
+    <section ref={ref} className="overflow-hidden bg-white px-5 py-14 md:px-10 md:py-24">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
         <Reveal>
           <div className="eyebrow mb-6">Our Story</div>
@@ -112,9 +112,9 @@ function Values() {
   ];
 
   return (
-    <section className="bg-cream px-6 py-24 md:px-10 md:py-32">
+    <section className="bg-cream px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal className="mb-16">
+        <Reveal className="mb-10">
           <div className="eyebrow mb-4">What Guides Us</div>
           <h2 className="display-lg text-ink">Our Values.</h2>
         </Reveal>
@@ -163,9 +163,9 @@ function Timeline() {
   ];
 
   return (
-    <section className="bg-white px-6 py-24 md:px-10 md:py-32">
+    <section className="bg-white px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal className="mb-16">
+        <Reveal className="mb-10">
           <div className="eyebrow mb-4">Our Journey</div>
           <h2 className="display-lg text-ink">Milestones.</h2>
         </Reveal>
@@ -251,7 +251,7 @@ function CTA() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-cream/90" />
-      <div className="relative px-6 py-24 text-center md:py-32">
+      <div className="relative px-6 py-16 text-center md:py-24">
         <Reveal>
           <div className="eyebrow mb-4">Ready to Begin?</div>
           <h2 className="display-xl text-ink">Let's Find<br />Your Space.</h2>
@@ -288,7 +288,8 @@ export default function About() {
         eyebrow="Our Story"
         title="About Aaura Realty."
         subtitle="Pune's most trusted real estate broker — twelve years of integrity, local knowledge, and genuine care."
-        img="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=80&auto=format&fit=crop"
+        img="https://images.unsplash.com/photo-1524758631624-e2822132a584?w=2000&q=80&auto=format&fit=crop"
+        breadcrumb={[{ label: "About" }]}
       />
       <OurStory />
       <StatsWithImage />

@@ -384,7 +384,7 @@ function Services() {
 
   return (
     <section id="services" className="bg-ink text-white">
-      <div className="mx-auto max-w-[1400px] px-6 pt-24 pb-10 md:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-6 md:px-10">
         <EyebrowAnim delay={0}>What We Do</EyebrowAnim>
         <h2 className="display-lg mt-4 text-white">
           <WordMask delay={0.1}>Services.</WordMask>
@@ -687,7 +687,7 @@ function PropertyCard({ p, large }: { p: (typeof FEATURED)[number]; large?: bool
 
 function Featured() {
   return (
-    <section id="properties" className="bg-cream px-6 py-24 md:px-10 md:py-32">
+    <section id="properties" className="bg-cream px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
           <EyebrowAnim delay={0}>Featured</EyebrowAnim>
@@ -697,7 +697,7 @@ function Featured() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-10 grid grid-cols-1 gap-3 md:mt-14 md:grid-cols-2 md:grid-rows-2">
+        <Reveal delay={0.1} className="mt-8 grid grid-cols-1 gap-3 md:mt-10 md:grid-cols-2 md:grid-rows-2">
           <PropertyCard p={FEATURED[0]} large />
           <PropertyCard p={FEATURED[1]} />
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
@@ -783,7 +783,7 @@ function Stats() {
     <section className="bg-cream px-0 py-4">
       <div className="mx-auto grid max-w-full grid-cols-2 gap-px bg-ink/10 md:grid-cols-4">
         {STATS.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-10 text-center md:px-6 md:py-14">
+          <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-8 text-center md:px-6 md:py-10">
             <div className="font-serif text-4xl text-copper md:text-7xl">
               <CountUp to={s.n} suffix={s.suffix} />
             </div>
@@ -811,9 +811,9 @@ function Gallery() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", dragFree: true, loop: true });
 
   return (
-    <section className="bg-cream py-24 md:py-32">
+    <section className="bg-cream py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal className="mb-12 flex items-end justify-between">
+        <Reveal className="mb-8 flex items-end justify-between">
           <div>
             <EyebrowAnim delay={0}>Showcase</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
@@ -875,9 +875,9 @@ function Gallery() {
 function NeighbourhoodsPreview() {
   const preview = NEIGHBOURHOODS.slice(0, 3);
   return (
-    <section className="bg-white px-6 py-24 md:px-10 md:py-32">
+    <section className="bg-white px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowAnim delay={0}>Explore Pune</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
@@ -934,7 +934,7 @@ function NeighbourhoodsPreview() {
           ))}
         </div>
 
-        <Reveal className="mt-12 text-center">
+        <Reveal className="mt-8 text-center">
           <motion.div whileHover={{ letterSpacing: "0.3em" }} transition={{ duration: 0.4 }}>
             <Link to="/neighbourhoods" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               Explore All Neighbourhoods <span aria-hidden>→</span>
@@ -969,7 +969,7 @@ function Testimonials() {
   const t = TESTIMONIALS[idx];
 
   return (
-    <section className="relative overflow-hidden bg-cream px-6 py-28 md:px-10 md:py-36">
+    <section className="relative overflow-hidden bg-cream px-6 py-20 md:px-10 md:py-28">
       {/* Giant decorative quote — animates in */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
@@ -1086,7 +1086,7 @@ function EnquiryForm() {
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="relative min-h-[280px] overflow-hidden sm:min-h-[400px] lg:min-h-[760px]">
           <motion.img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1524758631624-e2822132a584?w=1400&q=80&auto=format&fit=crop"
             alt="Premium home"
             initial={{ scale: 1.08, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -1097,7 +1097,7 @@ function EnquiryForm() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-ink/10" />
         </div>
-        <div className="flex items-center bg-ink px-5 py-12 md:px-14 md:py-20 lg:py-24">
+        <div className="flex items-center bg-ink px-5 py-10 md:px-14 md:py-14 lg:py-16">
           <div className="w-full max-w-md">
             <EyebrowAnim delay={0} dark>Get In Touch</EyebrowAnim>
             <h2 className="display-lg mt-4 text-white">
@@ -1195,11 +1195,11 @@ export default function Home() {
       <EnquiryForm />
       {/* Footer with scramble brand name */}
       <footer className="border-t border-copper/40 bg-ink text-white">
-        <div className="mx-auto max-w-[1400px] px-5 pt-14 pb-10 md:px-10 md:pt-20">
+        <div className="mx-auto max-w-[1400px] px-5 pt-10 pb-8 md:px-10 md:pt-14">
           <Reveal>
             <AnimatedFooterBrand />
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-8 border-t border-white/10 pt-10 md:mt-20 md:gap-12 md:grid-cols-4 md:pt-14">
+          <div className="mt-10 grid grid-cols-1 gap-8 border-t border-white/10 pt-8 md:mt-12 md:gap-12 md:grid-cols-4 md:pt-10">
             <div>
               <div className="eyebrow mb-5">Quick Links</div>
               <ul className="space-y-3 text-sm text-white/80">
@@ -1233,7 +1233,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:justify-between">
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:justify-between">
             <p>© {new Date().getFullYear()} Aaura Realty. All rights reserved.</p>
             <p>RERA registered. Disclaimer: All information is for representational purposes only.</p>
           </div>

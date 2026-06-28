@@ -269,6 +269,7 @@ export default function Neighbourhoods() {
         title="Neighbourhoods We Know By Heart."
         subtitle="Twelve years on the ground across Pune's finest pockets. Click any neighbourhood to explore."
         img="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=2000&q=80&auto=format&fit=crop"
+        breadcrumb={[{ label: "Neighbourhoods" }]}
       />
 
       {/* Grid */}

@@ -230,6 +230,7 @@ export default function Contact() {
         title="Let's Find Your Space."
         subtitle="Tell us what you're looking for and we'll personally curate the best options for you."
         img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&q=80&auto=format&fit=crop"
+        breadcrumb={[{ label: "Contact" }]}
       />
 
       {/* Quick call strip */}

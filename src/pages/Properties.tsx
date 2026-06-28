@@ -137,6 +137,7 @@ export default function Properties() {
         title="All Properties."
         subtitle="500+ curated listings across Pune's finest localities."
         img="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=80&auto=format&fit=crop"
+        breadcrumb={[{ label: "Properties" }]}
       />
 
       <TrustStrip />
