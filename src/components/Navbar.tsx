@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
+const LOGO_URL = "/logo.png";
+
 const NAV_LINKS = [
   { label: "Properties", to: "/properties", num: "01" },
   { label: "About", to: "/about", num: "02" },
@@ -50,8 +52,12 @@ export default function Navbar() {
         className="fixed inset-x-0 top-0 z-50"
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10 md:py-5">
-          <Link to="/" className="font-serif text-[20px] font-bold tracking-wide text-copper md:text-[24px]" onClick={() => setMobileOpen(false)}>
-            AAURA REALTY
+          <Link to="/" onClick={() => setMobileOpen(false)} className="flex-shrink-0">
+            <img
+              src={LOGO_URL}
+              alt="Aaura Realty"
+              className={`h-10 w-auto object-contain md:h-12 ${isHome ? "rounded-lg bg-white/95 px-2 py-1" : "rounded-md"}`}
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -124,8 +130,12 @@ export default function Navbar() {
             >
               {/* Top bar inside panel */}
               <div className="flex items-center justify-between px-7 py-6">
-                <Link to="/" onClick={() => setMobileOpen(false)} className="font-serif text-lg tracking-wide text-copper">
-                  AAURA REALTY
+                <Link to="/" onClick={() => setMobileOpen(false)}>
+                  <img
+                    src={LOGO_URL}
+                    alt="Aaura Realty"
+                    className="h-9 w-auto object-contain rounded-lg bg-white/95 px-2 py-1"
+                  />
                 </Link>
                 <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white hover:border-copper hover:text-copper transition-colors">
                   ✕

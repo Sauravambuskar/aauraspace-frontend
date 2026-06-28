@@ -2,15 +2,19 @@ import { Link } from "react-router-dom";
 import { Reveal } from "./shared";
 import { SERVICES } from "@/lib/data";
 
+const LOGO_URL = "/logo.png";
+
 export default function Footer() {
   return (
     <footer className="border-t border-copper/40 bg-ink text-white">
       <div className="mx-auto max-w-[1400px] px-5 pt-14 pb-10 md:px-10 md:pt-20">
         <Reveal className="text-center">
-          <h2 className="font-serif text-[clamp(28px,8vw,140px)] leading-none text-copper">
-            AAURA REALTY
-          </h2>
-          <p className="mt-4 font-serif text-lg italic text-white/80 md:text-2xl">
+          <img
+            src={LOGO_URL}
+            alt="Aaura Realty"
+            className="mx-auto mb-8 h-20 w-auto rounded-xl bg-white/95 px-5 py-3 md:h-28"
+          />
+          <p className="font-serif text-lg italic text-white/80 md:text-2xl">
             Our Passion. Your Aaura.
           </p>
         </Reveal>
