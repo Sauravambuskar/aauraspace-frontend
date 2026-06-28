@@ -728,7 +728,7 @@ function ParallaxBreak() {
 
   return (
     <section ref={ref} className="relative h-[60vh] w-full overflow-hidden bg-ink">
-      <motion.img style={{ y }} src="https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=2000&q=80&auto=format&fit=crop" alt="Pune skyline" className="absolute inset-0 h-[130%] w-full object-cover" loading="lazy" />
+      <motion.img style={{ y }} src="/commercial-lWmdaWql.jpg" alt="Pune skyline" className="absolute inset-0 h-[130%] w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-ink/50" />
       <motion.div
         style={{ scale: textScale, opacity: textOpacity }}
@@ -1086,7 +1086,7 @@ function EnquiryForm() {
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="relative min-h-[280px] overflow-hidden sm:min-h-[400px] lg:min-h-[760px]">
           <motion.img
-            src="https://images.unsplash.com/photo-1524758631624-e2822132a584?w=1400&q=80&auto=format&fit=crop"
+            src="/residential-DshD8vFh.jpg"
             alt="Premium home"
             initial={{ scale: 1.08, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}

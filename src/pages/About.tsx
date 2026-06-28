@@ -1,4 +1,4 @@
-import { useRef } from "react";
+﻿import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "motion/react";
 import Navbar from "@/components/Navbar";
@@ -21,20 +21,20 @@ function OurStory() {
           <h2 className="display-lg text-ink">Born from a Belief<br />in Better.</h2>
           <p className="mt-8 text-base text-ink/80 leading-relaxed">
             In 2012, Rajesh and Sunita Ambuskar started Aaura Realty with a simple conviction:
-            Pune's families deserved a broker who would put their interests first — always.
+            Pune's families deserved a broker who would put their interests first â€” always.
           </p>
           <p className="mt-5 text-base text-ink/80 leading-relaxed">
             What began as three listings in Kharadi has grown into Pune's most trusted independent
-            realty practice — 500+ properties, 320 happy families, and 50 builder relationships
+            realty practice â€” 500+ properties, 320 happy families, and 50 builder relationships
             built on nothing but integrity.
           </p>
           <p className="mt-5 text-base text-ink/80 leading-relaxed">
-            We don't chase volume. We obsess over fit — matching the right family to the right
+            We don't chase volume. We obsess over fit â€” matching the right family to the right
             home, at the right price, in the right neighbourhood.
           </p>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
             <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
-              Talk to Us <span aria-hidden>→</span>
+              Talk to Us <span aria-hidden>â†’</span>
             </Link>
           </motion.div>
         </Reveal>
@@ -43,7 +43,7 @@ function OurStory() {
           <div className="relative h-[340px] overflow-hidden rounded-sm shadow-2xl sm:h-[500px] md:h-[600px]">
             <motion.img
               style={{ y }}
-              src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&q=80&auto=format&fit=crop"
+              src="/img4-op-329k9.jpg"
               alt="Pune real estate"
               loading="lazy"
               className="absolute inset-0 h-[120%] w-full object-cover"
@@ -74,7 +74,7 @@ function StatsWithImage() {
       {/* Image half */}
       <div className="relative h-[400px] lg:h-auto">
         <img
-          src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1400&q=80&auto=format&fit=crop"
+          src="/img4-op-329k9.jpg"
           alt="Happy family in new home"
           loading="lazy"
           className="h-full w-full object-cover"
@@ -105,10 +105,10 @@ function StatsWithImage() {
 
 function Values() {
   const IMAGES = [
-    "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80&auto=format&fit=crop",
+    "/residential-DshD8vFh.jpg",
+    "/img4-op-329k9.jpg",
+    "/img5-BjgfExbp.jpg",
+    "/residential-DshD8vFh.jpg",
   ];
 
   return (
@@ -154,12 +154,12 @@ function Values() {
 
 function Timeline() {
   const TIMELINE_IMGS = [
-    "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80&auto=format&fit=crop",
+    "/img4-op-329k9.jpg",
+    "/commercial-lWmdaWql.jpg",
+    "/img4-op-329k9.jpg",
+    "/img4-op-329k9.jpg",
+    "/img4-op-329k9.jpg",
+    "/residential-DshD8vFh.jpg",
   ];
 
   return (
@@ -211,7 +211,7 @@ function TestimonialStrip() {
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="relative h-[380px] lg:h-auto">
         <img
-          src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80&auto=format&fit=crop"
+          src="/residential-DshD8vFh.jpg"
           alt="Happy clients"
           loading="lazy"
           className="h-full w-full object-cover"
@@ -225,12 +225,12 @@ function TestimonialStrip() {
         <div className="relative">
           <div className="eyebrow mb-6 text-copper">Kind Words</div>
           <p className="font-serif text-3xl italic leading-tight text-white md:text-4xl">"{t.q}"</p>
-          <div className="mt-8 flex gap-1 text-copper">{Array.from({ length: 5 }).map((_, i) => <span key={i}>★</span>)}</div>
+          <div className="mt-8 flex gap-1 text-copper">{Array.from({ length: 5 }).map((_, i) => <span key={i}>â˜…</span>)}</div>
           <div className="mt-4 text-sm font-medium uppercase tracking-[0.2em] text-white">{t.name}</div>
           <div className="text-xs text-white/50">{t.role}</div>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
             <Link to="/contact" className="inline-flex items-center gap-3 rounded-full border border-copper px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-copper hover:bg-copper hover:text-white transition-colors">
-              Work with Us →
+              Work with Us â†’
             </Link>
           </motion.div>
         </div>
@@ -245,7 +245,7 @@ function CTA() {
   return (
     <section className="relative overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=2000&q=80&auto=format&fit=crop"
+        src="/commercial-lWmdaWql.jpg"
         alt="Pune luxury"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
@@ -262,7 +262,7 @@ function CTA() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
-                Enquire Now <span aria-hidden>→</span>
+                Enquire Now <span aria-hidden>â†’</span>
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -287,8 +287,8 @@ export default function About() {
       <PageHero
         eyebrow="Our Story"
         title="About Aaura Realty."
-        subtitle="Pune's most trusted real estate broker — twelve years of integrity, local knowledge, and genuine care."
-        img="https://images.unsplash.com/photo-1524758631624-e2822132a584?w=2000&q=80&auto=format&fit=crop"
+        subtitle="Pune's most trusted real estate broker â€” twelve years of integrity, local knowledge, and genuine care."
+        img="/residential-DshD8vFh.jpg"
         breadcrumb={[{ label: "About" }]}
       />
       <OurStory />

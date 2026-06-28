@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -44,25 +44,25 @@ const CONTACT_ITEMS = [
     label: "Call Us",
     lines: ["+91 9172355369", "+91 9156945369"],
     href: "tel:+919172355369",
-    img: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80&auto=format&fit=crop",
+    img: "/img4-op-329k9.jpg",
   },
   {
     label: "Email Us",
     lines: ["aaurareality19@gmail.com"],
     href: "mailto:aaurareality19@gmail.com",
-    img: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&q=80&auto=format&fit=crop",
+    img: "/residential-DshD8vFh.jpg",
   },
   {
     label: "Find Us",
     lines: ["Pune, Maharashtra", "India"],
     href: null,
-    img: "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=600&q=80&auto=format&fit=crop",
+    img: "/img4-op-329k9.jpg",
   },
   {
     label: "Office Hours",
-    lines: ["Mon–Sat: 10 AM – 7 PM", "Sun: By appointment"],
+    lines: ["Monâ€“Sat: 10 AM â€“ 7 PM", "Sun: By appointment"],
     href: null,
-    img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80&auto=format&fit=crop",
+    img: "/img5-BjgfExbp.jpg",
   },
 ];
 
@@ -169,7 +169,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
         <div>
           <select {...register("budget")} className={selectCls}>
             <option value="" disabled>Budget Range *</option>
-            {["Under ₹ 50 Lakh", "₹ 50–75 Lakh", "₹ 75 Lakh–1 Cr", "₹ 1–1.5 Cr", "₹ 1.5–3 Cr", "₹ 3 Cr+"].map((b) => (
+            {["Under â‚¹ 50 Lakh", "â‚¹ 50â€“75 Lakh", "â‚¹ 75 Lakhâ€“1 Cr", "â‚¹ 1â€“1.5 Cr", "â‚¹ 1.5â€“3 Cr", "â‚¹ 3 Cr+"].map((b) => (
               <option key={b} value={b}>{b}</option>
             ))}
           </select>
@@ -189,7 +189,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
         type="submit"
         className="w-full bg-copper py-4 text-xs font-medium uppercase tracking-[0.25em] text-white disabled:opacity-60"
       >
-        {isSubmitting ? "Sending…" : "Send Enquiry →"}
+        {isSubmitting ? "Sendingâ€¦" : "Send Enquiry â†’"}
       </motion.button>
       <p className="text-xs text-ink/40">
         We respond within 2 hours on business days. Your data is kept confidential.
@@ -202,7 +202,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
 
 const FAQS = [
   { q: "How quickly will I get a response?", a: "We personally respond to every enquiry within 2 hours on business days. For urgent needs, call us directly." },
-  { q: "Do you charge a brokerage fee?", a: "Our standard brokerage is 1–2% of the transaction value, aligned with RERA norms. Completely transparent upfront." },
+  { q: "Do you charge a brokerage fee?", a: "Our standard brokerage is 1â€“2% of the transaction value, aligned with RERA norms. Completely transparent upfront." },
   { q: "Can you help with home loans?", a: "Yes. We have tie-ups with leading banks and NBFCs and can help you get pre-approved at competitive rates." },
   { q: "Do you handle legal documentation?", a: "Our in-house legal team handles title verification, RERA checks, and sale deed registration end-to-end." },
   { q: "Do you have off-market listings?", a: "Yes. Many of our best properties are never listed publicly. Share your requirements and we'll check our exclusive inventory." },
@@ -229,14 +229,14 @@ export default function Contact() {
         eyebrow="Get In Touch"
         title="Let's Find Your Space."
         subtitle="Tell us what you're looking for and we'll personally curate the best options for you."
-        img="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop"
+        img="/residential-DshD8vFh.jpg"
         breadcrumb={[{ label: "Contact" }]}
       />
 
       {/* Quick call strip */}
       <div className="bg-copper">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-5 md:flex-row md:px-10">
-          <div className="font-serif text-lg font-bold text-white md:text-xl">Prefer to call? We're available Mon–Sat, 10 AM – 7 PM.</div>
+          <div className="font-serif text-lg font-bold text-white md:text-xl">Prefer to call? We're available Monâ€“Sat, 10 AM â€“ 7 PM.</div>
           <div className="flex flex-wrap gap-3">
             <a href="tel:+919172355369" className="rounded-full border border-white/40 bg-white/15 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white backdrop-blur-sm hover:bg-white hover:text-copper transition-colors">
               +91 9172355369
@@ -259,7 +259,7 @@ export default function Contact() {
                 <h2 className="display-lg text-ink">Reach Us<br />Anytime.</h2>
                 <p className="mt-6 text-sm text-ink/60 leading-relaxed">
                   We're a small, dedicated team and we answer every message personally. No chatbots,
-                  no wait queues — just real people who know Pune real estate inside out.
+                  no wait queues â€” just real people who know Pune real estate inside out.
                 </p>
               </Reveal>
               <Reveal delay={0.1} className="mt-10">
@@ -289,12 +289,12 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Image strip — 3 column property imagery */}
+      {/* Image strip â€” 3 column property imagery */}
       <section className="grid grid-cols-3 gap-1 h-[320px] md:h-[420px]">
         {[
-          "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=900&q=80&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=900&q=80&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=900&q=80&auto=format&fit=crop",
+          "/img4-op-329k9.jpg",
+          "/img4-op-329k9.jpg",
+          "/img4-op-329k9.jpg",
         ].map((src, i) => (
           <div key={i} className="relative overflow-hidden">
             <img src={src} alt="Pune property" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -309,7 +309,7 @@ export default function Contact() {
           <Reveal>
             <div className="relative h-[380px] overflow-hidden rounded-sm">
               <img
-                src="https://images.unsplash.com/photo-1602881290524-55a9572e4e41?w=2000&q=80&auto=format&fit=crop"
+                src="/img4-op-329k9.jpg"
                 alt="Pune, Maharashtra"
                 loading="lazy"
                 className="h-full w-full object-cover"
@@ -326,7 +326,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="rounded-full bg-copper px-6 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white hover:opacity-90 transition-opacity"
                 >
-                  Open in Maps →
+                  Open in Maps â†’
                 </a>
               </div>
             </div>

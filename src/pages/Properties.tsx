@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+﻿import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
@@ -65,8 +65,8 @@ function PropertyCard({ p, index }: { p: (typeof ALL_PROPERTIES)[number]; index:
 
         {(p.beds || p.baths) && (
           <div className="mt-3 flex gap-4 text-xs text-ink/50">
-            {p.beds && <span>🛏 {p.beds} Bed{p.beds > 1 ? "s" : ""}</span>}
-            {p.baths && <span>🚿 {p.baths} Bath{p.baths > 1 ? "s" : ""}</span>}
+            {p.beds && <span>ðŸ› {p.beds} Bed{p.beds > 1 ? "s" : ""}</span>}
+            {p.baths && <span>ðŸš¿ {p.baths} Bath{p.baths > 1 ? "s" : ""}</span>}
           </div>
         )}
 
@@ -85,10 +85,10 @@ function PropertyCard({ p, index }: { p: (typeof ALL_PROPERTIES)[number]; index:
 
 function TrustStrip() {
   const items = [
-    { icon: "🏆", label: "12+ Years", sub: "In Pune Real Estate" },
-    { icon: "🏠", label: "500+ Properties", sub: "Listed & Sold" },
-    { icon: "👨‍👩‍👧", label: "320+ Families", sub: "Served with Care" },
-    { icon: "🤝", label: "50+ Builders", sub: "Trusted Partners" },
+    { icon: "ðŸ†", label: "12+ Years", sub: "In Pune Real Estate" },
+    { icon: "ðŸ ", label: "500+ Properties", sub: "Listed & Sold" },
+    { icon: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§", label: "320+ Families", sub: "Served with Care" },
+    { icon: "ðŸ¤", label: "50+ Builders", sub: "Trusted Partners" },
   ];
   return (
     <div className="border-y border-ink/8 bg-white">
@@ -136,7 +136,7 @@ export default function Properties() {
         eyebrow="Browse Listings"
         title="All Properties."
         subtitle="500+ curated listings across Pune's finest localities."
-        img="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=80&auto=format&fit=crop"
+        img="/commercial-lWmdaWql.jpg"
         breadcrumb={[{ label: "Properties" }]}
       />
 
@@ -200,10 +200,10 @@ export default function Properties() {
         </div>
       </div>
 
-      {/* CTA — image background */}
+      {/* CTA â€” image background */}
       <section className="relative overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=80&auto=format&fit=crop"
+          src="/img4-op-329k9.jpg"
           alt="Pune luxury home"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
@@ -222,7 +222,7 @@ export default function Properties() {
                 to="/contact"
                 className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white"
               >
-                Talk to an Expert <span aria-hidden>→</span>
+                Talk to an Expert <span aria-hidden>â†’</span>
               </Link>
             </motion.div>
           </Reveal>
