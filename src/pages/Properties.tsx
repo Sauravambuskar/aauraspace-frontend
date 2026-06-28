@@ -83,12 +83,19 @@ function PropertyCard({ p, index }: { p: (typeof ALL_PROPERTIES)[number]; index:
 
 /* ============================ WHY CHOOSE US STRIP ============================ */
 
+const TRUST_ICONS = [
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3M12 18v-3"/></svg>,
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>,
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M18 21c0-2.5-1.5-4.5-3.5-5.5"/></svg>,
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>,
+];
+
 function TrustStrip() {
   const items = [
-    { icon: "ðŸ†", label: "12+ Years", sub: "In Pune Real Estate" },
-    { icon: "ðŸ ", label: "500+ Properties", sub: "Listed & Sold" },
-    { icon: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§", label: "320+ Families", sub: "Served with Care" },
-    { icon: "ðŸ¤", label: "50+ Builders", sub: "Trusted Partners" },
+    { label: "12+ Years", sub: "In Pune Real Estate" },
+    { label: "500+ Properties", sub: "Listed & Sold" },
+    { label: "320+ Families", sub: "Served with Care" },
+    { label: "50+ Builders", sub: "Trusted Partners" },
   ];
   return (
     <div className="border-y border-ink/8 bg-white">
@@ -98,7 +105,7 @@ function TrustStrip() {
             key={item.label}
             className={`flex items-center gap-4 py-6 ${i < items.length - 1 ? "border-r border-ink/8" : ""} px-6`}
           >
-            <span className="text-3xl">{item.icon}</span>
+            <span className="text-copper">{TRUST_ICONS[i]}</span>
             <div>
               <div className="font-serif text-xl text-ink">{item.label}</div>
               <div className="text-xs text-ink/50">{item.sub}</div>
