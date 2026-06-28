@@ -3,9 +3,9 @@
    ================================================================ */
 
 export const HERO_SLIDES = [
-  "/residential-DshD8vFh.jpg",
-  "/img4-op-329k9.jpg",
-  "/commercial-lWmdaWql.jpg",
+  "https://iili.io/CROId9s.png",
+  "https://iili.io/CROn0TQ.png",
+  "https://iili.io/CRND8AJ.png",
 ];
 
 export const SERVICES = [
