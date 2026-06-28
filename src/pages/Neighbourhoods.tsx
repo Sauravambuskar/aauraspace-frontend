@@ -144,32 +144,32 @@ function WhyPune() {
       icon: "🏙️",
       title: "Fastest-Growing IT Hub",
       desc: "300+ MNCs, second-largest IT city in India, driving sustained property demand.",
-      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=700&q=80&auto=format&fit=crop",
     },
     {
       icon: "🎓",
       title: "World-Class Education",
       desc: "IIT Pune, Symbiosis, and 800+ schools — a magnet for aspiring families.",
-      img: "https://images.unsplash.com/photo-1562774053-701939374585?w=700&q=80&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=700&q=80&auto=format&fit=crop",
     },
     {
       icon: "🌤️",
       title: "Best Weather in India",
       desc: "Year-round moderate climate — a lifestyle advantage that never gets old.",
-      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=80&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=700&q=80&auto=format&fit=crop",
     },
     {
       icon: "📈",
       title: "Strong Appreciation",
       desc: "Kharadi and Hinjewadi have seen 40–60% price growth over five years.",
-      img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80&auto=format&fit=crop",
+      img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80&auto=format&fit=crop",
     },
   ];
 
   return (
-    <section className="bg-white px-6 py-24 md:px-10 md:py-32">
+    <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal className="mb-14 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-end">
+        <Reveal className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-end">
           <div>
             <div className="eyebrow mb-4">Why Pune?</div>
             <h2 className="display-lg text-ink">A City Built<br />for the Future.</h2>
@@ -217,7 +217,7 @@ function CTA() {
       {/* Image side */}
       <div className="relative h-[400px] lg:h-auto">
         <img
-          src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1200&q=80&auto=format&fit=crop"
           alt="Pune neighbourhood"
           loading="lazy"
           className="h-full w-full object-cover"
@@ -230,7 +230,7 @@ function CTA() {
         </div>
       </div>
       {/* Text side */}
-      <div className="bg-cream px-8 py-16 md:px-14 md:py-20">
+      <div className="bg-cream px-8 py-10 md:px-14 md:py-12">
         <Reveal>
           <div className="eyebrow mb-4">Not Sure Which Area Fits?</div>
           <h2 className="display-lg text-ink">Let's Find the Right<br />Neighbourhood for You.</h2>
@@ -268,12 +268,12 @@ export default function Neighbourhoods() {
         eyebrow="Explore Pune"
         title="Neighbourhoods We Know By Heart."
         subtitle="Twelve years on the ground across Pune's finest pockets. Click any neighbourhood to explore."
-        img="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=2000&q=80&auto=format&fit=crop"
+        img="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=2000&q=80&auto=format&fit=crop"
         breadcrumb={[{ label: "Neighbourhoods" }]}
       />
 
       {/* Grid */}
-      <div className="bg-white px-6 py-20 md:px-10 md:py-28">
+      <div className="bg-white px-6 py-10 md:px-10 md:py-14">
         <div className="mx-auto max-w-[1400px]">
           <Reveal className="mb-12">
             <div className="eyebrow mb-3">6 Locations</div>

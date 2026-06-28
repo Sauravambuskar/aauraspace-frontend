@@ -44,25 +44,25 @@ const CONTACT_ITEMS = [
     label: "Call Us",
     lines: ["+91 9172355369", "+91 9156945369"],
     href: "tel:+919172355369",
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80&auto=format&fit=crop",
   },
   {
     label: "Email Us",
     lines: ["aaurareality19@gmail.com"],
     href: "mailto:aaurareality19@gmail.com",
-    img: "https://images.unsplash.com/photo-1596526131083-e8c633064f28?w=600&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&q=80&auto=format&fit=crop",
   },
   {
     label: "Find Us",
     lines: ["Pune, Maharashtra", "India"],
     href: null,
-    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=600&q=80&auto=format&fit=crop",
   },
   {
     label: "Office Hours",
     lines: ["Mon–Sat: 10 AM – 7 PM", "Sun: By appointment"],
     href: null,
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -229,7 +229,7 @@ export default function Contact() {
         eyebrow="Get In Touch"
         title="Let's Find Your Space."
         subtitle="Tell us what you're looking for and we'll personally curate the best options for you."
-        img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&q=80&auto=format&fit=crop"
+        img="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=2000&q=80&auto=format&fit=crop"
         breadcrumb={[{ label: "Contact" }]}
       />
 
@@ -249,7 +249,7 @@ export default function Contact() {
       </div>
 
       {/* Main section: white background */}
-      <section className="bg-white px-5 py-14 md:px-10 md:py-28">
+      <section className="bg-white px-5 py-10 md:px-10 md:py-14">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.5fr]">
             {/* Left */}
@@ -292,9 +292,9 @@ export default function Contact() {
       {/* Image strip — 3 column property imagery */}
       <section className="grid grid-cols-3 gap-1 h-[320px] md:h-[420px]">
         {[
-          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&q=80&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=900&q=80&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=900&q=80&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=900&q=80&auto=format&fit=crop",
         ].map((src, i) => (
           <div key={i} className="relative overflow-hidden">
             <img src={src} alt="Pune property" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -304,7 +304,7 @@ export default function Contact() {
       </section>
 
       {/* Map */}
-      <section className="bg-white px-6 py-16 md:px-10 md:py-20">
+      <section className="bg-white px-6 py-8 md:px-10 md:py-10">
         <div className="mx-auto max-w-[1400px]">
           <Reveal>
             <div className="relative h-[380px] overflow-hidden rounded-sm">
@@ -335,7 +335,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ on cream */}
-      <section className="bg-cream px-5 py-14 md:px-10 md:py-28">
+      <section className="bg-cream px-5 py-10 md:px-10 md:py-14">
         <div className="mx-auto max-w-[1400px]">
           <Reveal className="mb-12">
             <div className="eyebrow mb-4">FAQs</div>

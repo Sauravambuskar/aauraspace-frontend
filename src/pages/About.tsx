@@ -14,7 +14,7 @@ function OurStory() {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="overflow-hidden bg-white px-5 py-14 md:px-10 md:py-24">
+    <section ref={ref} className="overflow-hidden bg-white px-5 py-10 md:px-10 md:py-14">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
         <Reveal>
           <div className="eyebrow mb-6">Our Story</div>
@@ -43,7 +43,7 @@ function OurStory() {
           <div className="relative h-[340px] overflow-hidden rounded-sm shadow-2xl sm:h-[500px] md:h-[600px]">
             <motion.img
               style={{ y }}
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&q=80&auto=format&fit=crop"
               alt="Pune real estate"
               loading="lazy"
               className="absolute inset-0 h-[120%] w-full object-cover"
@@ -74,7 +74,7 @@ function StatsWithImage() {
       {/* Image half */}
       <div className="relative h-[400px] lg:h-auto">
         <img
-          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1400&q=80&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1400&q=80&auto=format&fit=crop"
           alt="Happy family in new home"
           loading="lazy"
           className="h-full w-full object-cover"
@@ -89,7 +89,7 @@ function StatsWithImage() {
       {/* Stats half */}
       <div className="grid grid-cols-2 bg-ink">
         {STATS.map((s, i) => (
-          <Reveal key={s.label} delay={i * 0.1} className="flex flex-col items-center justify-center border border-white/5 py-10 md:py-16">
+          <Reveal key={s.label} delay={i * 0.1} className="flex flex-col items-center justify-center border border-white/5 py-8 md:py-10">
             <div className="font-serif text-5xl text-copper md:text-6xl">
               <CountUp to={s.n} suffix={s.suffix} />
             </div>
@@ -105,14 +105,14 @@ function StatsWithImage() {
 
 function Values() {
   const IMAGES = [
-    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80&auto=format&fit=crop",
   ];
 
   return (
-    <section className="bg-cream px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-cream px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
         <Reveal className="mb-10">
           <div className="eyebrow mb-4">What Guides Us</div>
@@ -154,16 +154,16 @@ function Values() {
 
 function Timeline() {
   const TIMELINE_IMGS = [
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=600&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=600&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=600&q=80&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80&auto=format&fit=crop",
   ];
 
   return (
-    <section className="bg-white px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
         <Reveal className="mb-10">
           <div className="eyebrow mb-4">Our Journey</div>
@@ -211,14 +211,14 @@ function TestimonialStrip() {
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="relative h-[380px] lg:h-auto">
         <img
-          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80&auto=format&fit=crop"
           alt="Happy clients"
           loading="lazy"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-ink/30" />
       </div>
-      <div className="relative overflow-hidden bg-ink px-8 py-16 md:px-14 md:py-20">
+      <div className="relative overflow-hidden bg-ink px-8 py-10 md:px-14 md:py-14">
         <div className="pointer-events-none absolute left-4 top-4 font-serif text-[160px] leading-none text-copper/15">
           "
         </div>
@@ -245,13 +245,13 @@ function CTA() {
   return (
     <section className="relative overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=2000&q=80&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=2000&q=80&auto=format&fit=crop"
         alt="Pune luxury"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-cream/90" />
-      <div className="relative px-6 py-16 text-center md:py-24">
+      <div className="relative px-6 py-10 text-center md:py-14">
         <Reveal>
           <div className="eyebrow mb-4">Ready to Begin?</div>
           <h2 className="display-xl text-ink">Let's Find<br />Your Space.</h2>

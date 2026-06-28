@@ -687,7 +687,7 @@ function PropertyCard({ p, large }: { p: (typeof FEATURED)[number]; large?: bool
 
 function Featured() {
   return (
-    <section id="properties" className="bg-cream px-6 py-16 md:px-10 md:py-24">
+    <section id="properties" className="bg-cream px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
           <EyebrowAnim delay={0}>Featured</EyebrowAnim>
@@ -728,7 +728,7 @@ function ParallaxBreak() {
 
   return (
     <section ref={ref} className="relative h-[60vh] w-full overflow-hidden bg-ink">
-      <motion.img style={{ y }} src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=80&auto=format&fit=crop" alt="Pune skyline" className="absolute inset-0 h-[130%] w-full object-cover" loading="lazy" />
+      <motion.img style={{ y }} src="https://images.unsplash.com/photo-1567449303183-ae0d6ed1498b?w=2000&q=80&auto=format&fit=crop" alt="Pune skyline" className="absolute inset-0 h-[130%] w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-ink/50" />
       <motion.div
         style={{ scale: textScale, opacity: textOpacity }}
@@ -811,7 +811,7 @@ function Gallery() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", dragFree: true, loop: true });
 
   return (
-    <section className="bg-cream py-16 md:py-24">
+    <section className="bg-cream py-10 md:py-14">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <Reveal className="mb-8 flex items-end justify-between">
           <div>
@@ -875,7 +875,7 @@ function Gallery() {
 function NeighbourhoodsPreview() {
   const preview = NEIGHBOURHOODS.slice(0, 3);
   return (
-    <section className="bg-white px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -969,7 +969,7 @@ function Testimonials() {
   const t = TESTIMONIALS[idx];
 
   return (
-    <section className="relative overflow-hidden bg-cream px-6 py-20 md:px-10 md:py-28">
+    <section className="relative overflow-hidden bg-cream px-6 py-12 md:px-10 md:py-16">
       {/* Giant decorative quote — animates in */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
