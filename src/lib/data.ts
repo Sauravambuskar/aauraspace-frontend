@@ -328,16 +328,16 @@ export const ALL_PROPERTIES: Property[] = [
 
 export const TEAM = [
   {
-    name: "Rajesh Sharma",
+    name: "Rajesh Mehta",
     role: "Founder & CEO",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop",
-    desc: "12+ years building Pune's most trusted real estate practice. Rajesh's philosophy: every client deserves clarity, not just a transaction.",
+    desc: "12+ years building Pune's most trusted real estate practice. His philosophy: every client deserves clarity, not just a transaction.",
   },
   {
-    name: "Sunita Sharma",
+    name: "Sunita Mehta",
     role: "Co-Founder & Head of Client Relations",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80&auto=format&fit=crop",
-    desc: "Sunita ensures every family feels heard. Her warmth and precision have made Aaura synonymous with trust across Pune.",
+    desc: "She ensures every family feels heard. Her warmth and precision have made Aaura synonymous with trust across Pune.",
   },
   {
     name: "Arjun Desai",

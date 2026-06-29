@@ -19,8 +19,8 @@ function OurStory() {
         <Reveal>
           <div className="eyebrow mb-6">Our Story</div>
           <h2 className="display-lg text-ink">Born from a Belief<br />in Better.</h2>
-          <p className="mt-8 text-base text-ink/80 leading-relaxed">
-            In 2012, Rajesh and Sunita Sharma started Aaura Realty with a simple conviction:
+          <p className=”mt-8 text-base text-ink/80 leading-relaxed”>
+            In 2012, Aaura Realty was founded with a simple conviction:
             Pune's families deserved a broker who would put their interests first â€” always.
           </p>
           <p className="mt-5 text-base text-ink/80 leading-relaxed">
