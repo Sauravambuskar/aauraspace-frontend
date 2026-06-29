@@ -21,20 +21,20 @@ function OurStory() {
           <h2 className="display-lg text-ink">Born from a Belief<br />in Better.</h2>
           <p className=”mt-8 text-base text-ink/80 leading-relaxed”>
             In 2012, Aaura Realty was founded with a simple conviction:
-            Pune's families deserved a broker who would put their interests first â€” always.
+            Pune's families deserved a broker who would put their interests first — always.
           </p>
           <p className="mt-5 text-base text-ink/80 leading-relaxed">
             What began as three listings in Kharadi has grown into Pune's most trusted independent
-            realty practice â€” 500+ properties, 320 happy families, and 50 builder relationships
+            realty practice — 500+ properties, 320 happy families, and 50 builder relationships
             built on nothing but integrity.
           </p>
           <p className="mt-5 text-base text-ink/80 leading-relaxed">
-            We don't chase volume. We obsess over fit â€” matching the right family to the right
+            We don't chase volume. We obsess over fit — matching the right family to the right
             home, at the right price, in the right neighbourhood.
           </p>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
             <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
-              Talk to Us <span aria-hidden>â†’</span>
+              Talk to Us <span aria-hidden>→</span>
             </Link>
           </motion.div>
         </Reveal>
@@ -230,7 +230,7 @@ function TestimonialStrip() {
           <div className="text-xs text-white/50">{t.role}</div>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
             <Link to="/contact" className="inline-flex items-center gap-3 rounded-full border border-copper px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-copper hover:bg-copper hover:text-white transition-colors">
-              Work with Us â†’
+              Work with Us →
             </Link>
           </motion.div>
         </div>
@@ -262,7 +262,7 @@ function CTA() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
-                Enquire Now <span aria-hidden>â†’</span>
+                Enquire Now <span aria-hidden>→</span>
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -287,7 +287,7 @@ export default function About() {
       <PageHero
         eyebrow="Our Story"
         title="About Aaura Realty."
-        subtitle="Pune's most trusted real estate broker â€” twelve years of integrity, local knowledge, and genuine care."
+        subtitle="Pune's most trusted real estate broker — twelve years of integrity, local knowledge, and genuine care."
         img="/residential-DshD8vFh.jpg"
         breadcrumb={[{ label: "About" }]}
       />

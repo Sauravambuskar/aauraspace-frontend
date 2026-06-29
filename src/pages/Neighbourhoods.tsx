@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
@@ -55,11 +55,11 @@ function NeighbourhoodCard({
         </div>
         <h3 className="mt-3 font-serif text-4xl text-white md:text-5xl">{n.name}</h3>
         <p className="mt-2 max-w-xs text-sm text-white/0 transition-all duration-400 group-hover:text-white/75">
-          {n.desc.slice(0, 75)}â€¦
+          {n.desc.slice(0, 75)}...
         </p>
         <div className="mt-3 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-white/60">
           <span>Avg. {n.avgPrice}</span>
-          <motion.span variants={{ hover: { x: 6 } }} transition={{ duration: 0.35 }} className="text-copper" aria-hidden>â†’</motion.span>
+          <motion.span variants={{ hover: { x: 6 } }} transition={{ duration: 0.35 }} className="text-copper" aria-hidden>→</motion.span>
         </div>
       </div>
     </motion.div>
@@ -91,7 +91,7 @@ function NeighbourhoodModal({ n, onClose }: { n: (typeof NEIGHBOURHOODS)[number]
               <img src={n.img} alt={n.name} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
               <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink hover:bg-copper hover:text-white transition-colors">
-                âœ•
+                ✕
               </button>
               <div className="absolute bottom-0 left-0 p-7">
                 <span className="eyebrow text-copper">{n.tag}</span>
@@ -126,7 +126,7 @@ function NeighbourhoodModal({ n, onClose }: { n: (typeof NEIGHBOURHOODS)[number]
                 to="/properties"
                 className="mt-8 block w-full bg-copper py-3.5 text-center text-xs font-medium uppercase tracking-[0.22em] text-white hover:opacity-90 transition-opacity"
               >
-                View Properties in {n.name} â†’
+                View Properties in {n.name} →
               </Link>
             </div>
           </motion.div>
@@ -136,32 +136,32 @@ function NeighbourhoodModal({ n, onClose }: { n: (typeof NEIGHBOURHOODS)[number]
   );
 }
 
-/* ============================ WHY PUNE â€” image cards ============================ */
+/* ============================ WHY PUNE — image cards ============================ */
 
 function WhyPune() {
   const points = [
     {
-      icon: "ðŸ™ï¸",
+      icon: "🏙️",
       title: "Fastest-Growing IT Hub",
       desc: "300+ MNCs, second-largest IT city in India, driving sustained property demand.",
       img: "/img4-op-329k9.jpg",
     },
     {
-      icon: "ðŸŽ“",
+      icon: "🎓",
       title: "World-Class Education",
-      desc: "IIT Pune, Symbiosis, and 800+ schools â€” a magnet for aspiring families.",
+      desc: "IIT Pune, Symbiosis, and 800+ schools — a magnet for aspiring families.",
       img: "/img5-BjgfExbp.jpg",
     },
     {
-      icon: "ðŸŒ¤ï¸",
+      icon: "🌤️",
       title: "Best Weather in India",
-      desc: "Year-round moderate climate â€” a lifestyle advantage that never gets old.",
+      desc: "Year-round moderate climate — a lifestyle advantage that never gets old.",
       img: "/img4-op-329k9.jpg",
     },
     {
-      icon: "ðŸ“ˆ",
+      icon: "📈",
       title: "Strong Appreciation",
-      desc: "Kharadi and Hinjewadi have seen 40â€“60% price growth over five years.",
+      desc: “Kharadi and Hinjewadi have seen 40-60% price growth over five years.”,
       img: "/residential-DshD8vFh.jpg",
     },
   ];
@@ -175,7 +175,7 @@ function WhyPune() {
             <h2 className="display-lg text-ink">A City Built<br />for the Future.</h2>
           </div>
           <p className="text-base text-ink/60 leading-relaxed md:max-w-md">
-            Pune isn't just a place to live â€” it's a long-term investment in quality of life,
+            Pune isn't just a place to live — it's a long-term investment in quality of life,
             career growth, and community.
           </p>
         </Reveal>
@@ -235,17 +235,17 @@ function CTA() {
           <div className="eyebrow mb-4">Not Sure Which Area Fits?</div>
           <h2 className="display-lg text-ink">Let's Find the Right<br />Neighbourhood for You.</h2>
           <p className="mt-6 text-sm text-ink/60 leading-relaxed max-w-sm">
-            Share your requirements â€” commute, budget, lifestyle â€” and we'll personally shortlist
+            Share your requirements — commute, budget, lifestyle — and we'll personally shortlist
             localities that match perfectly.
           </p>
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
             <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white">
-              Get Personalised Guidance <span aria-hidden>â†’</span>
+              Get Personalised Guidance <span aria-hidden>→</span>
             </Link>
           </motion.div>
           <div className="mt-8">
             <Link to="/properties" className="text-sm font-medium uppercase tracking-[0.18em] text-ink/50 hover:text-copper transition-colors">
-              Browse All Properties â†’
+              Browse All Properties →
             </Link>
           </div>
         </Reveal>

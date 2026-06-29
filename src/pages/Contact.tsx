@@ -60,7 +60,7 @@ const CONTACT_ITEMS = [
   },
   {
     label: "Office Hours",
-    lines: ["Monâ€“Sat: 10 AM â€“ 7 PM", "Sun: By appointment"],
+    lines: ["Mon—Sat: 10 AM — 7 PM", "Sun: By appointment"],
     href: null,
     img: "/img5-BjgfExbp.jpg",
   },
@@ -169,7 +169,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
         <div>
           <select {...register("budget")} className={selectCls}>
             <option value="" disabled>Budget Range *</option>
-            {["Under â‚¹ 50 Lakh", "â‚¹ 50â€“75 Lakh", "â‚¹ 75 Lakhâ€“1 Cr", "â‚¹ 1â€“1.5 Cr", "â‚¹ 1.5â€“3 Cr", "â‚¹ 3 Cr+"].map((b) => (
+            {["Under ₹ 50 Lakh", "₹ 50—75 Lakh", "₹ 75 Lakh—1 Cr", "₹ 1—1.5 Cr", "₹ 1.5—3 Cr", "₹ 3 Cr+"].map((b) => (
               <option key={b} value={b}>{b}</option>
             ))}
           </select>
@@ -189,7 +189,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
         type="submit"
         className="w-full bg-copper py-4 text-xs font-medium uppercase tracking-[0.25em] text-white disabled:opacity-60"
       >
-        {isSubmitting ? "Sendingâ€¦" : "Send Enquiry â†’"}
+        {isSubmitting ? "Sending..." : "Send Enquiry →"}
       </motion.button>
       <p className="text-xs text-ink/40">
         We respond within 2 hours on business days. Your data is kept confidential.
@@ -202,7 +202,7 @@ function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
 
 const FAQS = [
   { q: "How quickly will I get a response?", a: "We personally respond to every enquiry within 2 hours on business days. For urgent needs, call us directly." },
-  { q: "Do you charge a brokerage fee?", a: "Our standard brokerage is 1â€“2% of the transaction value, aligned with RERA norms. Completely transparent upfront." },
+  { q: "Do you charge a brokerage fee?", a: "Our standard brokerage is 1—2% of the transaction value, aligned with RERA norms. Completely transparent upfront." },
   { q: "Can you help with home loans?", a: "Yes. We have tie-ups with leading banks and NBFCs and can help you get pre-approved at competitive rates." },
   { q: "Do you handle legal documentation?", a: "Our in-house legal team handles title verification, RERA checks, and sale deed registration end-to-end." },
   { q: "Do you have off-market listings?", a: "Yes. Many of our best properties are never listed publicly. Share your requirements and we'll check our exclusive inventory." },
@@ -236,7 +236,7 @@ export default function Contact() {
       {/* Quick call strip */}
       <div className="bg-copper">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-5 md:flex-row md:px-10">
-          <div className="font-serif text-lg font-bold text-white md:text-xl">Prefer to call? We're available Monâ€“Sat, 10 AM â€“ 7 PM.</div>
+          <div className="font-serif text-lg font-bold text-white md:text-xl">Prefer to call? We're available Mon—Sat, 10 AM — 7 PM.</div>
           <div className="flex flex-wrap gap-3">
             <a href="tel:+919172355369" className="rounded-full border border-white/40 bg-white/15 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white backdrop-blur-sm hover:bg-white hover:text-copper transition-colors">
               +91 9172355369
@@ -259,7 +259,7 @@ export default function Contact() {
                 <h2 className="display-lg text-ink">Reach Us<br />Anytime.</h2>
                 <p className="mt-6 text-sm text-ink/60 leading-relaxed">
                   We're a small, dedicated team and we answer every message personally. No chatbots,
-                  no wait queues â€” just real people who know Pune real estate inside out.
+                  no wait queues — just real people who know Pune real estate inside out.
                 </p>
               </Reveal>
               <Reveal delay={0.1} className="mt-10">
@@ -289,7 +289,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Image strip â€” 3 column property imagery */}
+      {/* Image strip — 3 column property imagery */}
       <section className="grid grid-cols-3 gap-1 h-[320px] md:h-[420px]">
         {[
           "/img4-op-329k9.jpg",
@@ -326,7 +326,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="rounded-full bg-copper px-6 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white hover:opacity-90 transition-opacity"
                 >
-                  Open in Maps â†’
+                  Open in Maps →
                 </a>
               </div>
             </div>

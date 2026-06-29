@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from "react";
+﻿﻿import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar";
@@ -65,8 +65,8 @@ function PropertyCard({ p, index }: { p: (typeof ALL_PROPERTIES)[number]; index:
 
         {(p.beds || p.baths) && (
           <div className="mt-3 flex gap-4 text-xs text-ink/50">
-            {p.beds && <span>ðŸ› {p.beds} Bed{p.beds > 1 ? "s" : ""}</span>}
-            {p.baths && <span>ðŸš¿ {p.baths} Bath{p.baths > 1 ? "s" : ""}</span>}
+            {p.beds && <span>🛏 {p.beds} Bed{p.beds > 1 ? "s" : ""}</span>}
+            {p.baths && <span>🚿 {p.baths} Bath{p.baths > 1 ? "s" : ""}</span>}
           </div>
         )}
 
@@ -207,7 +207,7 @@ export default function Properties() {
         </div>
       </div>
 
-      {/* CTA â€” image background */}
+      {/* CTA — image background */}
       <section className="relative overflow-hidden">
         <img
           src="/img4-op-329k9.jpg"
@@ -229,7 +229,7 @@ export default function Properties() {
                 to="/contact"
                 className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white"
               >
-                Talk to an Expert <span aria-hidden>â†’</span>
+                Talk to an Expert <span aria-hidden>→</span>
               </Link>
             </motion.div>
           </Reveal>
