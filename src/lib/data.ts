@@ -328,28 +328,28 @@ export const ALL_PROPERTIES: Property[] = [
 
 export const TEAM = [
   {
-    name: "Rajesh Mehta",
-    role: "Founder & CEO",
+    name: "Founder & CEO",
+    role: "Leadership",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop",
-    desc: "12+ years building Pune's most trusted real estate practice. His philosophy: every client deserves clarity, not just a transaction.",
+    desc: "12+ years building Pune's most trusted real estate practice. Aaura's founding philosophy: every client deserves clarity, not just a transaction.",
   },
   {
-    name: "Sunita Mehta",
-    role: "Co-Founder & Head of Client Relations",
+    name: "Head of Client Relations",
+    role: "Leadership",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80&auto=format&fit=crop",
-    desc: "She ensures every family feels heard. Her warmth and precision have made Aaura synonymous with trust across Pune.",
+    desc: "Ensuring every family feels heard. Aaura's warmth and precision have made us synonymous with trust across Pune.",
   },
   {
-    name: "Arjun Desai",
-    role: "Senior Property Consultant",
+    name: "Senior Property Consultant",
+    role: "Advisory",
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&auto=format&fit=crop",
-    desc: "Arjun specializes in commercial real estate — from retail spaces to Grade-A offices across Pune's business districts.",
+    desc: "Specialising in commercial real estate — from retail spaces to Grade-A offices across Pune's business districts.",
   },
   {
-    name: "Pooja Shinde",
-    role: "Legal & Documentation Head",
+    name: "Legal & Documentation Head",
+    role: "Compliance",
     img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80&auto=format&fit=crop",
-    desc: "Pooja navigates every RERA compliance, title check, and registration with meticulous care so you never face a surprise.",
+    desc: "Navigating every RERA compliance, title check, and registration with meticulous care so you never face a surprise.",
   },
 ];
 
