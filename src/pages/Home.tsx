@@ -25,6 +25,7 @@ import {
   GALLERY,
   TESTIMONIALS,
   NEIGHBOURHOODS,
+  PROJECTS,
 } from "@/lib/data";
 
 const FEATURED = ALL_PROPERTIES.filter((p) => p.featured).slice(0, 3);
