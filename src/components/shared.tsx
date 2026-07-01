@@ -5,7 +5,12 @@ import Lenis from "lenis";
 
 export function useLenisSmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+    // Slightly softer lerp for a premium, GSAP-like feel that plays nice with scroll-triggered reveals
+    const lenis = new Lenis({
+      duration: 1.15,
+      smoothWheel: true,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+    });
     let raf = 0;
     const tick = (t: number) => { lenis.raf(t); raf = requestAnimationFrame(tick); };
     raf = requestAnimationFrame(tick);
@@ -17,23 +22,30 @@ export function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const mv = useMotionValue(0);
-  const [display, setDisplay] = useState("0");
+  // Write directly to the DOM node — avoids ~60fps React re-renders per counter
+  useEffect(() => {
+    if (!ref.current) return;
+    ref.current.textContent = `0${suffix}`;
+  }, [suffix]);
   useEffect(() => {
     if (!inView) return;
-    const controls = animate(mv, to, { duration: 1.6, ease: "easeOut" });
-    const unsub = mv.on("change", (v) => setDisplay(Math.round(v).toString()));
+    const controls = animate(mv, to, { duration: 1.8, ease: [0.22, 1, 0.36, 1] });
+    const unsub = mv.on("change", (v) => {
+      if (ref.current) ref.current.textContent = `${Math.round(v)}${suffix}`;
+    });
     return () => { controls.stop(); unsub(); };
-  }, [inView, mv, to]);
-  return <span ref={ref}>{display}{suffix}</span>;
+  }, [inView, mv, to, suffix]);
+  return <span ref={ref} style={{ willChange: "contents" }}>0{suffix}</span>;
 }
 
 export function Reveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay }}
+      style={{ willChange: "transform, opacity" }}
       className={className}
     >
       {children}

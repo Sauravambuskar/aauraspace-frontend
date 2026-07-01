@@ -384,7 +384,7 @@ function Services() {
 
   return (
     <section id="services" className="bg-ink text-white">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-6 md:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-14 pb-6 md:px-10 md:pt-16">
         <EyebrowAnim delay={0}>What We Do</EyebrowAnim>
         <h2 className="display-lg mt-4 text-white">
           <WordMask delay={0.1}>Services.</WordMask>
@@ -393,7 +393,7 @@ function Services() {
 
       {/* Desktop accordion */}
       <div
-        className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
+        className="hidden h-[76vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
         onMouseLeave={() => setActive(0)}
       >
         {SERVICES.map((s, i) => (
@@ -401,8 +401,9 @@ function Services() {
             key={s.name}
             onMouseEnter={() => setActive(i)}
             animate={{ flex: active === i ? 3 : 1 }}
-            transition={{ type: "spring", stiffness: 120, damping: 22 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative h-full cursor-pointer overflow-hidden"
+            style={{ willChange: "flex-grow" }}
           >
             <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-ink/20" />
@@ -433,14 +434,14 @@ function Services() {
         {SERVICES.map((s, i) => {
           const open = active === i;
           return (
-            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 360 : 96 }} transition={{ type: "spring", stiffness: 140, damping: 22 }} className="relative w-full overflow-hidden text-left">
+            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 340 : 88 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className="relative w-full overflow-hidden text-left" style={{ willChange: "height" }}>
               <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/50 to-ink/20" />
               <div className="relative flex h-full flex-col justify-end p-6">
                 <h3 className="font-serif text-3xl text-white">{s.name}</h3>
                 <AnimatePresence>
                   {open && (
-                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="mt-3 text-sm text-white/75">
+                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className="mt-3 text-sm text-white/75">
                       {s.desc}
                     </motion.p>
                   )}
@@ -703,7 +704,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-14 text-center">
+        <Reveal className="mt-10 text-center md:mt-12">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
@@ -780,7 +781,7 @@ function ParallaxBreak() {
 
 function Stats() {
   return (
-    <section className="bg-cream px-0 py-4">
+    <section className="bg-cream px-0 py-0">
       <div className="mx-auto grid max-w-full grid-cols-2 gap-px bg-ink/10 md:grid-cols-4">
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-8 text-center md:px-6 md:py-10">
@@ -877,7 +878,7 @@ function NeighbourhoodsPreview() {
   return (
     <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-6 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowAnim delay={0}>Explore Pune</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
@@ -952,24 +953,18 @@ function NeighbourhoodsPreview() {
 
 function Testimonials() {
   const [idx, setIdx] = useState(0);
-  const [progress, setProgress] = useState(0);
   const DURATION = 6000;
 
+  // Advance slide via a single timeout — no per-frame React re-renders.
   useEffect(() => {
-    setProgress(0);
-    const start = Date.now();
-    const interval = setInterval(() => {
-      const p = Math.min(1, (Date.now() - start) / DURATION);
-      setProgress(p);
-      if (p >= 1) setIdx((i) => (i + 1) % TESTIMONIALS.length);
-    }, 30);
-    return () => clearInterval(interval);
+    const id = setTimeout(() => setIdx((i) => (i + 1) % TESTIMONIALS.length), DURATION);
+    return () => clearTimeout(id);
   }, [idx]);
 
   const t = TESTIMONIALS[idx];
 
   return (
-    <section className="relative overflow-hidden bg-cream px-6 py-12 md:px-10 md:py-16">
+    <section className="relative overflow-hidden bg-cream px-6 py-10 md:px-10 md:py-14">
       {/* Giant decorative quote — animates in */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
@@ -987,7 +982,7 @@ function Testimonials() {
         <AnimatePresence mode="wait">
           <motion.div key={idx} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
             {/* Quote text — blur word reveal */}
-            <p className="mt-8 font-serif text-3xl italic leading-tight text-ink md:text-5xl">
+            <p className="mt-8 min-h-[8rem] font-serif text-3xl italic leading-tight text-ink md:min-h-[10rem] md:text-5xl">
               "<BlurReveal text={t.q} stagger={0.055} />"
             </p>
 
@@ -996,9 +991,9 @@ function Testimonials() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, scale: 0, rotate: -30 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.3 + i * 0.08, type: "spring", stiffness: 300, damping: 18 }}
+                  initial={{ opacity: 0, scale: 0.4 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="text-copper"
                 >
                   ★
@@ -1026,9 +1021,18 @@ function Testimonials() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="mx-auto mt-14 h-px w-64 bg-ink/15">
-          <div className="h-px bg-copper transition-none" style={{ width: `${progress * 100}%` }} />
+        <div className="mx-auto mt-12 h-px w-64 overflow-hidden bg-ink/15">
+          {/* Pure CSS animated progress — zero React re-renders, GPU-friendly */}
+          <div
+            key={idx}
+            className="h-px origin-left bg-copper"
+            style={{
+              animation: `testiProgress ${DURATION}ms linear forwards`,
+              willChange: "transform",
+            }}
+          />
         </div>
+        <style>{`@keyframes testiProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }`}</style>
       </div>
     </section>
   );
