@@ -33,11 +33,7 @@ export const PROJECTS = [
 
 const U = (id: string) => `https://images.unsplash.com/${id}?w=1400&q=80&auto=format&fit=crop`;
 
-export const HERO_SLIDES = [
-  U("photo-1600585154340-be6161a56a0c"),
-  U("photo-1613490493576-7fde63acd811"),
-  U("photo-1512917774080-9991f1c4c750"),
-];
+export const HERO_SLIDES = [D.img1, D.img2, D.img3];
 
 export const SERVICES = [
   { name: "Flat",            desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: U("photo-1560448204-e02f11c3d0e2") },
