@@ -161,7 +161,7 @@ function WhyPune() {
     {
       icon: "📈",
       title: "Strong Appreciation",
-      desc: “Kharadi and Hinjewadi have seen 40-60% price growth over five years.”,
+      desc: "Kharadi and Hinjewadi have seen 40-60% price growth over five years.",
       img: "/residential-DshD8vFh.jpg",
     },
   ];
