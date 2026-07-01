@@ -2,18 +2,33 @@
    Centralized data for all Aaura Realty pages
    ================================================================ */
 
+import img1 from "@/assets/drive/img1.png.asset.json";
+import img2 from "@/assets/drive/img2.png.asset.json";
+import img3 from "@/assets/drive/img3.png.asset.json";
+import img4 from "@/assets/drive/img4.png.asset.json";
+import img5 from "@/assets/drive/img5.jpg.asset.json";
+import img6 from "@/assets/drive/img6.jpg.asset.json";
+import img7 from "@/assets/drive/img7.jpg.asset.json";
+import img8 from "@/assets/drive/img8.jpg.asset.json";
+import img9 from "@/assets/drive/img9.webp.asset.json";
+
+const D = {
+  img1: img1.url, img2: img2.url, img3: img3.url, img4: img4.url,
+  img5: img5.url, img6: img6.url, img7: img7.url, img8: img8.url, img9: img9.url,
+};
+
 export const HERO_SLIDES = [
-  "https://iili.io/CROId9s.png",
-  "https://iili.io/CROn0TQ.png",
-  "https://iili.io/CRND8AJ.png",
+  D.img1,
+  D.img2,
+  D.img3,
 ];
 
 export const SERVICES = [
-  { name: "Flat", desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: "/residential-DshD8vFh.jpg" },
-  { name: "Shop", desc: "High-footfall retail spaces in prime commercial corridors.", img: "/commercial-lWmdaWql.jpg" },
-  { name: "Office", desc: "Grade-A office spaces, fitted or shell, for every team size.", img: "/img5-BjgfExbp.jpg" },
-  { name: "Plot", desc: "NA & RERA-approved residential and commercial plots.", img: "/img4-op-329k9.jpg" },
-  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.", img: "/img4-op-329k9.jpg" },
+  { name: "Flat", desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: D.img4 },
+  { name: "Shop", desc: "High-footfall retail spaces in prime commercial corridors.", img: D.img5 },
+  { name: "Office", desc: "Grade-A office spaces, fitted or shell, for every team size.", img: D.img6 },
+  { name: "Plot", desc: "NA & RERA-approved residential and commercial plots.", img: D.img7 },
+  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.", img: D.img8 },
 ];
 
 export const STATS = [
@@ -24,13 +39,13 @@ export const STATS = [
 ];
 
 export const GALLERY = [
-  { title: "Skyline Residences", img: "/img4-op-329k9.jpg" },
-  { title: "Copper House", img: "/residential-DshD8vFh.jpg" },
-  { title: "Garden Heights", img: "/residential-DshD8vFh.jpg" },
-  { title: "Baner Plaza", img: "/commercial-lWmdaWql.jpg" },
-  { title: "Kharadi Greens", img: "/img4-op-329k9.jpg" },
-  { title: "Wakad Towers", img: "/commercial-lWmdaWql.jpg" },
-  { title: "Hinjewadi Court", img: "/img5-BjgfExbp.jpg" },
+  { title: "Skyline Residences", img: D.img1 },
+  { title: "Copper House", img: D.img2 },
+  { title: "Garden Heights", img: D.img3 },
+  { title: "Baner Plaza", img: D.img4 },
+  { title: "Kharadi Greens", img: D.img5 },
+  { title: "Wakad Towers", img: D.img6 },
+  { title: "Hinjewadi Court", img: D.img7 },
 ];
 
 export const TESTIMONIALS = [
@@ -46,7 +61,7 @@ export const NEIGHBOURHOODS = [
     name: "Kharadi",
     tag: "IT Corridor",
     count: "120+ Homes",
-    img: "/img4-op-329k9.jpg",
+    img: D.img1,
     desc: "Home to major IT campuses, Kharadi offers an ideal blend of professional proximity and residential comfort. Excellent connectivity via the Pune-Ahmednagar highway.",
     avgPrice: "₹ 75–95 Lakh",
     highlights: ["EON IT Park nearby", "Metro connectivity", "Schools & hospitals", "Active social scene"],
@@ -55,7 +70,7 @@ export const NEIGHBOURHOODS = [
     name: "Baner",
     tag: "Premium Living",
     count: "85+ Homes",
-    img: "/residential-DshD8vFh.jpg",
+    img: D.img2,
     desc: "Upscale neighbourhood with leafy streets, premium restaurants, and Grade-A offices. A preferred destination for senior professionals seeking quality of life.",
     avgPrice: "₹ 90 Lakh–1.5 Cr",
     highlights: ["Premium dining & retail", "Proximity to Balewadi", "Wide roads", "Green cover"],
@@ -64,7 +79,7 @@ export const NEIGHBOURHOODS = [
     name: "Hinjewadi",
     tag: "Tech Hub",
     count: "140+ Homes",
-    img: "/commercial-lWmdaWql.jpg",
+    img: D.img3,
     desc: "Pune's largest IT hub hosts over 300 companies. Rapid infrastructure development and affordable pricing make Hinjewadi the go-to for tech professionals.",
     avgPrice: "₹ 55–80 Lakh",
     highlights: ["IT Park Phases I–III", "Upcoming metro", "Affordable prices", "Growing infrastructure"],
@@ -73,7 +88,7 @@ export const NEIGHBOURHOODS = [
     name: "Wakad",
     tag: "Family First",
     count: "70+ Homes",
-    img: "/residential-DshD8vFh.jpg",
+    img: D.img4,
     desc: "A family-friendly suburb with top schools, hospitals, and parks. Wakad's calm residential character and improving connectivity attract long-term buyers.",
     avgPrice: "₹ 50–70 Lakh",
     highlights: ["Reputed schools", "Community parks", "Kothrud proximity", "Growing social infra"],
@@ -82,7 +97,7 @@ export const NEIGHBOURHOODS = [
     name: "Koregaon Park",
     tag: "Heritage Luxe",
     count: "40+ Homes",
-    img: "/img4-op-329k9.jpg",
+    img: D.img5,
     desc: "Pune's most iconic address. Tree-lined avenues, colonial bungalows, and luxury apartments define this heritage zone that is both timeless and aspirational.",
     avgPrice: "₹ 1.5–3.5 Cr",
     highlights: ["Heritage bungalows", "Luxury apartments", "Fine dining & cafés", "Quiet prestige"],
@@ -91,7 +106,7 @@ export const NEIGHBOURHOODS = [
     name: "Viman Nagar",
     tag: "Lifestyle",
     count: "60+ Homes",
-    img: "/commercial-lWmdaWql.jpg",
+    img: D.img6,
     desc: "Minutes from Pune Airport, Viman Nagar is a cosmopolitan hub with malls, international schools, and a thriving expat community.",
     avgPrice: "₹ 70–1.1 Cr",
     highlights: ["Airport proximity", "Phoenix Marketcity", "International schools", "Strong rental demand"],
