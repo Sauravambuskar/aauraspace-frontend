@@ -276,7 +276,7 @@ function Hero() {
   }, [emblaApi]);
 
   return (
-    <section id="top" ref={heroRef} className="relative h-[92svh] min-h-[620px] w-full overflow-hidden bg-cream">
+      <section id="top" ref={heroRef} className="relative h-[92svh] min-h-[620px] w-full overflow-hidden bg-cream">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
           {HERO_SLIDES.map((src, i) => (
@@ -293,13 +293,12 @@ function Hero() {
         </div>
       </div>
 
-      {/* Soft white wash — no dark shadow, keeps text readable on cream */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream via-cream/70 to-cream/20" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cream to-transparent" />
+      {/* Soft bottom wash — only behind the text, keeps the image crisp */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-cream/85 via-cream/35 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="absolute inset-x-0 bottom-0 px-5 pb-12 md:px-14 md:pb-16"
+        className="absolute inset-x-0 bottom-0 px-5 pb-10 md:px-14 md:pb-12"
       >
         <div className="max-w-3xl" key={selected}>
           {/* Eyebrow — tracking expand */}
@@ -314,7 +313,7 @@ function Hero() {
           </motion.div>
 
           {/* H1 — char-by-char perspective rise */}
-          <h1 className="display-xl text-ink" style={{ perspective: 600 }}>
+          <h1 className="display-xl text-ink" style={{ perspective: 600, textShadow: "0 1px 12px rgba(250,248,245,0.55)" }}>
             <CharReveal text="Find Your" delay={0.1} stagger={0.045} />
             <br />
             <CharReveal text="Perfect Space." delay={0.45} stagger={0.04} />
