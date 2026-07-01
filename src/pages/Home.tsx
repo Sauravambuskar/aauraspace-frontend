@@ -781,7 +781,7 @@ function ParallaxBreak() {
 
 function Stats() {
   return (
-    <section className="bg-cream px-0 py-4">
+    <section className="bg-cream px-0 py-0">
       <div className="mx-auto grid max-w-full grid-cols-2 gap-px bg-ink/10 md:grid-cols-4">
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-8 text-center md:px-6 md:py-10">
