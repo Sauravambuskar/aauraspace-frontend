@@ -705,7 +705,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-14 text-center">
+        <Reveal className="mt-8 text-center md:mt-10">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
