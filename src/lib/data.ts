@@ -17,18 +17,34 @@ const D = {
   img5: img5.url, img6: img6.url, img7: img7.url, img8: img8.url, img9: img9.url,
 };
 
+/* Drive images are ONLY used in the PROJECTS section below.
+   All other sections use Unsplash placeholders. */
+export const PROJECTS = [
+  { title: "Aaura Project 01", location: "Kharadi, Pune",       img: D.img1 },
+  { title: "Aaura Project 02", location: "Baner, Pune",         img: D.img2 },
+  { title: "Aaura Project 03", location: "Hinjewadi, Pune",     img: D.img3 },
+  { title: "Aaura Project 04", location: "Wakad, Pune",         img: D.img4 },
+  { title: "Aaura Project 05", location: "Koregaon Park, Pune", img: D.img5 },
+  { title: "Aaura Project 06", location: "Viman Nagar, Pune",   img: D.img6 },
+  { title: "Aaura Project 07", location: "Balewadi, Pune",      img: D.img7 },
+  { title: "Aaura Project 08", location: "Aundh, Pune",         img: D.img8 },
+  { title: "Aaura Project 09", location: "Kalyani Nagar, Pune", img: D.img9 },
+];
+
+const U = (id: string) => `https://images.unsplash.com/${id}?w=1400&q=80&auto=format&fit=crop`;
+
 export const HERO_SLIDES = [
-  D.img1,
-  D.img2,
-  D.img3,
+  U("photo-1600585154340-be6161a56a0c"),
+  U("photo-1613490493576-7fde63acd811"),
+  U("photo-1512917774080-9991f1c4c750"),
 ];
 
 export const SERVICES = [
-  { name: "Flat", desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: D.img4 },
-  { name: "Shop", desc: "High-footfall retail spaces in prime commercial corridors.", img: D.img5 },
-  { name: "Office", desc: "Grade-A office spaces, fitted or shell, for every team size.", img: D.img6 },
-  { name: "Plot", desc: "NA & RERA-approved residential and commercial plots.", img: D.img7 },
-  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.", img: D.img8 },
+  { name: "Flat",            desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: U("photo-1560448204-e02f11c3d0e2") },
+  { name: "Shop",            desc: "High-footfall retail spaces in prime commercial corridors.",       img: U("photo-1555529669-e69e7aa0ba9a") },
+  { name: "Office",          desc: "Grade-A office spaces, fitted or shell, for every team size.",     img: U("photo-1497366216548-37526070297c") },
+  { name: "Plot",            desc: "NA & RERA-approved residential and commercial plots.",             img: U("photo-1500382017468-9049fed747ef") },
+  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.",    img: U("photo-1580587771525-78b9dba3b914") },
 ];
 
 export const STATS = [
@@ -39,13 +55,13 @@ export const STATS = [
 ];
 
 export const GALLERY = [
-  { title: "Skyline Residences", img: D.img1 },
-  { title: "Copper House", img: D.img2 },
-  { title: "Garden Heights", img: D.img3 },
-  { title: "Baner Plaza", img: D.img4 },
-  { title: "Kharadi Greens", img: D.img5 },
-  { title: "Wakad Towers", img: D.img6 },
-  { title: "Hinjewadi Court", img: D.img7 },
+  { title: "Skyline Residences", img: U("photo-1600585154340-be6161a56a0c") },
+  { title: "Copper House",       img: U("photo-1613490493576-7fde63acd811") },
+  { title: "Garden Heights",     img: U("photo-1512917774080-9991f1c4c750") },
+  { title: "Baner Plaza",        img: U("photo-1560448204-e02f11c3d0e2") },
+  { title: "Kharadi Greens",     img: U("photo-1567496898669-ee935f5f647a") },
+  { title: "Wakad Towers",       img: U("photo-1502672260266-1c1ef2d93688") },
+  { title: "Hinjewadi Court",    img: U("photo-1493809842364-78817add7ffb") },
 ];
 
 export const TESTIMONIALS = [
@@ -61,7 +77,7 @@ export const NEIGHBOURHOODS = [
     name: "Kharadi",
     tag: "IT Corridor",
     count: "120+ Homes",
-    img: D.img1,
+    img: U("photo-1600585154340-be6161a56a0c"),
     desc: "Home to major IT campuses, Kharadi offers an ideal blend of professional proximity and residential comfort. Excellent connectivity via the Pune-Ahmednagar highway.",
     avgPrice: "₹ 75–95 Lakh",
     highlights: ["EON IT Park nearby", "Metro connectivity", "Schools & hospitals", "Active social scene"],
@@ -70,7 +86,7 @@ export const NEIGHBOURHOODS = [
     name: "Baner",
     tag: "Premium Living",
     count: "85+ Homes",
-    img: D.img2,
+    img: U("photo-1613490493576-7fde63acd811"),
     desc: "Upscale neighbourhood with leafy streets, premium restaurants, and Grade-A offices. A preferred destination for senior professionals seeking quality of life.",
     avgPrice: "₹ 90 Lakh–1.5 Cr",
     highlights: ["Premium dining & retail", "Proximity to Balewadi", "Wide roads", "Green cover"],
@@ -79,7 +95,7 @@ export const NEIGHBOURHOODS = [
     name: "Hinjewadi",
     tag: "Tech Hub",
     count: "140+ Homes",
-    img: D.img3,
+    img: U("photo-1512917774080-9991f1c4c750"),
     desc: "Pune's largest IT hub hosts over 300 companies. Rapid infrastructure development and affordable pricing make Hinjewadi the go-to for tech professionals.",
     avgPrice: "₹ 55–80 Lakh",
     highlights: ["IT Park Phases I–III", "Upcoming metro", "Affordable prices", "Growing infrastructure"],
@@ -88,7 +104,7 @@ export const NEIGHBOURHOODS = [
     name: "Wakad",
     tag: "Family First",
     count: "70+ Homes",
-    img: D.img4,
+    img: U("photo-1560448204-e02f11c3d0e2"),
     desc: "A family-friendly suburb with top schools, hospitals, and parks. Wakad's calm residential character and improving connectivity attract long-term buyers.",
     avgPrice: "₹ 50–70 Lakh",
     highlights: ["Reputed schools", "Community parks", "Kothrud proximity", "Growing social infra"],
@@ -97,7 +113,7 @@ export const NEIGHBOURHOODS = [
     name: "Koregaon Park",
     tag: "Heritage Luxe",
     count: "40+ Homes",
-    img: D.img5,
+    img: U("photo-1567496898669-ee935f5f647a"),
     desc: "Pune's most iconic address. Tree-lined avenues, colonial bungalows, and luxury apartments define this heritage zone that is both timeless and aspirational.",
     avgPrice: "₹ 1.5–3.5 Cr",
     highlights: ["Heritage bungalows", "Luxury apartments", "Fine dining & cafés", "Quiet prestige"],
@@ -106,7 +122,7 @@ export const NEIGHBOURHOODS = [
     name: "Viman Nagar",
     tag: "Lifestyle",
     count: "60+ Homes",
-    img: D.img6,
+    img: U("photo-1502672260266-1c1ef2d93688"),
     desc: "Minutes from Pune Airport, Viman Nagar is a cosmopolitan hub with malls, international schools, and a thriving expat community.",
     avgPrice: "₹ 70–1.1 Cr",
     highlights: ["Airport proximity", "Phoenix Marketcity", "International schools", "Strong rental demand"],
