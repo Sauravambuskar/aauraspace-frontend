@@ -384,7 +384,7 @@ function Services() {
 
   return (
     <section id="services" className="bg-ink text-white">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-6 md:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-14 pb-6 md:px-10 md:pt-16">
         <EyebrowAnim delay={0}>What We Do</EyebrowAnim>
         <h2 className="display-lg mt-4 text-white">
           <WordMask delay={0.1}>Services.</WordMask>
@@ -393,7 +393,7 @@ function Services() {
 
       {/* Desktop accordion */}
       <div
-        className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
+        className="hidden h-[76vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
         onMouseLeave={() => setActive(0)}
       >
         {SERVICES.map((s, i) => (
@@ -401,8 +401,9 @@ function Services() {
             key={s.name}
             onMouseEnter={() => setActive(i)}
             animate={{ flex: active === i ? 3 : 1 }}
-            transition={{ type: "spring", stiffness: 120, damping: 22 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative h-full cursor-pointer overflow-hidden"
+            style={{ willChange: "flex-grow" }}
           >
             <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-ink/20" />
@@ -433,14 +434,14 @@ function Services() {
         {SERVICES.map((s, i) => {
           const open = active === i;
           return (
-            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 360 : 96 }} transition={{ type: "spring", stiffness: 140, damping: 22 }} className="relative w-full overflow-hidden text-left">
+            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 340 : 88 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className="relative w-full overflow-hidden text-left" style={{ willChange: "height" }}>
               <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/50 to-ink/20" />
               <div className="relative flex h-full flex-col justify-end p-6">
                 <h3 className="font-serif text-3xl text-white">{s.name}</h3>
                 <AnimatePresence>
                   {open && (
-                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="mt-3 text-sm text-white/75">
+                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className="mt-3 text-sm text-white/75">
                       {s.desc}
                     </motion.p>
                   )}
