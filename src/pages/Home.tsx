@@ -1181,7 +1181,7 @@ function AnimatedFooterBrand() {
 
 function Projects() {
   return (
-    <section id="projects" className="bg-cream py-20 md:py-28">
+    <section id="projects" className="bg-cream py-10 md:py-14">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
           <div>
