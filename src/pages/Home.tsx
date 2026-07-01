@@ -276,7 +276,7 @@ function Hero() {
   }, [emblaApi]);
 
   return (
-    <section id="top" ref={heroRef} className="relative h-[100svh] w-full overflow-hidden bg-ink">
+    <section id="top" ref={heroRef} className="relative h-[92svh] min-h-[620px] w-full overflow-hidden bg-cream">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
           {HERO_SLIDES.map((src, i) => (
@@ -293,11 +293,13 @@ function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+      {/* Soft white wash — no dark shadow, keeps text readable on cream */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream via-cream/70 to-cream/20" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cream to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="absolute inset-x-0 bottom-0 px-5 pb-16 md:px-14 md:pb-28"
+        className="absolute inset-x-0 bottom-0 px-5 pb-12 md:px-14 md:pb-16"
       >
         <div className="max-w-3xl" key={selected}>
           {/* Eyebrow — tracking expand */}
@@ -312,7 +314,7 @@ function Hero() {
           </motion.div>
 
           {/* H1 — char-by-char perspective rise */}
-          <h1 className="display-xl text-white leading-[0.95]" style={{ perspective: 600 }}>
+          <h1 className="display-xl text-ink" style={{ perspective: 600 }}>
             <CharReveal text="Find Your" delay={0.1} stagger={0.045} />
             <br />
             <CharReveal text="Perfect Space." delay={0.45} stagger={0.04} />
@@ -324,7 +326,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.7 }}
-            className="mt-4 flex flex-wrap items-center gap-2 text-sm text-white/75 md:mt-6 md:text-base"
+            className="mt-4 flex flex-wrap items-center gap-2 text-sm text-ink/70 md:mt-5 md:text-base"
           >
             {["Flat", "Shop", "Office", "Plot", "Resale & Rental"].map((item, i) => (
               <motion.span
@@ -334,7 +336,7 @@ function Hero() {
                 transition={{ delay: 1.15 + i * 0.1, duration: 0.45, ease: "easeOut" }}
               >
                 {item}
-                {i < 4 && <span className="ml-2 text-copper/70">·</span>}
+                {i < 4 && <span className="ml-2 text-copper">·</span>}
               </motion.span>
             ))}
           </motion.p>
@@ -345,7 +347,7 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 inline-block"
+            className="mt-7 inline-block"
           >
             <motion.div whileHover={{ scale: 1.05, boxShadow: "0 0 28px rgba(184,115,51,0.5)" }} whileTap={{ scale: 0.97 }}>
               <Link to="/properties" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
@@ -364,10 +366,10 @@ function Hero() {
       </motion.div>
 
       {/* Slide dots */}
-      <div className="absolute inset-x-0 bottom-8 flex justify-center gap-2.5">
+      <div className="absolute inset-x-0 bottom-5 flex justify-center gap-2.5">
         {HERO_SLIDES.map((_, i) => (
           <button key={i} onClick={() => emblaApi?.scrollTo(i)} aria-label={`Slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-500 ${selected === i ? "w-8 bg-copper" : "w-1.5 bg-white/50"}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${selected === i ? "w-8 bg-copper" : "w-1.5 bg-ink/25"}`}
           />
         ))}
       </div>
