@@ -313,7 +313,7 @@ function Hero() {
           </motion.div>
 
           {/* H1 — char-by-char perspective rise */}
-          <h1 className="display-xl text-ink" style={{ perspective: 600 }}>
+          <h1 className="display-xl text-ink" style={{ perspective: 600, textShadow: "0 1px 12px rgba(250,248,245,0.55)" }}>
             <CharReveal text="Find Your" delay={0.1} stagger={0.045} />
             <br />
             <CharReveal text="Perfect Space." delay={0.45} stagger={0.04} />
