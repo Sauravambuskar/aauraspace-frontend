@@ -1183,7 +1183,7 @@ function Projects() {
   return (
     <section id="projects" className="bg-cream py-10 md:py-14">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+        <div className="mb-6 flex flex-col justify-between gap-5 md:mb-8 md:flex-row md:items-end">
           <div>
             <EyebrowAnim delay={0}>Our Projects</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
