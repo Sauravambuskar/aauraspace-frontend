@@ -25,7 +25,6 @@ import {
   GALLERY,
   TESTIMONIALS,
   NEIGHBOURHOODS,
-  PROJECTS,
 } from "@/lib/data";
 
 const FEATURED = ALL_PROPERTIES.filter((p) => p.featured).slice(0, 3);
@@ -277,7 +276,7 @@ function Hero() {
   }, [emblaApi]);
 
   return (
-      <section id="top" ref={heroRef} className="relative h-[92svh] min-h-[620px] w-full overflow-hidden bg-cream">
+    <section id="top" ref={heroRef} className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
           {HERO_SLIDES.map((src, i) => (
@@ -294,12 +293,11 @@ function Hero() {
         </div>
       </div>
 
-      {/* Soft bottom wash — only behind the text, keeps the image crisp */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-cream/85 via-cream/35 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
-        className="absolute inset-x-0 bottom-0 px-5 pb-10 md:px-14 md:pb-12"
+        className="absolute inset-x-0 bottom-0 px-5 pb-16 md:px-14 md:pb-28"
       >
         <div className="max-w-3xl" key={selected}>
           {/* Eyebrow — tracking expand */}
@@ -314,7 +312,7 @@ function Hero() {
           </motion.div>
 
           {/* H1 — char-by-char perspective rise */}
-          <h1 className="display-xl text-ink" style={{ perspective: 600, textShadow: "0 1px 12px rgba(250,248,245,0.55)" }}>
+          <h1 className="display-xl text-white leading-[0.95]" style={{ perspective: 600 }}>
             <CharReveal text="Find Your" delay={0.1} stagger={0.045} />
             <br />
             <CharReveal text="Perfect Space." delay={0.45} stagger={0.04} />
@@ -326,7 +324,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.7 }}
-            className="mt-4 flex flex-wrap items-center gap-2 text-sm text-ink/70 md:mt-5 md:text-base"
+            className="mt-4 flex flex-wrap items-center gap-2 text-sm text-white/75 md:mt-6 md:text-base"
           >
             {["Flat", "Shop", "Office", "Plot", "Resale & Rental"].map((item, i) => (
               <motion.span
@@ -336,7 +334,7 @@ function Hero() {
                 transition={{ delay: 1.15 + i * 0.1, duration: 0.45, ease: "easeOut" }}
               >
                 {item}
-                {i < 4 && <span className="ml-2 text-copper">·</span>}
+                {i < 4 && <span className="ml-2 text-copper/70">·</span>}
               </motion.span>
             ))}
           </motion.p>
@@ -347,7 +345,7 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.6, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 inline-block"
+            className="mt-8 inline-block"
           >
             <motion.div whileHover={{ scale: 1.05, boxShadow: "0 0 28px rgba(184,115,51,0.5)" }} whileTap={{ scale: 0.97 }}>
               <Link to="/properties" className="inline-flex items-center gap-3 rounded-full bg-copper px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-white">
@@ -366,10 +364,10 @@ function Hero() {
       </motion.div>
 
       {/* Slide dots */}
-      <div className="absolute inset-x-0 bottom-5 flex justify-center gap-2.5">
+      <div className="absolute inset-x-0 bottom-8 flex justify-center gap-2.5">
         {HERO_SLIDES.map((_, i) => (
           <button key={i} onClick={() => emblaApi?.scrollTo(i)} aria-label={`Slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-500 ${selected === i ? "w-8 bg-copper" : "w-1.5 bg-ink/25"}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${selected === i ? "w-8 bg-copper" : "w-1.5 bg-white/50"}`}
           />
         ))}
       </div>
@@ -705,7 +703,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-8 text-center md:mt-10">
+        <Reveal className="mt-14 text-center">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
@@ -1176,63 +1174,6 @@ function AnimatedFooterBrand() {
 }
 
 /* ================================================================
-   PROJECTS — Aaura Realty portfolio grid (uses Drive images)
-   ================================================================ */
-
-function Projects() {
-  return (
-    <section id="projects" className="bg-cream py-10 md:py-14">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="mb-6 flex flex-col justify-between gap-5 md:mb-8 md:flex-row md:items-end">
-          <div>
-            <EyebrowAnim delay={0}>Our Projects</EyebrowAnim>
-            <h2 className="display-lg mt-4 text-ink">
-              <WordMask delay={0.1}>Signature</WordMask>
-              <br />
-              <WordMask delay={0.25}>Aaura Portfolio.</WordMask>
-            </h2>
-            <DrawUnderline delay={0.5} />
-          </div>
-          <p className="max-w-md text-sm text-ink/70 md:text-base">
-            A curated selection of projects we've handpicked, marketed, and closed across Pune's most sought-after addresses.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((p, i) => (
-            <motion.article
-              key={p.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative overflow-hidden bg-ink/5"
-            >
-              <div className="aspect-[4/5] overflow-hidden">
-                <motion.img
-                  src={p.img}
-                  alt={p.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </div>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent opacity-90" />
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <div className="eyebrow !text-copper mb-2">0{i + 1}</div>
-                <h3 className="font-serif text-2xl leading-tight text-white md:text-3xl">{p.title}</h3>
-                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/70">{p.location}</p>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ================================================================
    PAGE
    ================================================================ */
 
@@ -1244,7 +1185,6 @@ export default function Home() {
       <Hero />
       <Services />
       <Featured />
-      <Projects />
       <ScrollImageShowcase />
       <ParallaxBreak />
       <Stats />

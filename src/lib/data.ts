@@ -2,49 +2,18 @@
    Centralized data for all Aaura Realty pages
    ================================================================ */
 
-import img1 from "@/assets/drive/img1.png.asset.json";
-import img2 from "@/assets/drive/img2.png.asset.json";
-import img3 from "@/assets/drive/img3.png.asset.json";
-import img4 from "@/assets/drive/img4.png.asset.json";
-import img5 from "@/assets/drive/img5.jpg.asset.json";
-import img6 from "@/assets/drive/img6.jpg.asset.json";
-import img7 from "@/assets/drive/img7.jpg.asset.json";
-import img8 from "@/assets/drive/img8.jpg.asset.json";
-import img9 from "@/assets/drive/img9.webp.asset.json";
-
-const D = {
-  img1: img1.url, img2: img2.url, img3: img3.url, img4: img4.url,
-  img5: img5.url, img6: img6.url, img7: img7.url, img8: img8.url, img9: img9.url,
-};
-
-/* Drive images are ONLY used in the PROJECTS section below.
-   All other sections use Unsplash placeholders. */
-export const PROJECTS = [
-  { title: "Aaura Project 01", location: "Kharadi, Pune",       img: D.img1 },
-  { title: "Aaura Project 02", location: "Baner, Pune",         img: D.img2 },
-  { title: "Aaura Project 03", location: "Hinjewadi, Pune",     img: D.img3 },
-  { title: "Aaura Project 04", location: "Wakad, Pune",         img: D.img4 },
-  { title: "Aaura Project 05", location: "Koregaon Park, Pune", img: D.img5 },
-  { title: "Aaura Project 06", location: "Viman Nagar, Pune",   img: D.img6 },
-  { title: "Aaura Project 07", location: "Balewadi, Pune",      img: D.img7 },
-  { title: "Aaura Project 08", location: "Aundh, Pune",         img: D.img8 },
-  { title: "Aaura Project 09", location: "Kalyani Nagar, Pune", img: D.img9 },
-];
-
-const U = (id: string) => `https://images.unsplash.com/${id}?w=1400&q=80&auto=format&fit=crop`;
-
 export const HERO_SLIDES = [
-  U("photo-1605276374104-dee2a0ed3cd6"),
-  U("photo-1583847268964-b28dc8f51f92"),
-  U("photo-1604014237800-1c9102c219da"),
+  "https://iili.io/CROId9s.png",
+  "https://iili.io/CROn0TQ.png",
+  "https://iili.io/CRND8AJ.png",
 ];
 
 export const SERVICES = [
-  { name: "Flat",            desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: U("photo-1560448204-e02f11c3d0e2") },
-  { name: "Shop",            desc: "High-footfall retail spaces in prime commercial corridors.",       img: U("photo-1555529669-e69e7aa0ba9a") },
-  { name: "Office",          desc: "Grade-A office spaces, fitted or shell, for every team size.",     img: U("photo-1497366216548-37526070297c") },
-  { name: "Plot",            desc: "NA & RERA-approved residential and commercial plots.",             img: U("photo-1500382017468-9049fed747ef") },
-  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.",    img: U("photo-1580587771525-78b9dba3b914") },
+  { name: "Flat", desc: "Premium 1, 2, 3 & 4 BHK homes across Pune's finest neighborhoods.", img: "/residential-DshD8vFh.jpg" },
+  { name: "Shop", desc: "High-footfall retail spaces in prime commercial corridors.", img: "/commercial-lWmdaWql.jpg" },
+  { name: "Office", desc: "Grade-A office spaces, fitted or shell, for every team size.", img: "/img5-BjgfExbp.jpg" },
+  { name: "Plot", desc: "NA & RERA-approved residential and commercial plots.", img: "/img4-op-329k9.jpg" },
+  { name: "Resale & Rental", desc: "Curated resale listings and verified rentals across the city.", img: "/img4-op-329k9.jpg" },
 ];
 
 export const STATS = [
@@ -55,13 +24,13 @@ export const STATS = [
 ];
 
 export const GALLERY = [
-  { title: "Skyline Residences", img: U("photo-1600585154340-be6161a56a0c") },
-  { title: "Copper House",       img: U("photo-1613490493576-7fde63acd811") },
-  { title: "Garden Heights",     img: U("photo-1512917774080-9991f1c4c750") },
-  { title: "Baner Plaza",        img: U("photo-1560448204-e02f11c3d0e2") },
-  { title: "Kharadi Greens",     img: U("photo-1567496898669-ee935f5f647a") },
-  { title: "Wakad Towers",       img: U("photo-1502672260266-1c1ef2d93688") },
-  { title: "Hinjewadi Court",    img: U("photo-1493809842364-78817add7ffb") },
+  { title: "Skyline Residences", img: "/img4-op-329k9.jpg" },
+  { title: "Copper House", img: "/residential-DshD8vFh.jpg" },
+  { title: "Garden Heights", img: "/residential-DshD8vFh.jpg" },
+  { title: "Baner Plaza", img: "/commercial-lWmdaWql.jpg" },
+  { title: "Kharadi Greens", img: "/img4-op-329k9.jpg" },
+  { title: "Wakad Towers", img: "/commercial-lWmdaWql.jpg" },
+  { title: "Hinjewadi Court", img: "/img5-BjgfExbp.jpg" },
 ];
 
 export const TESTIMONIALS = [
@@ -77,7 +46,7 @@ export const NEIGHBOURHOODS = [
     name: "Kharadi",
     tag: "IT Corridor",
     count: "120+ Homes",
-    img: U("photo-1600585154340-be6161a56a0c"),
+    img: "/img4-op-329k9.jpg",
     desc: "Home to major IT campuses, Kharadi offers an ideal blend of professional proximity and residential comfort. Excellent connectivity via the Pune-Ahmednagar highway.",
     avgPrice: "₹ 75–95 Lakh",
     highlights: ["EON IT Park nearby", "Metro connectivity", "Schools & hospitals", "Active social scene"],
@@ -86,7 +55,7 @@ export const NEIGHBOURHOODS = [
     name: "Baner",
     tag: "Premium Living",
     count: "85+ Homes",
-    img: U("photo-1613490493576-7fde63acd811"),
+    img: "/residential-DshD8vFh.jpg",
     desc: "Upscale neighbourhood with leafy streets, premium restaurants, and Grade-A offices. A preferred destination for senior professionals seeking quality of life.",
     avgPrice: "₹ 90 Lakh–1.5 Cr",
     highlights: ["Premium dining & retail", "Proximity to Balewadi", "Wide roads", "Green cover"],
@@ -95,7 +64,7 @@ export const NEIGHBOURHOODS = [
     name: "Hinjewadi",
     tag: "Tech Hub",
     count: "140+ Homes",
-    img: U("photo-1512917774080-9991f1c4c750"),
+    img: "/commercial-lWmdaWql.jpg",
     desc: "Pune's largest IT hub hosts over 300 companies. Rapid infrastructure development and affordable pricing make Hinjewadi the go-to for tech professionals.",
     avgPrice: "₹ 55–80 Lakh",
     highlights: ["IT Park Phases I–III", "Upcoming metro", "Affordable prices", "Growing infrastructure"],
@@ -104,7 +73,7 @@ export const NEIGHBOURHOODS = [
     name: "Wakad",
     tag: "Family First",
     count: "70+ Homes",
-    img: U("photo-1560448204-e02f11c3d0e2"),
+    img: "/residential-DshD8vFh.jpg",
     desc: "A family-friendly suburb with top schools, hospitals, and parks. Wakad's calm residential character and improving connectivity attract long-term buyers.",
     avgPrice: "₹ 50–70 Lakh",
     highlights: ["Reputed schools", "Community parks", "Kothrud proximity", "Growing social infra"],
@@ -113,7 +82,7 @@ export const NEIGHBOURHOODS = [
     name: "Koregaon Park",
     tag: "Heritage Luxe",
     count: "40+ Homes",
-    img: U("photo-1567496898669-ee935f5f647a"),
+    img: "/img4-op-329k9.jpg",
     desc: "Pune's most iconic address. Tree-lined avenues, colonial bungalows, and luxury apartments define this heritage zone that is both timeless and aspirational.",
     avgPrice: "₹ 1.5–3.5 Cr",
     highlights: ["Heritage bungalows", "Luxury apartments", "Fine dining & cafés", "Quiet prestige"],
@@ -122,7 +91,7 @@ export const NEIGHBOURHOODS = [
     name: "Viman Nagar",
     tag: "Lifestyle",
     count: "60+ Homes",
-    img: U("photo-1502672260266-1c1ef2d93688"),
+    img: "/commercial-lWmdaWql.jpg",
     desc: "Minutes from Pune Airport, Viman Nagar is a cosmopolitan hub with malls, international schools, and a thriving expat community.",
     avgPrice: "₹ 70–1.1 Cr",
     highlights: ["Airport proximity", "Phoenix Marketcity", "International schools", "Strong rental demand"],
@@ -154,7 +123,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 85 Lakh onwards",
     area: "1,450 sq ft",
     location: "Kharadi, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "Ready to Move",
     beds: 3,
     baths: 2,
@@ -167,7 +136,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 68 Lakh onwards",
     area: "1,120 sq ft",
     location: "Baner, Pune",
-    img: U("photo-1580587771525-78b9dba3b914"),
+    img: "/residential-DshD8vFh.jpg",
     status: "Under Construction",
     beds: 2,
     baths: 2,
@@ -179,7 +148,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 2.1 Cr onwards",
     area: "2,800 sq ft",
     location: "Koregaon Park, Pune",
-    img: U("photo-1580587771525-78b9dba3b914"),
+    img: "/residential-DshD8vFh.jpg",
     status: "Ready to Move",
     beds: 4,
     baths: 3,
@@ -192,7 +161,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 42 Lakh onwards",
     area: "650 sq ft",
     location: "Wakad, Pune",
-    img: U("photo-1580587771525-78b9dba3b914"),
+    img: "/residential-DshD8vFh.jpg",
     status: "Under Construction",
     beds: 1,
     baths: 1,
@@ -204,7 +173,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 1.1 Cr onwards",
     area: "1,780 sq ft",
     location: "Viman Nagar, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "Ready to Move",
     beds: 3,
     baths: 3,
@@ -216,7 +185,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 58 Lakh onwards",
     area: "1,050 sq ft",
     location: "Hinjewadi Phase 2, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "Under Construction",
     beds: 2,
     baths: 2,
@@ -229,7 +198,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 95 Lakh onwards",
     area: "450 sq ft",
     location: "Baner Road, Pune",
-    img: U("photo-1555529669-e69e7aa0ba9a"),
+    img: "/commercial-lWmdaWql.jpg",
     status: "Ready to Occupy",
     featured: true,
   },
@@ -240,7 +209,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 1.1 Cr onwards",
     area: "620 sq ft",
     location: "Viman Nagar, Pune",
-    img: U("photo-1555529669-e69e7aa0ba9a"),
+    img: "/commercial-lWmdaWql.jpg",
     status: "Ready to Occupy",
   },
   {
@@ -250,7 +219,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 1.8 Cr onwards",
     area: "800 sq ft",
     location: "Koregaon Park, Pune",
-    img: U("photo-1555529669-e69e7aa0ba9a"),
+    img: "/commercial-lWmdaWql.jpg",
     status: "Ready to Occupy",
   },
   // Offices
@@ -261,7 +230,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 1.2 Cr onwards",
     area: "1,200 sq ft",
     location: "Baner, Pune",
-    img: U("photo-1497366216548-37526070297c"),
+    img: "/img5-BjgfExbp.jpg",
     status: "Ready to Move",
     featured: true,
   },
@@ -272,7 +241,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 85 Lakh onwards",
     area: "900 sq ft",
     location: "Hinjewadi, Pune",
-    img: U("photo-1497366216548-37526070297c"),
+    img: "/img5-BjgfExbp.jpg",
     status: "Under Construction",
   },
   {
@@ -282,7 +251,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 65 Lakh onwards",
     area: "600 sq ft",
     location: "Kharadi, Pune",
-    img: U("photo-1497366216548-37526070297c"),
+    img: "/img5-BjgfExbp.jpg",
     status: "Ready to Move",
   },
   // Plots
@@ -293,7 +262,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 45 Lakh onwards",
     area: "2,000 sq ft",
     location: "Hinjewadi, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "RERA Approved",
     featured: true,
   },
@@ -304,7 +273,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 65 Lakh onwards",
     area: "2,500 sq ft",
     location: "Wakad, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "RERA Approved",
   },
   {
@@ -314,7 +283,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 1.2 Cr onwards",
     area: "3,500 sq ft",
     location: "Kharadi, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "NA Approved",
   },
   // Resale & Rental
@@ -325,7 +294,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 72 Lakh",
     area: "1,050 sq ft",
     location: "Kharadi, Pune",
-    img: U("photo-1493809842364-78817add7ffb"),
+    img: "/img4-op-329k9.jpg",
     status: "Resale",
     beds: 2,
     baths: 2,
@@ -338,7 +307,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 35,000 / month",
     area: "1,380 sq ft",
     location: "Baner, Pune",
-    img: U("photo-1580587771525-78b9dba3b914"),
+    img: "/residential-DshD8vFh.jpg",
     status: "Rental",
     beds: 3,
     baths: 2,
@@ -350,7 +319,7 @@ export const ALL_PROPERTIES: Property[] = [
     price: "₹ 18,000 / month",
     area: "620 sq ft",
     location: "Viman Nagar, Pune",
-    img: U("photo-1580587771525-78b9dba3b914"),
+    img: "/residential-DshD8vFh.jpg",
     status: "Rental",
     beds: 1,
     baths: 1,
