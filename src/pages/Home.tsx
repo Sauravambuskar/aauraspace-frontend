@@ -705,7 +705,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-14 text-center">
+        <Reveal className="mt-8 text-center md:mt-10">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
@@ -1181,9 +1181,9 @@ function AnimatedFooterBrand() {
 
 function Projects() {
   return (
-    <section id="projects" className="bg-cream py-20 md:py-28">
+    <section id="projects" className="bg-cream py-10 md:py-14">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+        <div className="mb-6 flex flex-col justify-between gap-5 md:mb-8 md:flex-row md:items-end">
           <div>
             <EyebrowAnim delay={0}>Our Projects</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
