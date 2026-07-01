@@ -878,7 +878,7 @@ function NeighbourhoodsPreview() {
   return (
     <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-6 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowAnim delay={0}>Explore Pune</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
