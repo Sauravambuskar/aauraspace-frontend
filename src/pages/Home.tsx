@@ -1187,6 +1187,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Featured />
+      <Projects />
       <ScrollImageShowcase />
       <ParallaxBreak />
       <Stats />
