@@ -1176,6 +1176,63 @@ function AnimatedFooterBrand() {
 }
 
 /* ================================================================
+   PROJECTS — Aaura Realty portfolio grid (uses Drive images)
+   ================================================================ */
+
+function Projects() {
+  return (
+    <section id="projects" className="bg-cream py-20 md:py-28">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+          <div>
+            <EyebrowAnim delay={0}>Our Projects</EyebrowAnim>
+            <h2 className="display-lg mt-4 text-ink">
+              <WordMask delay={0.1}>Signature</WordMask>
+              <br />
+              <WordMask delay={0.25}>Aaura Portfolio.</WordMask>
+            </h2>
+            <DrawUnderline delay={0.5} />
+          </div>
+          <p className="max-w-md text-sm text-ink/70 md:text-base">
+            A curated selection of projects we've handpicked, marketed, and closed across Pune's most sought-after addresses.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative overflow-hidden bg-ink/5"
+            >
+              <div className="aspect-[4/5] overflow-hidden">
+                <motion.img
+                  src={p.img}
+                  alt={p.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent opacity-90" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="eyebrow !text-copper mb-2">0{i + 1}</div>
+                <h3 className="font-serif text-2xl leading-tight text-white md:text-3xl">{p.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/70">{p.location}</p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
    PAGE
    ================================================================ */
 
