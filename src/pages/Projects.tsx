@@ -18,7 +18,7 @@ const PROJECTS = [
     tagline: "Launching New Tower",
     cta: "Contact for Best Deal",
     type: "Residential",
-    image: "/residential-DshD8vFh.jpg", // Replace with actual august-towers.jpg
+    image: "/august-towers.jpg",
     phone: ["+91 9881900009", "+91 9172355369"],
   },
   {
@@ -29,7 +29,7 @@ const PROJECTS = [
     tagline: "Available 2BHK, 3BHK, 3.5 BHK, 4BHK",
     cta: "Contact for Best Deal",
     type: "Luxury Residential",
-    image: "/img5-BjgfExbp.jpg", // Replace with actual the-collection.jpg
+    image: "/the-collection.jpg",
     phone: ["+91 9881900009", "+91 9172355369"],
     features: ["Sky Pool", "Premium Amenities", "Luxury Living"],
   },
@@ -41,7 +41,7 @@ const PROJECTS = [
     tagline: "Built to Suite",
     cta: "Offices Available - Contact for Best Deal",
     type: "Commercial",
-    image: "/commercial-lWmdaWql.jpg", // Replace with actual business-park.jpg
+    image: "/business-park.jpg",
     phone: ["+91 9881900009", "+91 9172355369"],
   },
   {
@@ -52,7 +52,7 @@ const PROJECTS = [
     tagline: "Luxury Unplugged",
     cta: "Available 2, 3, 3.5 & 4.5 BHK",
     type: "Residential",
-    image: "/img4-op-329k9.jpg", // Replace with actual sun-valley.jpg
+    image: "/sun-valley.jpg",
     phone: ["+91 9881900009", "+91 9172355369"],
   },
 ];
@@ -146,7 +146,7 @@ function Hero() {
         style={{ scale: imgScale }}
       >
         <img
-          src="/img5-BjgfExbp.jpg"
+          src="/the-collection.jpg"
           alt="Bramhacorp Projects"
           className="h-full w-full object-cover"
         />
