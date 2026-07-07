@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 const LOGO_URL = "/logo.png";
 
 const NAV_LINKS = [
-  { label: "Properties", to: "/properties", num: "01" },
-  { label: "Projects", to: "/projects", num: "02" },
-  { label: "About", to: "/about", num: "03" },
-  { label: "Neighbourhoods", to: "/neighbourhoods", num: "04" },
-  { label: "Contact", to: "/contact", num: "05" },
+  { label: "Home", to: "/", num: "01" },
+  { label: "Properties", to: "/properties", num: "02" },
+  { label: "Projects", to: "/projects", num: "03" },
+  { label: "About", to: "/about", num: "04" },
+  { label: "Neighbourhoods", to: "/neighbourhoods", num: "05" },
+  { label: "Contact", to: "/contact", num: "06" },
 ];
 
 export default function Navbar() {
