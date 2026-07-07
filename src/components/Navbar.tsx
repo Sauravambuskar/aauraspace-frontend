@@ -6,9 +6,10 @@ const LOGO_URL = "/logo.png";
 
 const NAV_LINKS = [
   { label: "Properties", to: "/properties", num: "01" },
-  { label: "About", to: "/about", num: "02" },
-  { label: "Neighbourhoods", to: "/neighbourhoods", num: "03" },
-  { label: "Contact", to: "/contact", num: "04" },
+  { label: "Projects", to: "/projects", num: "02" },
+  { label: "About", to: "/about", num: "03" },
+  { label: "Neighbourhoods", to: "/neighbourhoods", num: "04" },
+  { label: "Contact", to: "/contact", num: "05" },
 ];
 
 export default function Navbar() {
