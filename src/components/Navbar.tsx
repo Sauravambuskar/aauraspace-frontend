@@ -48,7 +48,7 @@ export default function Navbar() {
         animate={
           isHome
             ? { backgroundColor: scrolled || mobileOpen ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0)" }
-            : { backgroundColor: "rgba(255,255,255,1)", boxShadow: "0 1px 0 rgba(0,0,0,0.06)" }
+            : { backgroundColor: "rgba(255,255,255,1)", boxShadow: "0 1px 0 rgba(180,130,50,0.12)" }
         }
         transition={{ duration: 0.4 }}
         className="fixed inset-x-0 top-0 z-50"
@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {/* Desktop CTA */}
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link to="/contact" className="hidden rounded-full border border-copper px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-copper hover:bg-copper hover:text-white transition-colors md:inline-block">
+              <Link to="/contact" className="hidden rounded-full bg-copper px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-white shadow-sm shadow-copper/20 hover:shadow-copper/40 transition-shadow md:inline-block">
                 Enquire Now
               </Link>
             </motion.div>
@@ -184,7 +184,7 @@ export default function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full rounded-full border border-copper py-4 text-center text-xs font-medium uppercase tracking-[0.22em] text-copper"
+                  className="block w-full rounded-full bg-copper py-4 text-center text-xs font-medium uppercase tracking-[0.22em] text-white shadow-sm shadow-copper/20"
                 >
                   Enquire Now →
                 </Link>
