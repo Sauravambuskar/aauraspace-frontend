@@ -67,14 +67,14 @@ export function PageHero({
   breadcrumb?: Array<{ label: string; to?: string }>;
 }) {
   return (
-    <section className="relative h-[55vh] min-h-[360px] w-full overflow-hidden bg-gradient-to-br from-copper/20 to-cream">
+    <section className="relative h-[55vh] min-h-[360px] w-full overflow-hidden bg-ink">
       <img
         src={img}
         alt={title}
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        className="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-copper/70 via-copper/30 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/95 via-white/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 px-6 pb-10 md:px-14 md:pb-14">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

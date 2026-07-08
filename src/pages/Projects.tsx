@@ -139,10 +139,10 @@ function Hero() {
   return (
     <section 
       ref={heroRef} 
-      className="relative h-[80vh] w-full overflow-hidden bg-gradient-to-br from-copper/20 to-cream"
+      className="relative h-[80vh] w-full overflow-hidden bg-ink"
     >
       <motion.div 
-        className="absolute inset-0 opacity-50"
+        className="absolute inset-0"
         style={{ scale: imgScale }}
       >
         <img
@@ -152,7 +152,7 @@ function Hero() {
         />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-copper/80 via-copper/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/70 via-ink/30 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -233,10 +233,10 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-copper/90 via-copper/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
         
         {/* Type Badge */}
-        <span className="absolute left-6 top-6 rounded-full bg-copper px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
+        <span className="absolute left-6 top-6 rounded-full bg-ink px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
           {project.type}
         </span>
 
@@ -271,7 +271,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
           </p>
 
           {/* Tagline */}
-          <p className="mt-3 text-base font-medium text-copper md:text-lg">
+          <p className="mt-3 text-base font-medium text-white/90 md:text-lg">
             {project.tagline}
           </p>
 
@@ -302,7 +302,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                 href={`tel:${phone}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-copper transition-colors hover:bg-copper hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 <svg 
                   className="h-4 w-4" 
@@ -333,11 +333,11 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
 
 function ProjectsGrid() {
   return (
-    <section className="bg-cream px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-cream px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-12">
           <EyebrowAnim delay={0}>Featured Developments</EyebrowAnim>
-          <h2 className="display-lg mt-4 text-copper">
+          <h2 className="display-lg mt-4 text-ink">
             <WordMask delay={0.1}>Our Projects.</WordMask>
           </h2>
           <motion.div
@@ -345,11 +345,11 @@ function ProjectsGrid() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 block h-[3px] w-32 bg-copper"
+            className="mt-4 block h-[3px] w-32 bg-ink"
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {PROJECTS.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
@@ -361,15 +361,15 @@ function ProjectsGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
-          <p className="mb-6 text-lg text-copper/70">
+          <p className="mb-5 text-lg text-ink/70">
             Interested in any of these projects?
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-lg shadow-copper/30"
+              className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-lg"
             >
               Schedule Site Visit
               <motion.span
