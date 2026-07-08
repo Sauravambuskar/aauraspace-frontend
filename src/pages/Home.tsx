@@ -1158,6 +1158,132 @@ function EnquiryForm() {
 }
 
 /* ================================================================
+   WHY CHOOSE US — Animated feature grid with golden accents
+   ================================================================ */
+
+const WHY_CHOOSE = [
+  { icon: "🏆", title: "12+ Years Experience", desc: "Over a decade building trust in Pune's real estate market." },
+  { icon: "🤝", title: "500+ Happy Clients", desc: "Families who found their dream homes through us." },
+  { icon: "🏢", title: "50+ Builder Partners", desc: "Exclusive access to premium developments across Pune." },
+  { icon: "📋", title: "RERA Compliant", desc: "Every property verified and legally documented." },
+  { icon: "🔑", title: "End-to-End Support", desc: "From search to registration, we handle everything." },
+  { icon: "💎", title: "Best Price Guarantee", desc: "Direct builder rates with no hidden commissions." },
+];
+
+function WhyChooseUs() {
+  return (
+    <section className="relative overflow-hidden bg-white py-14 md:py-20">
+      {/* Golden decorative line top */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+      
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="text-center">
+          <EyebrowAnim delay={0}>Why Choose Aaura</EyebrowAnim>
+          <h2 className="display-lg mt-4 text-ink">
+            <WordMask delay={0.1}>Trust Built on Results.</WordMask>
+          </h2>
+          {/* Golden diamond divider */}
+          <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
+            <span className="h-2 w-2 rotate-45 bg-copper" />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {WHY_CHOOSE.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(180,130,50,0.12)" }}
+              className="group relative rounded-lg border border-copper/15 bg-white p-7 text-center transition-all"
+            >
+              {/* Golden corner accent */}
+              <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-copper/30 rounded-tl-lg" />
+              <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-copper/30 rounded-br-lg" />
+              
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-copper/10 text-2xl"
+              >
+                {item.icon}
+              </motion.div>
+              <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink/60">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Golden decorative line bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+    </section>
+  );
+}
+
+/* ================================================================
+   TRUSTED PARTNERS — Logo ticker with golden style
+   ================================================================ */
+
+const PARTNER_NAMES = [
+  "Bramhacorp",
+  "Kolte Patil",
+  "Godrej Properties",
+  "Lodha Group",
+  "Panchshil",
+  "Kumar Properties",
+  "Marvel Realtors",
+  "Pride Group",
+];
+
+function TrustedPartners() {
+  const items = [...PARTNER_NAMES, ...PARTNER_NAMES];
+  return (
+    <section className="relative overflow-hidden bg-white py-12 md:py-16">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+      
+      <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
+        <EyebrowAnim delay={0}>Our Network</EyebrowAnim>
+        <h2 className="mt-3 text-xl font-semibold text-ink md:text-2xl">
+          Trusted Builder Partners
+        </h2>
+        {/* Diamond divider */}
+        <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+          <span className="h-px w-12 bg-copper/40" />
+          <span className="h-1.5 w-1.5 rotate-45 bg-copper" />
+          <span className="h-px w-12 bg-copper/40" />
+        </div>
+      </div>
+
+      {/* Scrolling ticker */}
+      <div className="mt-10 overflow-hidden">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+          className="flex items-center whitespace-nowrap"
+        >
+          {items.map((name, i) => (
+            <div
+              key={i}
+              className="mx-6 flex items-center gap-3 rounded-lg border border-copper/15 bg-white px-8 py-4 shadow-sm md:mx-8"
+            >
+              <span className="h-3 w-3 rotate-45 bg-copper/40" />
+              <span className="text-sm font-medium tracking-wide text-ink/70">{name}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+    </section>
+  );
+}
+
+/* ================================================================
    FOOTER OVERRIDE — ScrambleText on brand name
    ================================================================ */
 
@@ -1187,12 +1313,14 @@ export default function Home() {
     <main className="bg-cream text-ink">
       <Navbar />
       <Hero />
+      <WhyChooseUs />
       <Services />
       <Featured />
       <ScrollImageShowcase />
       <ParallaxBreak />
       <Stats />
       <MarqueeTicker />
+      <TrustedPartners />
       <Gallery />
       <NeighbourhoodsPreview />
       <Testimonials />
