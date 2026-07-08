@@ -7,19 +7,19 @@ const LOGO_URL = "/logo.png";
 export default function Footer() {
   return (
     <footer className="border-t border-copper/20 bg-white text-ink">
-      <div className="mx-auto max-w-[1400px] px-5 pt-12 pb-8 md:px-10 md:pt-16">
+      <div className="mx-auto max-w-[1400px] px-5 pt-8 pb-6 md:px-10 md:pt-10">
         <Reveal className="text-center">
           <img
             src={LOGO_URL}
             alt="Aaura Realty"
-            className="mx-auto mb-6 h-16 w-auto md:h-20"
+            className="mx-auto mb-4 h-12 w-auto md:h-14"
           />
-          <p className="font-serif text-lg italic text-ink/50 md:text-xl">
+          <p className="font-serif text-sm italic text-ink/50 md:text-base">
             Our Passion. Your Aaura.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 border-t border-copper/10 pt-10 md:mt-14 md:grid-cols-4 md:gap-12 md:pt-12">
+        <div className="mt-8 grid grid-cols-2 gap-6 border-t border-copper/10 pt-8 md:mt-10 md:grid-cols-4 md:gap-10 md:pt-10">
           <div>
             <div className="eyebrow mb-5">Quick Links</div>
             <ul className="space-y-3 text-sm text-ink/60">
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-copper/10 pt-6 text-xs text-ink/40 md:mt-14 md:flex-row md:justify-between md:pt-8">
+        <div className="mt-8 flex flex-col gap-2 border-t border-copper/10 pt-5 text-xs text-ink/40 md:mt-10 md:flex-row md:justify-between md:pt-6">
           <p>© {new Date().getFullYear()} Aaura Realty. All rights reserved.</p>
           <p>RERA registered. Disclaimer: All information is for representational purposes only.</p>
         </div>

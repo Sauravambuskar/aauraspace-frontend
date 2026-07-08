@@ -58,7 +58,7 @@ export default function Navbar() {
             <img
               src={LOGO_URL}
               alt="Aaura Realty"
-              className="h-10 w-auto object-contain md:h-12 rounded-md"
+              className="h-14 w-auto object-contain md:h-16 rounded-md"
             />
           </Link>
 
