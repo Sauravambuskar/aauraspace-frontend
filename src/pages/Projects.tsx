@@ -236,7 +236,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
         
         {/* Type Badge */}
-        <span className="absolute left-6 top-6 rounded-full bg-copper px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
+        <span className="absolute left-6 top-6 rounded-full bg-ink px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
           {project.type}
         </span>
 
@@ -271,7 +271,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
           </p>
 
           {/* Tagline */}
-          <p className="mt-3 text-base font-medium text-copper md:text-lg">
+          <p className="mt-3 text-base font-medium text-white/90 md:text-lg">
             {project.tagline}
           </p>
 
@@ -302,7 +302,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                 href={`tel:${phone}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-copper hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 <svg 
                   className="h-4 w-4" 
@@ -345,7 +345,7 @@ function ProjectsGrid() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 block h-[3px] w-32 bg-copper"
+            className="mt-4 block h-[3px] w-32 bg-ink"
           />
         </div>
 
@@ -369,7 +369,7 @@ function ProjectsGrid() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-lg shadow-copper/30"
+              className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-lg"
             >
               Schedule Site Visit
               <motion.span

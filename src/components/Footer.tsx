@@ -6,7 +6,7 @@ const LOGO_URL = "/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-copper/40 bg-ink/95 text-white">
+    <footer className="border-t border-gray-200 bg-white text-ink">
       <div className="mx-auto max-w-[1400px] px-5 pt-12 pb-8 md:px-10 md:pt-16">
         <Reveal className="text-center">
           <img
