@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 const LOGO_URL = "/logo.png";
 
 const NAV_LINKS = [
-  { label: "Properties", to: "/properties", num: "01" },
-  { label: "Projects", to: "/projects", num: "02" },
-  { label: "About", to: "/about", num: "03" },
-  { label: "Neighbourhoods", to: "/neighbourhoods", num: "04" },
-  { label: "Contact", to: "/contact", num: "05" },
+  { label: "Home", to: "/", num: "01" },
+  { label: "Properties", to: "/properties", num: "02" },
+  { label: "Projects", to: "/projects", num: "03" },
+  { label: "About", to: "/about", num: "04" },
+  { label: "Neighbourhoods", to: "/neighbourhoods", num: "05" },
+  { label: "Contact", to: "/contact", num: "06" },
 ];
 
 export default function Navbar() {
@@ -37,7 +38,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const barColor = isHome ? "bg-white" : "bg-ink";
+  const barColor = isHome ? "bg-white" : "bg-copper";
 
   return (
     <>
@@ -116,7 +117,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[55] bg-ink/40 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[55] bg-copper/40 backdrop-blur-sm md:hidden"
               onClick={() => setMobileOpen(false)}
             />
 
@@ -127,7 +128,7 @@ export default function Navbar() {
               animate={{ x: "0%" }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 260, damping: 30 }}
-              className="fixed inset-y-0 right-0 z-[60] flex w-[85vw] max-w-sm flex-col bg-ink md:hidden"
+              className="fixed inset-y-0 right-0 z-[60] flex w-[85vw] max-w-sm flex-col bg-gradient-to-br from-copper/95 to-copper/85 backdrop-blur-lg md:hidden"
             >
               {/* Top bar inside panel */}
               <div className="flex items-center justify-between px-7 py-6">
