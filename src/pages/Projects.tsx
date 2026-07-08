@@ -340,13 +340,12 @@ function ProjectsGrid() {
           <h2 className="display-lg mt-4 text-ink">
             <WordMask delay={0.1}>Our Projects.</WordMask>
           </h2>
-          <motion.div
-            initial={{ scaleX: 0, originX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 block h-[2px] w-24 bg-copper"
-          />
+          {/* Golden diamond divider */}
+          <div className="mt-5 flex items-center gap-3">
+            <span className="h-px w-12 bg-copper/60" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-copper" />
+            <span className="h-px w-12 bg-copper/60" />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">

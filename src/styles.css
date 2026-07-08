@@ -202,4 +202,34 @@
   .font-bold {
     font-weight: 800;
   }
+
+  /* Golden decorative divider line with diamonds */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .gold-divider::before,
+  .gold-divider::after {
+    content: '';
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  }
+
+  .gold-divider-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--copper);
+    transform: rotate(45deg);
+  }
+
+  /* Golden section border */
+  .gold-section-border {
+    border-top: 1px solid color-mix(in oklch, var(--copper), transparent 75%);
+    border-bottom: 1px solid color-mix(in oklch, var(--copper), transparent 75%);
+  }
 }
