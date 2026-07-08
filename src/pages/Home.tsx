@@ -704,7 +704,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-10 text-center md:mt-12">
+        <Reveal className="mt-8 text-center md:mt-10">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
@@ -1172,25 +1172,21 @@ const WHY_CHOOSE = [
 
 function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-white py-14 md:py-20">
-      {/* Golden decorative line top */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
-      
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="text-center">
           <EyebrowAnim delay={0}>Why Choose Aaura</EyebrowAnim>
-          <h2 className="display-lg mt-4 text-ink">
+          <h2 className="display-lg mt-3 text-ink">
             <WordMask delay={0.1}>Trust Built on Results.</WordMask>
           </h2>
-          {/* Golden diamond divider */}
-          <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
             <span className="h-2 w-2 rotate-45 bg-copper" />
             <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {WHY_CHOOSE.map((item, i) => (
             <motion.div
               key={item.title}
@@ -1243,7 +1239,7 @@ const PARTNER_NAMES = [
 function TrustedPartners() {
   const items = [...PARTNER_NAMES, ...PARTNER_NAMES];
   return (
-    <section className="relative overflow-hidden bg-white py-12 md:py-16">
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
       
       <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
@@ -1252,7 +1248,7 @@ function TrustedPartners() {
           Trusted Builder Partners
         </h2>
         {/* Diamond divider */}
-        <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+        <div className="mx-auto mt-3 flex items-center justify-center gap-3">
           <span className="h-px w-12 bg-copper/40" />
           <span className="h-1.5 w-1.5 rotate-45 bg-copper" />
           <span className="h-px w-12 bg-copper/40" />
@@ -1260,7 +1256,7 @@ function TrustedPartners() {
       </div>
 
       {/* Scrolling ticker */}
-      <div className="mt-10 overflow-hidden">
+      <div className="mt-8 overflow-hidden">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
@@ -1296,23 +1292,23 @@ const STEPS = [
 
 function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-cream py-14 md:py-20">
+    <section className="relative overflow-hidden bg-cream py-10 md:py-14">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
 
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="text-center">
           <EyebrowAnim delay={0}>Simple Process</EyebrowAnim>
-          <h2 className="display-lg mt-4 text-ink">
+          <h2 className="display-lg mt-3 text-ink">
             <WordMask delay={0.1}>How It Works.</WordMask>
           </h2>
-          <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
             <span className="h-2 w-2 rotate-45 bg-copper" />
             <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
           </div>
         </div>
 
-        <div className="relative mt-14 grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="relative mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
           {/* Golden connecting line (desktop only) */}
           <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-copper/20 via-copper/40 to-copper/20 md:block" />
 
@@ -1355,11 +1351,11 @@ const PROJECT_SHOWCASE = [
 
 function FeaturedProjects() {
   return (
-    <section className="relative overflow-hidden bg-white py-14 md:py-20">
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
 
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <EyebrowAnim delay={0}>Premium Developments</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
@@ -1378,7 +1374,7 @@ function FeaturedProjects() {
           </motion.div>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PROJECT_SHOWCASE.map((p, i) => (
             <motion.div
               key={p.name}
@@ -1425,7 +1421,7 @@ function FeaturedProjects() {
 
 function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-ink py-14 md:py-20">
+    <section className="relative overflow-hidden bg-ink py-10 md:py-14">
       {/* Decorative golden elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute -left-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-copper" />
