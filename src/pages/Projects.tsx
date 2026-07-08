@@ -139,7 +139,7 @@ function Hero() {
   return (
     <section 
       ref={heroRef} 
-      className="relative h-[80vh] w-full overflow-hidden bg-ink"
+      className="relative h-[80vh] w-full overflow-hidden bg-white"
     >
       <motion.div 
         className="absolute inset-0"
@@ -152,7 +152,7 @@ function Hero() {
         />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/70 via-ink/30 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-white via-white/60 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -163,12 +163,12 @@ function Hero() {
             initial={{ opacity: 0, letterSpacing: "0.03em" }}
             animate={{ opacity: 1, letterSpacing: "0.22em" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="eyebrow mb-4 !text-white/60"
+            className="eyebrow mb-4 !text-copper"
           >
             Bramhacorp Projects
           </motion.div>
 
-          <h1 className="display-xl text-white leading-[0.95]">
+          <h1 className="display-xl text-ink leading-[0.95]">
             <motion.span
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
-            className="mt-6 max-w-xl text-base text-white/75 md:text-lg"
+            className="mt-6 max-w-xl text-base text-ink/60 md:text-lg"
           >
             Discover exceptional residential and commercial projects by Bramhacorp 
             in Pune's most coveted locations.
@@ -220,7 +220,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         duration: 0.8, 
         ease: [0.22, 1, 0.36, 1] 
       }}
-      className="group relative overflow-hidden rounded-lg bg-white shadow-xl"
+      className="group relative overflow-hidden rounded-lg bg-white shadow-lg border border-copper/10"
     >
       {/* Image */}
       <div className="relative h-[400px] overflow-hidden md:h-[500px]">
@@ -233,10 +233,10 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
         
         {/* Type Badge */}
-        <span className="absolute left-6 top-6 rounded-full bg-ink px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
+        <span className="absolute left-6 top-6 rounded-full bg-white/90 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-ink backdrop-blur-sm">
           {project.type}
         </span>
 
@@ -333,7 +333,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
 
 function ProjectsGrid() {
   return (
-    <section className="bg-cream px-6 py-12 md:px-10 md:py-16">
+    <section className="bg-white px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-10 md:mb-12">
           <EyebrowAnim delay={0}>Featured Developments</EyebrowAnim>
@@ -345,7 +345,7 @@ function ProjectsGrid() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 block h-[3px] w-32 bg-ink"
+            className="mt-4 block h-[2px] w-24 bg-copper"
           />
         </div>
 
@@ -369,7 +369,7 @@ function ProjectsGrid() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-lg"
+              className="inline-flex items-center gap-3 rounded-full border border-copper px-8 py-4 text-sm font-medium uppercase tracking-[0.2em] text-copper hover:bg-copper hover:text-white transition-colors shadow-lg"
             >
               Schedule Site Visit
               <motion.span
