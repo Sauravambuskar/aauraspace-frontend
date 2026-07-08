@@ -152,7 +152,7 @@ function Hero() {
         />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-ink/70 via-ink/30 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -233,7 +233,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
         
         {/* Type Badge */}
         <span className="absolute left-6 top-6 rounded-full bg-copper px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
@@ -333,9 +333,9 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
 
 function ProjectsGrid() {
   return (
-    <section className="bg-cream px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-cream px-6 py-12 md:px-10 md:py-16">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-12">
           <EyebrowAnim delay={0}>Featured Developments</EyebrowAnim>
           <h2 className="display-lg mt-4 text-ink">
             <WordMask delay={0.1}>Our Projects.</WordMask>
@@ -349,7 +349,7 @@ function ProjectsGrid() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {PROJECTS.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
@@ -361,9 +361,9 @@ function ProjectsGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
-          <p className="mb-6 text-lg text-ink/70">
+          <p className="mb-5 text-lg text-ink/70">
             Interested in any of these projects?
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
