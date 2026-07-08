@@ -139,10 +139,10 @@ function Hero() {
   return (
     <section 
       ref={heroRef} 
-      className="relative h-[80vh] w-full overflow-hidden bg-gradient-to-br from-copper/20 to-cream"
+      className="relative h-[80vh] w-full overflow-hidden bg-ink"
     >
       <motion.div 
-        className="absolute inset-0 opacity-50"
+        className="absolute inset-0"
         style={{ scale: imgScale }}
       >
         <img
@@ -152,7 +152,7 @@ function Hero() {
         />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-copper/80 via-copper/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
@@ -233,7 +233,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-copper/90 via-copper/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent" />
         
         {/* Type Badge */}
         <span className="absolute left-6 top-6 rounded-full bg-copper px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white">
@@ -302,7 +302,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                 href={`tel:${phone}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-copper transition-colors hover:bg-copper hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:bg-copper hover:text-white"
               >
                 <svg 
                   className="h-4 w-4" 
@@ -337,7 +337,7 @@ function ProjectsGrid() {
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-12 md:mb-16">
           <EyebrowAnim delay={0}>Featured Developments</EyebrowAnim>
-          <h2 className="display-lg mt-4 text-copper">
+          <h2 className="display-lg mt-4 text-ink">
             <WordMask delay={0.1}>Our Projects.</WordMask>
           </h2>
           <motion.div
@@ -363,7 +363,7 @@ function ProjectsGrid() {
           transition={{ delay: 0.3, duration: 0.7 }}
           className="mt-16 text-center"
         >
-          <p className="mb-6 text-lg text-copper/70">
+          <p className="mb-6 text-lg text-ink/70">
             Interested in any of these projects?
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
