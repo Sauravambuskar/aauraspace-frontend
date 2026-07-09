@@ -20,6 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLenisSmoothScroll, CountUp, Reveal } from "@/components/shared";
@@ -1576,6 +1577,7 @@ export default function Home() {
       <ParallaxBreak />
       <Stats />
       <MarqueeTicker />
+      <GlobeFeatureSection />
       <TrustedPartners />
       <Gallery />
       <NeighbourhoodsPreview />
