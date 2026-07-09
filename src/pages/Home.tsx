@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLenisSmoothScroll, CountUp, Reveal } from "@/components/shared";
@@ -1482,6 +1483,61 @@ function CtaBanner() {
 }
 
 /* ================================================================
+   SCROLLING TESTIMONIALS COLUMNS — Auto-scrolling vertical columns
+   ================================================================ */
+
+const TESTI_DATA = [
+  { text: "Aaura made buying our first home in Pune effortless. Honest, calm, and always one step ahead.", image: "https://randomuser.me/api/portraits/women/1.jpg", name: "Rohit & Sneha Patil", role: "3 BHK · Kharadi" },
+  { text: "They didn't just sell us a shop — they helped us understand the locality, the footfall, the future.", image: "https://randomuser.me/api/portraits/women/3.jpg", name: "Anjali Mehta", role: "Retail · Baner" },
+  { text: "The most transparent broker we've worked with in fifteen years. Aaura is family now.", image: "https://randomuser.me/api/portraits/men/4.jpg", name: "Vivek Joshi", role: "Office · Hinjewadi" },
+  { text: "Found the perfect 2 BHK in Wakad within two weeks. The team's knowledge is unmatched.", image: "https://randomuser.me/api/portraits/women/5.jpg", name: "Priya Kulkarni", role: "2 BHK · Wakad" },
+  { text: "Aaura handled our office relocation seamlessly. Professional from day one.", image: "https://randomuser.me/api/portraits/men/2.jpg", name: "Deepak Sharma", role: "Office · Baner" },
+  { text: "Best investment advice we ever got. Our property value doubled in 3 years.", image: "https://randomuser.me/api/portraits/men/7.jpg", name: "Suresh Nair", role: "Plot · Hinjewadi" },
+  { text: "From site visit to registration, everything was handled with such care. Truly premium service.", image: "https://randomuser.me/api/portraits/women/8.jpg", name: "Neha Deshmukh", role: "4 BHK · Koregaon Park" },
+  { text: "The team understood our budget constraints and still found us a beautiful home.", image: "https://randomuser.me/api/portraits/men/9.jpg", name: "Amit Kulkarni", role: "2 BHK · Hinjewadi" },
+  { text: "Excellent after-sale support. They helped us even after the purchase was complete.", image: "https://randomuser.me/api/portraits/women/6.jpg", name: "Rashmi Patil", role: "3 BHK · Viman Nagar" },
+];
+
+const testiCol1 = TESTI_DATA.slice(0, 3);
+const testiCol2 = TESTI_DATA.slice(3, 6);
+const testiCol3 = TESTI_DATA.slice(6, 9);
+
+function ScrollingTestimonials() {
+  return (
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto text-center"
+        >
+          <EyebrowAnim delay={0}>Testimonials</EyebrowAnim>
+          <h2 className="display-lg mt-3 text-ink">
+            <WordMask delay={0.1}>What Clients Say.</WordMask>
+          </h2>
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
+            <span className="h-2 w-2 rotate-45 bg-copper" />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
+          </div>
+          <p className="mt-4 text-sm text-ink/60">See what our customers have to say about us.</p>
+        </motion.div>
+
+        <div className="flex justify-center gap-6 mt-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
+          <TestimonialsColumn testimonials={testiCol1} duration={15} />
+          <TestimonialsColumn testimonials={testiCol2} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={testiCol3} className="hidden lg:block" duration={17} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
    FOOTER OVERRIDE — ScrambleText on brand name
    ================================================================ */
 
@@ -1524,6 +1580,7 @@ export default function Home() {
       <Gallery />
       <NeighbourhoodsPreview />
       <Testimonials />
+      <ScrollingTestimonials />
       <CtaBanner />
       <EnquiryForm />
       {/* Footer with scramble brand name */}
