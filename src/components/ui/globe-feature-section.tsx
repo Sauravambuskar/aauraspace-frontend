@@ -30,42 +30,42 @@ const features = [
 
 function AnimatedGlobe() {
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex h-full w-full items-center justify-center">
       {/* Outer ring */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[280px] w-[280px] rounded-full border-2 border-copper/25 md:h-[360px] md:w-[360px]"
+        className="absolute h-[240px] w-[240px] rounded-full border-2 border-copper/25 md:h-[300px] md:w-[300px]"
       />
       {/* Middle ring */}
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[220px] w-[220px] rounded-full border-2 border-copper/35 md:h-[280px] md:w-[280px]"
+        className="absolute h-[180px] w-[180px] rounded-full border-2 border-copper/35 md:h-[230px] md:w-[230px]"
       />
       {/* Inner ring */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[160px] w-[160px] rounded-full border border-dashed border-copper/25 md:h-[200px] md:w-[200px]"
+        className="absolute h-[120px] w-[120px] rounded-full border border-dashed border-copper/25 md:h-[160px] md:w-[160px]"
       />
 
       {/* Center logo */}
       <motion.div
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-xl shadow-copper/15 border border-copper/20 md:h-36 md:w-36"
+        className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-xl shadow-copper/15 border border-copper/20 md:h-28 md:w-28"
       >
-        <img src="/logo.png" alt="Aaura Realty" className="h-20 w-20 object-contain md:h-24 md:w-24" />
+        <img src="/logo.png" alt="Aaura Realty" className="h-14 w-14 object-contain md:h-20 md:w-20" />
       </motion.div>
 
       {/* Floating location pins */}
       {[
-        { label: "Kharadi", top: "2%", left: "65%", delay: 0 },
+        { label: "Kharadi", top: "5%", left: "60%", delay: 0 },
         { label: "Baner", top: "30%", left: "0%", delay: 0.5 },
-        { label: "Hinjewadi", top: "65%", left: "5%", delay: 1 },
-        { label: "Wakad", top: "80%", left: "60%", delay: 1.5 },
-        { label: "KP", top: "40%", left: "85%", delay: 2 },
+        { label: "Hinjewadi", top: "68%", left: "5%", delay: 1 },
+        { label: "Wakad", top: "78%", left: "58%", delay: 1.5 },
+        { label: "KP", top: "38%", left: "82%", delay: 2 },
       ].map((loc) => (
         <motion.div
           key={loc.label}
@@ -91,7 +91,7 @@ export default function GlobeFeatureSection() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
 
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center gap-6">
           {/* Top — Heading centered */}
           <div className="text-center">
             <motion.div
@@ -118,7 +118,7 @@ export default function GlobeFeatureSection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center"
           >
-            <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px]">
+            <div className="relative h-[260px] w-[260px] md:h-[320px] md:w-[320px]">
               <AnimatedGlobe />
             </div>
           </motion.div>
