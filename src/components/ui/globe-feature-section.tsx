@@ -91,9 +91,9 @@ export default function GlobeFeatureSection() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
 
       <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Left — Features */}
-          <div>
+        <div className="flex flex-col items-center gap-10">
+          {/* Top — Heading centered */}
+          <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -104,27 +104,43 @@ export default function GlobeFeatureSection() {
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
                 Covering All of <span className="text-copper">Pune</span>
               </h2>
-              <p className="mt-3 text-sm text-ink/60 md:text-base">
+              <p className="mx-auto mt-3 max-w-md text-sm text-ink/60 md:text-base">
                 From premium IT corridors to heritage neighborhoods — we've got every corner of Pune covered.
               </p>
             </motion.div>
+          </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {/* Center — Animated Globe */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="flex justify-center"
+          >
+            <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px]">
+              <AnimatedGlobe />
+            </div>
+          </motion.div>
+
+          {/* Bottom — Features grid */}
+          <div className="w-full">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="flex gap-3 rounded-lg border border-copper/10 bg-white p-4"
+                  className="flex gap-3 rounded-lg border border-copper/10 bg-white p-4 text-center flex-col items-center"
                 >
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-copper/10">
-                    <feature.icon className="h-4 w-4 text-copper" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-copper/10">
+                    <feature.icon className="h-5 w-5 text-copper" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-ink">{feature.title}</div>
-                    <div className="mt-0.5 text-xs text-ink/55">{feature.description}</div>
+                    <div className="mt-1 text-xs text-ink/55">{feature.description}</div>
                   </div>
                 </motion.div>
               ))}
@@ -135,7 +151,7 @@ export default function GlobeFeatureSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="mt-6 flex items-center gap-4"
+              className="mt-8 flex items-center justify-center gap-4"
             >
               <Link
                 to="/contact"
@@ -152,19 +168,6 @@ export default function GlobeFeatureSection() {
               </Link>
             </motion.div>
           </div>
-
-          {/* Right — Animated Globe */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center"
-          >
-            <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px]">
-              <AnimatedGlobe />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
