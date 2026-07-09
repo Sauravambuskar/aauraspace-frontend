@@ -10,6 +10,11 @@ import {
 } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Autoplay as SwiperAutoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -1339,7 +1344,7 @@ function HowItWorks() {
 }
 
 /* ================================================================
-   FEATURED PROJECTS SHOWCASE — Bramhacorp projects preview
+   FEATURED PROJECTS SHOWCASE — Swiper cards with 3D effect
    ================================================================ */
 
 const PROJECT_SHOWCASE = [
@@ -1358,7 +1363,7 @@ function FeaturedProjects() {
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <EyebrowAnim delay={0}>Premium Developments</EyebrowAnim>
-            <h2 className="display-lg mt-4 text-ink">
+            <h2 className="display-lg mt-3 text-ink">
               <WordMask delay={0.1}>Our Projects.</WordMask>
             </h2>
           </div>
@@ -1374,41 +1379,50 @@ function FeaturedProjects() {
           </motion.div>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PROJECT_SHOWCASE.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative overflow-hidden rounded-lg"
-            >
-              <Link to="/projects">
-                <div className="relative h-[320px] overflow-hidden">
-                  <motion.img
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    src={p.img}
-                    alt={p.name}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
+        {/* Swiper Slider */}
+        <div className="mt-8">
+          <Swiper
+            modules={[SwiperAutoplay, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            centeredSlides={false}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true, bulletActiveClass: "!bg-copper !opacity-100", bulletClass: "inline-block h-2 w-2 rounded-full bg-ink/20 mx-1 cursor-pointer transition-all" }}
+            breakpoints={{
+              640: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3.5 },
+            }}
+            className="pb-10"
+          >
+            {PROJECT_SHOWCASE.map((p) => (
+              <SwiperSlide key={p.name}>
+                <Link to="/projects" className="group block">
+                  <div className="relative h-[300px] overflow-hidden rounded-lg md:h-[360px]">
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent transition-opacity group-hover:opacity-90" />
 
-                  {/* Type badge */}
-                  <span className="absolute right-3 top-3 rounded-full border border-copper/50 bg-white/90 px-3 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-copper backdrop-blur-sm">
-                    {p.type}
-                  </span>
+                    {/* Type badge */}
+                    <span className="absolute right-3 top-3 rounded-full border border-copper/50 bg-white/90 px-3 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-copper backdrop-blur-sm">
+                      {p.type}
+                    </span>
 
-                  {/* Content */}
-                  <div className="absolute inset-x-0 bottom-0 p-5">
-                    <h3 className="text-lg font-semibold text-white">{p.name}</h3>
-                    <p className="mt-1 text-xs text-white/70">📍 {p.location}</p>
+                    {/* Content */}
+                    <div className="absolute inset-x-0 bottom-0 p-5 translate-y-2 transition-transform group-hover:translate-y-0">
+                      <h3 className="text-lg font-semibold text-white">{p.name}</h3>
+                      <p className="mt-1 text-xs text-white/70">📍 {p.location}</p>
+                      <span className="mt-3 inline-block text-xs font-medium uppercase tracking-[0.15em] text-copper opacity-0 transition-opacity group-hover:opacity-100">
+                        View Project →
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
