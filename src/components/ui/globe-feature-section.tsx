@@ -35,37 +35,37 @@ function AnimatedGlobe() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[280px] w-[280px] rounded-full border border-copper/20 md:h-[360px] md:w-[360px]"
+        className="absolute h-[280px] w-[280px] rounded-full border-2 border-copper/25 md:h-[360px] md:w-[360px]"
       />
       {/* Middle ring */}
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[220px] w-[220px] rounded-full border border-copper/30 md:h-[280px] md:w-[280px]"
+        className="absolute h-[220px] w-[220px] rounded-full border-2 border-copper/35 md:h-[280px] md:w-[280px]"
       />
       {/* Inner ring */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute h-[160px] w-[160px] rounded-full border border-dashed border-copper/20 md:h-[200px] md:w-[200px]"
+        className="absolute h-[160px] w-[160px] rounded-full border border-dashed border-copper/25 md:h-[200px] md:w-[200px]"
       />
 
       {/* Center logo */}
       <motion.div
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-xl shadow-copper/20 md:h-32 md:w-32"
+        className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-xl shadow-copper/15 border border-copper/20 md:h-36 md:w-36"
       >
-        <img src="/logo.png" alt="Aaura Realty" className="h-16 w-16 object-contain md:h-20 md:w-20" />
+        <img src="/logo.png" alt="Aaura Realty" className="h-20 w-20 object-contain md:h-24 md:w-24" />
       </motion.div>
 
       {/* Floating location pins */}
       {[
-        { label: "Kharadi", top: "5%", left: "60%", delay: 0 },
-        { label: "Baner", top: "25%", left: "5%", delay: 0.5 },
-        { label: "Hinjewadi", top: "70%", left: "10%", delay: 1 },
-        { label: "Wakad", top: "85%", left: "55%", delay: 1.5 },
-        { label: "KP", top: "45%", left: "85%", delay: 2 },
+        { label: "Kharadi", top: "2%", left: "65%", delay: 0 },
+        { label: "Baner", top: "30%", left: "0%", delay: 0.5 },
+        { label: "Hinjewadi", top: "65%", left: "5%", delay: 1 },
+        { label: "Wakad", top: "80%", left: "60%", delay: 1.5 },
+        { label: "KP", top: "40%", left: "85%", delay: 2 },
       ].map((loc) => (
         <motion.div
           key={loc.label}
@@ -73,9 +73,9 @@ function AnimatedGlobe() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: loc.delay, duration: 0.5, type: "spring" }}
-          animate={{ y: [0, -5, 0] }}
+          animate={{ y: [0, -4, 0] }}
           style={{ top: loc.top, left: loc.left }}
-          className="absolute flex items-center gap-1 rounded-full bg-white px-2 py-1 text-[9px] font-medium text-copper shadow-md"
+          className="absolute flex items-center gap-1 rounded-full border border-copper/20 bg-white px-2.5 py-1.5 text-[10px] font-medium text-copper shadow-md"
         >
           <MapPin className="h-3 w-3" />
           {loc.label}
