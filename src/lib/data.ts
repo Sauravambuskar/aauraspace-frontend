@@ -2,10 +2,48 @@
    Centralized data for all Aaura Realty pages
    ================================================================ */
 
-export const HERO_SLIDES = [
-  "https://iili.io/CROId9s.png",
-  "https://iili.io/CROn0TQ.png",
-  "https://iili.io/CRND8AJ.png",
+export type HeroSlide =
+  | string
+  | {
+      fallback: string;
+      jpgSrcSet: string;
+      webpSrcSet: string;
+      sizes?: string;
+      alt?: string;
+      objectPosition?: string;
+    };
+
+export const HERO_SLIDES: HeroSlide[] = [
+  {
+    fallback: "/hero-residential-1024.jpg",
+    jpgSrcSet:
+      "/hero-residential-640.jpg 640w, /hero-residential-1024.jpg 1024w, /hero-residential-1920.jpg 1920w",
+    webpSrcSet:
+      "/hero-residential-640.webp 640w, /hero-residential-1024.webp 1024w, /hero-residential-1920.webp 1920w",
+    sizes: "100vw",
+    alt: "Luxury residential high-rise at golden hour",
+    objectPosition: "object-[30%_center] md:object-center",
+  },
+  {
+    fallback: "/hero-luxury-night-1024.jpg",
+    jpgSrcSet:
+      "/hero-luxury-night-640.jpg 640w, /hero-luxury-night-1024.jpg 1024w, /hero-luxury-night-1920.jpg 1920w",
+    webpSrcSet:
+      "/hero-luxury-night-640.webp 640w, /hero-luxury-night-1024.webp 1024w, /hero-luxury-night-1920.webp 1920w",
+    sizes: "100vw",
+    alt: "Luxury high-rise with illuminated infinity pool at night",
+    objectPosition: "object-[35%_center] md:object-center",
+  },
+  {
+    fallback: "/hero-skyline-sunset-1024.jpg",
+    jpgSrcSet:
+      "/hero-skyline-sunset-640.jpg 640w, /hero-skyline-sunset-1024.jpg 1024w, /hero-skyline-sunset-1920.jpg 1920w",
+    webpSrcSet:
+      "/hero-skyline-sunset-640.webp 640w, /hero-skyline-sunset-1024.webp 1024w, /hero-skyline-sunset-1920.webp 1920w",
+    sizes: "100vw",
+    alt: "Modern luxury tower at sunset with palm-lined boulevard",
+    objectPosition: "object-center",
+  },
 ];
 
 export const SERVICES = [

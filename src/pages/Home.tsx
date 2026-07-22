@@ -19,6 +19,7 @@ import Footer from "@/components/Footer";
 import { useLenisSmoothScroll, CountUp, Reveal } from "@/components/shared";
 import {
   HERO_SLIDES,
+  type HeroSlide,
   SERVICES,
   ALL_PROPERTIES,
   STATS,
@@ -256,6 +257,51 @@ function DrawUnderline({ delay = 0, color = "bg-copper" }: { delay?: number; col
    HERO
    ================================================================ */
 
+function HeroSlideImage({
+  slide,
+  index,
+  imgScale,
+}: {
+  slide: HeroSlide;
+  index: number;
+  imgScale: ReturnType<typeof useTransform<number>>;
+}) {
+  const eager = index === 0;
+  const alt = typeof slide === "string" ? "Luxury property in Pune" : (slide.alt ?? "Luxury property in Pune");
+  const objectPosition = typeof slide === "string" ? "" : (slide.objectPosition ?? "");
+
+  if (typeof slide === "string") {
+    return (
+      <motion.img
+        src={slide}
+        alt={alt}
+        style={{ scale: imgScale }}
+        className="h-full w-full object-cover"
+        loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : "auto"}
+        decoding={eager ? "sync" : "async"}
+      />
+    );
+  }
+
+  return (
+    <picture className="block h-full w-full">
+      <source type="image/webp" srcSet={slide.webpSrcSet} sizes={slide.sizes ?? "100vw"} />
+      <motion.img
+        src={slide.fallback}
+        srcSet={slide.jpgSrcSet}
+        sizes={slide.sizes ?? "100vw"}
+        alt={alt}
+        style={{ scale: imgScale }}
+        className={`h-full w-full object-cover ${objectPosition}`}
+        loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : "auto"}
+        decoding={eager ? "sync" : "async"}
+      />
+    </picture>
+  );
+}
+
 function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -279,15 +325,9 @@ function Hero() {
     <section id="top" ref={heroRef} className="relative h-[100svh] w-full overflow-hidden bg-ink">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
-          {HERO_SLIDES.map((src, i) => (
+          {HERO_SLIDES.map((slide, i) => (
             <div key={i} className="relative h-full min-w-0 flex-[0_0_100%] overflow-hidden">
-              <motion.img
-                src={src}
-                alt="Luxury property in Pune"
-                style={{ scale: imgScale }}
-                className="h-full w-full object-cover"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
+              <HeroSlideImage slide={slide} index={i} imgScale={imgScale} />
             </div>
           ))}
         </div>
