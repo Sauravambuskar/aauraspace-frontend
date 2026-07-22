@@ -1,0 +1,31 @@
+================================================================
+SAVE YOUR 4 PROJECT IMAGES TO THE PUBLIC FOLDER
+================================================================
+
+Please save the 4 images you shared in the chat with these names:
+
+1. august-towers.jpg      (Image 1 - single tower with sunset)
+2. business-park.jpg      (Image 2 - multiple business towers)  
+3. the-collection.jpg     (Image 3 - night view with sky pool)
+4. sun-valley.jpg         (Image 4 - sun valley towers)
+
+Save Location: public/ folder
+
+After saving, the code will automatically use these images!
+
+================================================================
+QUICK STEPS:
+================================================================
+
+1. Open the chat where you sent me the 4 images
+2. Right-click each image and "Save image as..."
+3. Save to: E:\SARDA SIR PROJECT\Aura-ai\aauraspace-frontend\public\
+4. Use the exact names shown above
+5. Done! The website will show your images
+
+================================================================
+
+I've already updated the code to use these image paths.
+Just add the images and they will appear automatically!
+
+================================================================

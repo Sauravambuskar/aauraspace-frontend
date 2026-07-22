@@ -10,10 +10,17 @@ import {
 } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Autoplay as SwiperAutoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+import GlobeFeatureSection from "@/components/ui/globe-feature-section";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLenisSmoothScroll, CountUp, Reveal } from "@/components/shared";
@@ -424,7 +431,7 @@ function Services() {
 
   return (
     <section id="services" className="bg-ink text-white">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-6 md:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-14 pb-6 md:px-10 md:pt-16">
         <EyebrowAnim delay={0}>What We Do</EyebrowAnim>
         <h2 className="display-lg mt-4 text-white">
           <WordMask delay={0.1}>Services.</WordMask>
@@ -433,7 +440,7 @@ function Services() {
 
       {/* Desktop accordion */}
       <div
-        className="hidden h-[78vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
+        className="hidden h-[76vh] w-full gap-1.5 px-1.5 pb-1.5 md:flex"
         onMouseLeave={() => setActive(0)}
       >
         {SERVICES.map((s, i) => (
@@ -441,8 +448,9 @@ function Services() {
             key={s.name}
             onMouseEnter={() => setActive(i)}
             animate={{ flex: active === i ? 3 : 1 }}
-            transition={{ type: "spring", stiffness: 120, damping: 22 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative h-full cursor-pointer overflow-hidden"
+            style={{ willChange: "flex-grow" }}
           >
             <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-ink/20" />
@@ -473,14 +481,14 @@ function Services() {
         {SERVICES.map((s, i) => {
           const open = active === i;
           return (
-            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 360 : 96 }} transition={{ type: "spring", stiffness: 140, damping: 22 }} className="relative w-full overflow-hidden text-left">
+            <motion.button key={s.name} onClick={() => setActive(open ? null : i)} animate={{ height: open ? 340 : 88 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className="relative w-full overflow-hidden text-left" style={{ willChange: "height" }}>
               <img src={s.img} alt={s.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/50 to-ink/20" />
               <div className="relative flex h-full flex-col justify-end p-6">
                 <h3 className="font-serif text-3xl text-white">{s.name}</h3>
                 <AnimatePresence>
                   {open && (
-                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="mt-3 text-sm text-white/75">
+                    <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} className="mt-3 text-sm text-white/75">
                       {s.desc}
                     </motion.p>
                   )}
@@ -743,7 +751,7 @@ function Featured() {
           <PropertyCard p={FEATURED[2] || FEATURED[1]} />
         </Reveal>
 
-        <Reveal className="mt-14 text-center">
+        <Reveal className="mt-8 text-center md:mt-10">
           <motion.div whileHover={{ letterSpacing: "0.28em" }} transition={{ duration: 0.4 }}>
             <Link to="/properties" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.22em] text-copper hover:text-ink transition-colors">
               View All Properties <span aria-hidden>→</span>
@@ -820,7 +828,7 @@ function ParallaxBreak() {
 
 function Stats() {
   return (
-    <section className="bg-cream px-0 py-4">
+    <section className="bg-cream px-0 py-0">
       <div className="mx-auto grid max-w-full grid-cols-2 gap-px bg-ink/10 md:grid-cols-4">
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.1} className="bg-white px-4 py-8 text-center md:px-6 md:py-10">
@@ -917,7 +925,7 @@ function NeighbourhoodsPreview() {
   return (
     <section className="bg-white px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-6 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowAnim delay={0}>Explore Pune</EyebrowAnim>
             <h2 className="display-lg mt-4 text-ink">
@@ -992,24 +1000,18 @@ function NeighbourhoodsPreview() {
 
 function Testimonials() {
   const [idx, setIdx] = useState(0);
-  const [progress, setProgress] = useState(0);
   const DURATION = 6000;
 
+  // Advance slide via a single timeout — no per-frame React re-renders.
   useEffect(() => {
-    setProgress(0);
-    const start = Date.now();
-    const interval = setInterval(() => {
-      const p = Math.min(1, (Date.now() - start) / DURATION);
-      setProgress(p);
-      if (p >= 1) setIdx((i) => (i + 1) % TESTIMONIALS.length);
-    }, 30);
-    return () => clearInterval(interval);
+    const id = setTimeout(() => setIdx((i) => (i + 1) % TESTIMONIALS.length), DURATION);
+    return () => clearTimeout(id);
   }, [idx]);
 
   const t = TESTIMONIALS[idx];
 
   return (
-    <section className="relative overflow-hidden bg-cream px-6 py-12 md:px-10 md:py-16">
+    <section className="relative overflow-hidden bg-cream px-6 py-10 md:px-10 md:py-14">
       {/* Giant decorative quote — animates in */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
@@ -1027,7 +1029,7 @@ function Testimonials() {
         <AnimatePresence mode="wait">
           <motion.div key={idx} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
             {/* Quote text — blur word reveal */}
-            <p className="mt-8 font-serif text-3xl italic leading-tight text-ink md:text-5xl">
+            <p className="mt-8 min-h-[8rem] font-serif text-3xl italic leading-tight text-ink md:min-h-[10rem] md:text-5xl">
               "<BlurReveal text={t.q} stagger={0.055} />"
             </p>
 
@@ -1036,9 +1038,9 @@ function Testimonials() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, scale: 0, rotate: -30 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.3 + i * 0.08, type: "spring", stiffness: 300, damping: 18 }}
+                  initial={{ opacity: 0, scale: 0.4 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="text-copper"
                 >
                   ★
@@ -1066,9 +1068,18 @@ function Testimonials() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="mx-auto mt-14 h-px w-64 bg-ink/15">
-          <div className="h-px bg-copper transition-none" style={{ width: `${progress * 100}%` }} />
+        <div className="mx-auto mt-12 h-px w-64 overflow-hidden bg-ink/15">
+          {/* Pure CSS animated progress — zero React re-renders, GPU-friendly */}
+          <div
+            key={idx}
+            className="h-px origin-left bg-copper"
+            style={{
+              animation: `testiProgress ${DURATION}ms linear forwards`,
+              willChange: "transform",
+            }}
+          />
         </div>
+        <style>{`@keyframes testiProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }`}</style>
       </div>
     </section>
   );
@@ -1194,6 +1205,380 @@ function EnquiryForm() {
 }
 
 /* ================================================================
+   WHY CHOOSE US — Animated feature grid with golden accents
+   ================================================================ */
+
+const WHY_CHOOSE = [
+  { icon: "🏆", title: "12+ Years Experience", desc: "Over a decade building trust in Pune's real estate market." },
+  { icon: "🤝", title: "500+ Happy Clients", desc: "Families who found their dream homes through us." },
+  { icon: "🏢", title: "50+ Builder Partners", desc: "Exclusive access to premium developments across Pune." },
+  { icon: "📋", title: "RERA Compliant", desc: "Every property verified and legally documented." },
+  { icon: "🔑", title: "End-to-End Support", desc: "From search to registration, we handle everything." },
+  { icon: "💎", title: "Best Price Guarantee", desc: "Direct builder rates with no hidden commissions." },
+];
+
+function WhyChooseUs() {
+  return (
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="text-center">
+          <EyebrowAnim delay={0}>Why Choose Aaura</EyebrowAnim>
+          <h2 className="display-lg mt-3 text-ink">
+            <WordMask delay={0.1}>Trust Built on Results.</WordMask>
+          </h2>
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
+            <span className="h-2 w-2 rotate-45 bg-copper" />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {WHY_CHOOSE.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(180,130,50,0.12)" }}
+              className="group relative rounded-lg border border-copper/15 bg-white p-7 text-center transition-all"
+            >
+              {/* Golden corner accent */}
+              <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-copper/30 rounded-tl-lg" />
+              <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-copper/30 rounded-br-lg" />
+              
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-copper/10 text-2xl"
+              >
+                {item.icon}
+              </motion.div>
+              <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink/60">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Golden decorative line bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+    </section>
+  );
+}
+
+/* ================================================================
+   TRUSTED PARTNERS — Logo ticker with golden style
+   ================================================================ */
+
+const PARTNER_NAMES = [
+  "Bramhacorp",
+  "Kolte Patil",
+  "Godrej Properties",
+  "Lodha Group",
+  "Panchshil",
+  "Kumar Properties",
+  "Marvel Realtors",
+  "Pride Group",
+];
+
+function TrustedPartners() {
+  const items = [...PARTNER_NAMES, ...PARTNER_NAMES];
+  return (
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+      
+      <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
+        <EyebrowAnim delay={0}>Our Network</EyebrowAnim>
+        <h2 className="mt-3 text-xl font-semibold text-ink md:text-2xl">
+          Trusted Builder Partners
+        </h2>
+        {/* Diamond divider */}
+        <div className="mx-auto mt-3 flex items-center justify-center gap-3">
+          <span className="h-px w-12 bg-copper/40" />
+          <span className="h-1.5 w-1.5 rotate-45 bg-copper" />
+          <span className="h-px w-12 bg-copper/40" />
+        </div>
+      </div>
+
+      {/* Scrolling ticker */}
+      <div className="mt-8 overflow-hidden">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+          className="flex items-center whitespace-nowrap"
+        >
+          {items.map((name, i) => (
+            <div
+              key={i}
+              className="mx-6 flex items-center gap-3 rounded-lg border border-copper/15 bg-white px-8 py-4 shadow-sm md:mx-8"
+            >
+              <span className="h-3 w-3 rotate-45 bg-copper/40" />
+              <span className="text-sm font-medium tracking-wide text-ink/70">{name}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+    </section>
+  );
+}
+
+/* ================================================================
+   HOW IT WORKS — Step process with golden connectors
+   ================================================================ */
+
+const STEPS = [
+  { num: "01", title: "Tell Us What You Need", desc: "Share your requirements — budget, location, type. We listen first." },
+  { num: "02", title: "Curated Shortlist", desc: "We handpick properties matching your exact criteria from 500+ listings." },
+  { num: "03", title: "Site Visits & Comparison", desc: "Visit your top picks with our expert. We help you compare objectively." },
+  { num: "04", title: "Seamless Closure", desc: "From negotiation to registration — we handle the paperwork, you get the keys." },
+];
+
+function HowItWorks() {
+  return (
+    <section className="relative overflow-hidden bg-cream py-10 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="text-center">
+          <EyebrowAnim delay={0}>Simple Process</EyebrowAnim>
+          <h2 className="display-lg mt-3 text-ink">
+            <WordMask delay={0.1}>How It Works.</WordMask>
+          </h2>
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
+            <span className="h-2 w-2 rotate-45 bg-copper" />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
+          </div>
+        </div>
+
+        <div className="relative mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
+          {/* Golden connecting line (desktop only) */}
+          <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-copper/20 via-copper/40 to-copper/20 md:block" />
+
+          {STEPS.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative text-center"
+            >
+              {/* Step number circle */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="relative z-10 mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-copper bg-white shadow-lg shadow-copper/10"
+              >
+                <span className="text-xl font-bold text-copper">{step.num}</span>
+              </motion.div>
+              <h3 className="mt-5 text-base font-semibold text-ink">{step.title}</h3>
+              <p className="mt-2 text-sm text-ink/55">{step.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   FEATURED PROJECTS SHOWCASE — Swiper cards with 3D effect
+   ================================================================ */
+
+const PROJECT_SHOWCASE = [
+  { name: "August Towers", location: "New Kalyani Nagar", type: "Residential", img: "/august-towers.jpg" },
+  { name: "The Collection", location: "New Kalyani Nagar", type: "Luxury", img: "/the-collection.jpg" },
+  { name: "Business Park", location: "New Kalyani Nagar", type: "Commercial", img: "/business-park.jpg" },
+  { name: "Sun Valley", location: "Bavdhan", type: "Residential", img: "/sun-valley.jpg" },
+];
+
+function FeaturedProjects() {
+  return (
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <EyebrowAnim delay={0}>Premium Developments</EyebrowAnim>
+            <h2 className="display-lg mt-3 text-ink">
+              <WordMask delay={0.1}>Our Projects.</WordMask>
+            </h2>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-copper hover:text-ink transition-colors">
+              View All <span aria-hidden>→</span>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Swiper Slider */}
+        <div className="mt-8">
+          <Swiper
+            modules={[SwiperAutoplay, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1.2}
+            centeredSlides={false}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true, bulletActiveClass: "!bg-copper !opacity-100", bulletClass: "inline-block h-2 w-2 rounded-full bg-ink/20 mx-1 cursor-pointer transition-all" }}
+            breakpoints={{
+              640: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3.5 },
+            }}
+            className="pb-10"
+          >
+            {PROJECT_SHOWCASE.map((p) => (
+              <SwiperSlide key={p.name}>
+                <Link to="/projects" className="group block">
+                  <div className="relative h-[300px] overflow-hidden rounded-lg md:h-[360px]">
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent transition-opacity group-hover:opacity-90" />
+
+                    {/* Type badge */}
+                    <span className="absolute right-3 top-3 rounded-full border border-copper/50 bg-white/90 px-3 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-copper backdrop-blur-sm">
+                      {p.type}
+                    </span>
+
+                    {/* Content */}
+                    <div className="absolute inset-x-0 bottom-0 p-5 translate-y-2 transition-transform group-hover:translate-y-0">
+                      <h3 className="text-lg font-semibold text-white">{p.name}</h3>
+                      <p className="mt-1 text-xs text-white/70">📍 {p.location}</p>
+                      <span className="mt-3 inline-block text-xs font-medium uppercase tracking-[0.15em] text-copper opacity-0 transition-opacity group-hover:opacity-100">
+                        View Project →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   CTA BANNER — Full width call to action
+   ================================================================ */
+
+function CtaBanner() {
+  return (
+    <section className="relative overflow-hidden bg-ink py-10 md:py-14">
+      {/* Decorative golden elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute -left-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-copper" />
+        <div className="absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-copper" />
+      </div>
+
+      <div className="relative mx-auto max-w-[800px] px-6 text-center md:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Gold diamond */}
+          <div className="mx-auto mb-6 flex items-center justify-center gap-3">
+            <span className="h-px w-12 bg-copper/40" />
+            <span className="h-3 w-3 rotate-45 border border-copper" />
+            <span className="h-px w-12 bg-copper/40" />
+          </div>
+
+          <h2 className="font-serif text-3xl text-white md:text-5xl">
+            Ready to Find Your <span className="text-copper">Dream Space</span>?
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm text-white/60 md:text-base">
+            Get personalized recommendations from Pune's most trusted real estate advisors.
+          </p>
+
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-copper px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white shadow-lg shadow-copper/20">
+                Schedule Free Consultation
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }} aria-hidden>→</motion.span>
+              </Link>
+            </motion.div>
+            <a href="tel:+919172355369" className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-copper transition-colors">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              Or call +91 9172355369
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
+   SCROLLING TESTIMONIALS COLUMNS — Auto-scrolling vertical columns
+   ================================================================ */
+
+const TESTI_DATA = [
+  { text: "Aaura made buying our first home in Pune effortless. Honest, calm, and always one step ahead.", image: "https://randomuser.me/api/portraits/women/1.jpg", name: "Rohit & Sneha Patil", role: "3 BHK · Kharadi" },
+  { text: "They didn't just sell us a shop — they helped us understand the locality, the footfall, the future.", image: "https://randomuser.me/api/portraits/women/3.jpg", name: "Anjali Mehta", role: "Retail · Baner" },
+  { text: "The most transparent broker we've worked with in fifteen years. Aaura is family now.", image: "https://randomuser.me/api/portraits/men/4.jpg", name: "Vivek Joshi", role: "Office · Hinjewadi" },
+  { text: "Found the perfect 2 BHK in Wakad within two weeks. The team's knowledge is unmatched.", image: "https://randomuser.me/api/portraits/women/5.jpg", name: "Priya Kulkarni", role: "2 BHK · Wakad" },
+  { text: "Aaura handled our office relocation seamlessly. Professional from day one.", image: "https://randomuser.me/api/portraits/men/2.jpg", name: "Deepak Sharma", role: "Office · Baner" },
+  { text: "Best investment advice we ever got. Our property value doubled in 3 years.", image: "https://randomuser.me/api/portraits/men/7.jpg", name: "Suresh Nair", role: "Plot · Hinjewadi" },
+  { text: "From site visit to registration, everything was handled with such care. Truly premium service.", image: "https://randomuser.me/api/portraits/women/8.jpg", name: "Neha Deshmukh", role: "4 BHK · Koregaon Park" },
+  { text: "The team understood our budget constraints and still found us a beautiful home.", image: "https://randomuser.me/api/portraits/men/9.jpg", name: "Amit Kulkarni", role: "2 BHK · Hinjewadi" },
+  { text: "Excellent after-sale support. They helped us even after the purchase was complete.", image: "https://randomuser.me/api/portraits/women/6.jpg", name: "Rashmi Patil", role: "3 BHK · Viman Nagar" },
+];
+
+const testiCol1 = TESTI_DATA.slice(0, 3);
+const testiCol2 = TESTI_DATA.slice(3, 6);
+const testiCol3 = TESTI_DATA.slice(6, 9);
+
+function ScrollingTestimonials() {
+  return (
+    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-copper/30 to-transparent" />
+
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto text-center"
+        >
+          <EyebrowAnim delay={0}>Testimonials</EyebrowAnim>
+          <h2 className="display-lg mt-3 text-ink">
+            <WordMask delay={0.1}>What Clients Say.</WordMask>
+          </h2>
+          <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-copper/60" />
+            <span className="h-2 w-2 rotate-45 bg-copper" />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-copper/60" />
+          </div>
+          <p className="mt-4 text-sm text-ink/60">See what our customers have to say about us.</p>
+        </motion.div>
+
+        <div className="flex justify-center gap-6 mt-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
+          <TestimonialsColumn testimonials={testiCol1} duration={15} />
+          <TestimonialsColumn testimonials={testiCol2} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={testiCol3} className="hidden lg:block" duration={17} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================
    FOOTER OVERRIDE — ScrambleText on brand name
    ================================================================ */
 
@@ -1223,15 +1608,22 @@ export default function Home() {
     <main className="bg-cream text-ink">
       <Navbar />
       <Hero />
+      <WhyChooseUs />
       <Services />
+      <HowItWorks />
       <Featured />
+      <FeaturedProjects />
       <ScrollImageShowcase />
       <ParallaxBreak />
       <Stats />
       <MarqueeTicker />
+      <GlobeFeatureSection />
+      <TrustedPartners />
       <Gallery />
       <NeighbourhoodsPreview />
       <Testimonials />
+      <ScrollingTestimonials />
+      <CtaBanner />
       <EnquiryForm />
       {/* Footer with scramble brand name */}
       <footer className="border-t border-copper/40 bg-ink text-white">

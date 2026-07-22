@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import Home from "./pages/Home";
 import Properties from "./pages/Properties";
+import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Neighbourhoods from "./pages/Neighbourhoods";
 import Contact from "./pages/Contact";
@@ -28,6 +29,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/neighbourhoods" element={<Neighbourhoods />} />
         <Route path="/contact" element={<Contact />} />

@@ -14,7 +14,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   server: {
     host: "::",
-    port: 8080,
+    allowedHosts: [".e2b.app"],
+    port: 4000,
     strictPort: false,
   },
 });
